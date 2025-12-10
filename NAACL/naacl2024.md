@@ -29,8 +29,9 @@
 
 | Title | First Author Affiliation | Track | Average Rating | Status | Link |
 |--------|:-----:|:-----:|:-----:|:-----:|:-----:|
-| Advancing the Robustness of Large Language Models through Self-Denoised Smoothing | N/A | main | 0.0 | Short | [🔗](https://aclanthology.org/2024.naacl-short.23/) |
 | SELF-GUARD: Empower the LLM to Safeguard Itself | CUHK | main | 0.0 | Long | [🔗](https://aclanthology.org/2024.naacl-long.92/) |
+| Advancing the Robustness of Large Language Models through Self-Denoised Smoothing | N/A | main | 0.0 | Short | [🔗](https://aclanthology.org/2024.naacl-short.23/) |
+
 
 
 ## Benchmark
