@@ -1,4 +1,7 @@
 # Jailbreak Research Papers
+[![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/GenggengSvan/Jailbreak-Observatory)
+[![GitHub Repo stars](https://img.shields.io/github/stars/GenggengSvan/Jailbreak-Observatory)](https://github.com/GenggengSvan/Jailbreak-Observatory)
+<img src="https://img.shields.io/badge/Jailbreak-green">
 
 📊 The [acceptance status of papers related to Jailbreak research.](#document-list-by-conference)
 
