@@ -3,9 +3,11 @@
 [![GitHub Repo stars](https://img.shields.io/github/stars/GenggengSvan/Jailbreak-Observatory)](https://github.com/GenggengSvan/Jailbreak-Observatory)
 <img src="https://img.shields.io/badge/Jailbreak-green">
 
-📊 The [acceptance status of papers related to Jailbreak research.](#document-list-by-conference)
+> [!Important]
+>
+> In this repository, you can find 📊 the [acceptance status of papers related to Jailbreak research.](#document-list-by-conference) and 📑 the [top 100 most cited Jailbreak articles.](#cite)
 
-📑 The [top 100 most cited Jailbreak articles.](#cite)
+***If you find our project valuable, we would greatly appreciate it if you could give us a star~*⭐**
 
 ---
 <a id="document-list-by-conference"></a>
