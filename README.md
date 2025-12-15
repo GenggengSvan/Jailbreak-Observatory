@@ -5,7 +5,7 @@
 
 > [!Important]
 >
-> In this repository, you can find 📊 the [acceptance status of papers related to Jailbreak research.](#document-list-by-conference) and 📑 the [top 100 most cited Jailbreak articles.](#cite)
+> In this repository, you can find 📊 the [acceptance status of papers related to Jailbreak research](#document-list-by-conference) and 📑 the [top 100 most cited Jailbreak articles](#cite).
 
 ***If you find our project valuable, we would greatly appreciate it if you could give us a star~*⭐**
 
