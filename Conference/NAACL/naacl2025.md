@@ -1,4 +1,4 @@
-# emnlp2024 - Jailbreak Research Papers
+# naacl2025 - Jailbreak Research Papers
 
 **Total Papers:** 26
 
