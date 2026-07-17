@@ -65,19 +65,32 @@
     return node;
   };
 
-  const shortenVenue = (venue) => {
-    const aliases = {
-      "International Conference on Learning Representations": "ICLR",
-      "Annual Meeting of the Association for Computational Linguistics": "ACL",
-      "Conference on Empirical Methods in Natural Language Processing": "EMNLP",
-      "USENIX Security Symposium": "USENIX",
-      "USENIX Security": "USENIX",
-      "IEEE Symposium on Security and Privacy": "S&P",
-      "SP": "S&P",
-      "The Web Conference": "WWW",
-    };
-    return aliases[venue] || venue;
+  const VENUE_ALIASES = {
+    "ACM Multimedia": "ACM MM",
+    "Annual Meeting of the Association for Computational Linguistics": "ACL",
+    "BigData Congress [Services Society]": "IEEE BigData",
+    "BlackboxNLP Workshop on Analyzing and Interpreting Neural Networks for NLP": "BlackboxNLP",
+    "Conference on Empirical Methods in Natural Language Processing": "EMNLP",
+    "IEEE International Conference on Acoustics, Speech, and Signal Processing": "ICASSP",
+    "IEEE International Conference on Big Data": "IEEE BigData",
+    "IEEE Symposium on Security and Privacy": "S&P",
+    "IEEE Transactions on Information Forensics and Security": "IEEE TIFS",
+    "IFIP Working Conference on Database Semantics": "DS",
+    "International Conference on Computational Linguistics": "COLING",
+    "International Conference on Discovery Science": "DS",
+    "International Conference on Learning Representations": "ICLR",
+    "Nature Machine Intelligence": "Nature MI",
+    "Proceedings 2024 Workshop on AI Systems with Confidential COmputing": "AISCC",
+    "Proceedings of the 5th Workshop on Trustworthy NLP (TrustNLP 2025)": "TrustNLP",
+    "Proceedings of the 8th BlackboxNLP Workshop: Analyzing and Interpreting Neural Networks for NLP": "BlackboxNLP",
+    "SIGKDD Explorations": "SIGKDD Explor.",
+    "SP": "S&P",
+    "The Web Conference": "WWW",
+    "USENIX Security": "USENIX",
+    "USENIX Security Symposium": "USENIX",
+    "arXiv.org": "arXiv",
   };
+  const shortenVenue = (venue) => VENUE_ALIASES[venue] || venue;
 
   const wrapTitle = (title, limit = 30, lines = 3) => {
     const words = title.split(/\s+/);
@@ -103,7 +116,7 @@
     if (!state.activeCategories.has(paper.category)) return false;
     if (state.activeVenue !== "all" && shortenVenue(paper.venue) !== state.activeVenue) return false;
     if (!state.query) return true;
-    const haystack = `${paper.title} ${paper.venue} ${paper.category} ${paper.target} ${paper.year} ${paper.status || ""}`.toLowerCase();
+    const haystack = `${paper.title} ${paper.venue} ${shortenVenue(paper.venue)} ${paper.category} ${paper.target} ${paper.year} ${paper.status || ""}`.toLowerCase();
     return haystack.includes(state.query);
   };
 
@@ -222,7 +235,7 @@
       if (paper.citations !== null && paper.citations !== undefined) {
         group.append(el("text", { class: "node-citations", x: NODE_W - 12, y: 17, "text-anchor": "end" }, `${paper.citations} CITES`));
       }
-      group.append(el("title", {}, paper.title));
+      group.append(el("title", {}, `${paper.title} — ${paper.venue}`));
       group.addEventListener("click", (event) => {
         event.stopPropagation();
         if (!state.moved) selectPaper(paper.id, true);
@@ -399,9 +412,12 @@
 
   function createVenueFilter() {
     const venueCounts = new Map();
+    const venueNames = new Map();
     papers.forEach((paper) => {
       const venue = shortenVenue(paper.venue);
       venueCounts.set(venue, (venueCounts.get(venue) || 0) + 1);
+      if (!venueNames.has(venue)) venueNames.set(venue, new Set());
+      venueNames.get(venue).add(paper.venue);
     });
     venueSelect.options[0].textContent = `All conferences (${papers.length})`;
     const venues = [...venueCounts.keys()].sort((a, b) => a.localeCompare(b));
@@ -409,6 +425,7 @@
       const option = document.createElement("option");
       option.value = venue;
       option.textContent = `${venue} (${venueCounts.get(venue)})`;
+      option.title = [...venueNames.get(venue)].sort().join(" / ");
       venueSelect.append(option);
     });
     venueSelect.addEventListener("change", () => {
