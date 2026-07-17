@@ -1,4 +1,9 @@
 # Jailbreak-Observatory
+
+## 🌐 [Open the Interactive Jailbreak Observatory →](https://genggengsvan.github.io/Jailbreak-Observatory/)
+
+[![Live visualization](https://img.shields.io/badge/Live-Interactive_Research_Map-56d6a4?style=for-the-badge&logo=githubpages&logoColor=white)](https://genggengsvan.github.io/Jailbreak-Observatory/)
+
 [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/GenggengSvan/Jailbreak-Observatory)
 [![GitHub Repo stars](https://img.shields.io/github/stars/GenggengSvan/Jailbreak-Observatory)](https://github.com/GenggengSvan/Jailbreak-Observatory)
 <img src="https://img.shields.io/badge/Jailbreak-green">
@@ -6,8 +11,6 @@
 ## 🔭 Interactive Research Map
 
 Explore the collection as a visual timeline of attacks, defenses, benchmarks, and mechanism studies:
-
-### **[Open the Jailbreak Observatory →](https://genggengsvan.github.io/Jailbreak-Observatory/)**
 
 Select a paper to reveal metadata-derived research neighbors and attack–defense counterpoints. The original Markdown collection remains the source of truth; the visualization dataset is rebuilt automatically for GitHub Pages.
 
