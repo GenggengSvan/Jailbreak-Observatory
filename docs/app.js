@@ -38,10 +38,12 @@
   const edgeLayer = document.getElementById("edgeLayer");
   const nodeLayer = document.getElementById("nodeLayer");
   const searchInput = document.getElementById("searchInput");
+  const venueSelect = document.getElementById("venueSelect");
   const detailPanel = document.getElementById("detailPanel");
   const state = {
     selected: null,
     activeCategories: new Set(CATEGORIES),
+    activeVenue: "all",
     query: "",
     scale: 1,
     tx: 0,
@@ -69,7 +71,10 @@
       "Annual Meeting of the Association for Computational Linguistics": "ACL",
       "Conference on Empirical Methods in Natural Language Processing": "EMNLP",
       "USENIX Security Symposium": "USENIX",
+      "USENIX Security": "USENIX",
       "IEEE Symposium on Security and Privacy": "S&P",
+      "SP": "S&P",
+      "The Web Conference": "WWW",
     };
     return aliases[venue] || venue;
   };
@@ -96,6 +101,7 @@
 
   const isPaperVisible = (paper) => {
     if (!state.activeCategories.has(paper.category)) return false;
+    if (state.activeVenue !== "all" && shortenVenue(paper.venue) !== state.activeVenue) return false;
     if (!state.query) return true;
     const haystack = `${paper.title} ${paper.venue} ${paper.category} ${paper.target} ${paper.year} ${paper.status || ""}`.toLowerCase();
     return haystack.includes(state.query);
@@ -391,6 +397,40 @@
     });
   }
 
+  function createVenueFilter() {
+    const venueCounts = new Map();
+    papers.forEach((paper) => {
+      const venue = shortenVenue(paper.venue);
+      venueCounts.set(venue, (venueCounts.get(venue) || 0) + 1);
+    });
+    venueSelect.options[0].textContent = `All conferences (${papers.length})`;
+    const venues = [...venueCounts.keys()].sort((a, b) => a.localeCompare(b));
+    venues.forEach((venue) => {
+      const option = document.createElement("option");
+      option.value = venue;
+      option.textContent = `${venue} (${venueCounts.get(venue)})`;
+      venueSelect.append(option);
+    });
+    venueSelect.addEventListener("change", () => {
+      state.activeVenue = venueSelect.value;
+      if (state.selected && !isPaperVisible(paperById.get(state.selected))) clearSelection();
+      updateVisibility();
+      fitVisibleSearch();
+    });
+  }
+
+  function resetView() {
+    state.query = "";
+    searchInput.value = "";
+    state.activeVenue = "all";
+    venueSelect.value = "all";
+    state.activeCategories.clear();
+    CATEGORIES.forEach((category) => state.activeCategories.add(category));
+    document.querySelectorAll(".filter-chip").forEach((chip) => chip.classList.add("active"));
+    clearSelection();
+    fitAll();
+  }
+
   function showToast(message) {
     const toast = document.getElementById("toast");
     toast.textContent = message;
@@ -438,7 +478,7 @@
 
     document.getElementById("zoomInButton").addEventListener("click", () => setScale(state.scale * 1.28));
     document.getElementById("zoomOutButton").addEventListener("click", () => setScale(state.scale / 1.28));
-    document.getElementById("resetButton").addEventListener("click", () => { clearSelection(); fitAll(); });
+    document.getElementById("resetButton").addEventListener("click", resetView);
     document.getElementById("panelClose").addEventListener("click", clearSelection);
 
     let searchTimer;
@@ -463,7 +503,11 @@
       }
       if (event.key === "Escape" && !dialog.open) clearSelection();
     });
-    window.addEventListener("resize", () => { if (state.selected) fitSelection(state.selected); else fitAll(); });
+    window.addEventListener("resize", () => {
+      if (state.selected) fitSelection(state.selected);
+      else if (state.activeVenue !== "all" || state.query || state.activeCategories.size < CATEGORIES.length) fitVisibleSearch();
+      else fitAll();
+    });
   }
 
   function initialize() {
@@ -472,6 +516,7 @@
     renderEdges();
     renderNodes();
     createFilters();
+    createVenueFilter();
     wireInteractions();
     document.getElementById("paperCount").textContent = papers.length;
     document.getElementById("venueCount").textContent = new Set(papers.map((paper) => shortenVenue(paper.venue))).size;
