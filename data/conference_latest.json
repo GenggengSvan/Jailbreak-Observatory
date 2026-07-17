@@ -1,0 +1,185 @@
+{
+  "eligibility": "Official proceedings index plus formal DOI/detail page; abstracts are used only for relevance and classification.",
+  "sources": [
+    {
+      "venue": "KDD",
+      "year": 2025,
+      "url": "https://www.kdd.org/kdd2025/research-track-papers-2/",
+      "paperCount": 2
+    },
+    {
+      "venue": "IJCAI",
+      "year": 2025,
+      "url": "https://www.ijcai.org/proceedings/2025/",
+      "paperCount": 4
+    }
+  ],
+  "papers": [
+    {
+      "venue": "KDD",
+      "year": 2025,
+      "title": "Benchmarking and Defending against Indirect Prompt Injection Attacks on Large Language Models",
+      "authors": [
+        "Jingwei Yi",
+        "Yueqi Xie",
+        "Bin Zhu",
+        "Emre Kiciman",
+        "Guangzhong Sun",
+        "Xing Xie",
+        "Fangzhao Wu"
+      ],
+      "firstAuthorAffiliation": "University of Science and Technology of China, Heifei, China",
+      "track": "Proceedings of the 31st ACM SIGKDD Conference on Knowledge Discovery and Data Mining V.1",
+      "status": "Published",
+      "doi": "10.1145/3690624.3709179",
+      "url": "https://doi.org/10.1145/3690624.3709179",
+      "officialSource": "https://www.kdd.org/kdd2025/research-track-papers-2/",
+      "abstractSource": "https://api.openalex.org/works/https://doi.org/10.1145/3690624.3709179",
+      "abstract": "The integration of large language models (LLMs) with external content has enabled applications such as Microsoft Copilot but also introduced vulnerabilities to indirect prompt injection attacks. In these attacks, malicious instructions embedded within external content can manipulate LLM outputs, causing deviations from user expectations. To address this critical yet under-explored issue, we introduce the first benchmark for bindirect prompt injection attacks, named BIPIA, to assess the risk of such vulnerabilities. Using BIPIA, we evaluate existing LLMs and find them universally vulnerable. Our analysis identifies two key factors contributing to their success: LLMs' inability to distinguish between informational context and actionable instructions, and their lack of awareness in avoiding the execution of instructions within external content. Based on these findings, we propose two novel defense mechanisms -- boundary awareness and explicit reminder -- to address these vulnerabilities in both black-box and white-box settings. Extensive experiments demonstrate that our black-box defense provides substantial mitigation, while our white-box defense reduces the attack success rate to near-zero levels, all while preserving the output quality of LLMs. We hope this work inspires further research into securing LLM applications and fostering their safe and reliable use. Our code is available at https://github.com/microsoft/BIPIA.",
+      "relevanceScore": 8,
+      "relevanceSignals": [
+        "prompt injection"
+      ],
+      "category": "Benchmark",
+      "target": "Agent"
+    },
+    {
+      "venue": "KDD",
+      "year": 2025,
+      "title": "Knowledge-to-Jailbreak: Investigating Knowledge-driven Jailbreaking Attacks for Large Language Models",
+      "authors": [
+        "Shangqing Tu",
+        "Zhuoran Pan",
+        "Wenxuan Wang",
+        "Zhexin Zhang",
+        "Yuliang Sun",
+        "Jifan Yu",
+        "Hongning Wang",
+        "Lei Hou",
+        "Juanzi Li"
+      ],
+      "firstAuthorAffiliation": "DCST, Tsinghua University, Beijing, China",
+      "track": "Proceedings of the 31st ACM SIGKDD Conference on Knowledge Discovery and Data Mining V.2",
+      "status": "Published",
+      "doi": "10.1145/3711896.3737014",
+      "url": "https://doi.org/10.1145/3711896.3737014",
+      "officialSource": "https://www.kdd.org/kdd2025/research-track-papers-2/",
+      "abstractSource": "https://api.openalex.org/works/https://doi.org/10.1145/3711896.3737014",
+      "abstract": "Large language models (LLMs) have been increasingly applied to various domains, which triggers increasing concerns about LLMs' safety on specialized domains, e.g. medicine. Despite prior explorations on general jailbreaking attacks, there are two challenges for applying existing attacks on testing the domain-specific safety of LLMs: (1) Lack of professional knowledge-driven attacks(2) Insufficient coverage of domain knowledge. To bridge this gap, we propose a new task, knowledge-to-jailbreak, which aims to generate jailbreaking attacks from domain knowledge, requiring both attack effectiveness and knowledge relevance. We collect a large-scale dataset with 12,974 knowledge-jailbreak pairs and fine-tune a large language model as jailbreak-generator, to produce domain knowledge-specific jailbreaks. Experiments on 13 domains and 8 target LLMs demonstrate the effectiveness of jailbreak-generator in generating jailbreaks that are both threatening to the target LLMs and relevant to the given knowledge. We also apply our method to an out-of-domain knowledge base, showing that jailbreak-generator can generate jailbreaks that are comparable in harmfulness to those crafted by human experts. Data and code are available at: https://github.com/THU-KEG/Knowledge-to-Jailbreak/.",
+      "relevanceScore": 8,
+      "relevanceSignals": [
+        "jailbreak"
+      ],
+      "category": "Attack",
+      "target": "Text"
+    },
+    {
+      "venue": "IJCAI",
+      "year": 2025,
+      "title": "Advancing Embodied Agent Security: From Safety Benchmarks to Input Moderation",
+      "authors": [
+        "Ning Wang",
+        "Zihan Yan",
+        "Weiyang Li",
+        "Chuan Ma",
+        "He Chen",
+        "Tao Xiang"
+      ],
+      "firstAuthorAffiliation": "N/A",
+      "track": "Main Track",
+      "status": "Published",
+      "doi": "10.24963/ijcai.2025/867",
+      "url": "https://www.ijcai.org/proceedings/2025/867",
+      "officialSource": "https://www.ijcai.org/proceedings/2025/867",
+      "abstractSource": "https://www.ijcai.org/proceedings/2025/867",
+      "abstract": "Embodied agents exhibit immense potential across a multitude of domains, making the assurance of their behavioral safety a fundamental prerequisite for their widespread deployment. However, existing research predominantly concentrates on the security of general large language models, lacking specialized methodologies for establishing safety benchmarks and input moderation tailored to embodied agents. To bridge this gap, this paper introduces a novel input moderation framework, meticulously designed to safeguard embodied agents. This framework encompasses the entire pipeline, including taxonomy definition, dataset curation, moderator architecture, model training, and rigorous evaluation. Notably, we introduce EAsafetyBench, a meticulously crafted safety benchmark engineered to facilitate both the training and stringent assessment of moderators specifically designed for embodied agents. Furthermore, we propose Pinpoint, an innovative prompt-decoupled input moderation scheme that harnesses a masked attention mechanism to effectively isolate and mitigate the influence of functional prompts on moderation tasks. Extensive experiments conducted on diverse benchmark datasets and models validate the feasibility and efficacy of the proposed approach. The results demonstrate that our methodologies achieve an impressive average detection accuracy of 94.58%, surpassing the performance of existing state-of-the-art techniques, alongside an exceptional moderation processing time of merely 0.002 seconds per instance. The source code and datasets can be found at https://github.com/ZihanYan-CQU/EAsafetyBench.",
+      "relevanceScore": 10,
+      "relevanceSignals": [
+        "safety benchmark",
+        "input moderation"
+      ],
+      "category": "Defense",
+      "target": "Agent"
+    },
+    {
+      "venue": "IJCAI",
+      "year": 2025,
+      "title": "Evaluating and Mitigating Linguistic Discrimination in Large Language Models: Perspectives on Safety Equity and Knowledge Equity",
+      "authors": [
+        "Guoliang Dong",
+        "Haoyu Wang",
+        "Jun Sun",
+        "Xinyu Wang"
+      ],
+      "firstAuthorAffiliation": "N/A",
+      "track": "Main Track",
+      "status": "Published",
+      "doi": "10.24963/ijcai.2025/40",
+      "url": "https://www.ijcai.org/proceedings/2025/40",
+      "officialSource": "https://www.ijcai.org/proceedings/2025/40",
+      "abstractSource": "https://www.ijcai.org/proceedings/2025/40",
+      "abstract": "Large language models (LLMs) typically provide multilingual support and demonstrate remarkable capabilities in solving tasks described in different languages. However, LLMs can exhibit linguistic discrimination due to the uneven distribution of training data across languages. That is, LLMs struggle to maintain consistency when handling the same task in different languages, compromising both safety equity and knowledge equity. In this paper, we first systematically evaluate the linguistic discrimination of LLMs from two aspects: safety and quality, using a form of metamorphic testing. The metamorphic relationship we examine is that LLMs are expected to deliver outputs with similar semantics when prompted with inputs that have the same meaning. We conduct this evaluation with two datasets based on four representative LLMs. The results show that LLMs exhibit stronger human alignment capabilities with queries in English, French, Russian, and Spanish compared to queries in Bengali, Georgian, Nepali and Maithili. Moreover, for queries in English, Danish, Czech and Slovenian, LLMs tend to produce responses with a higher quality compared to the other languages. Upon these findings, we propose LDFighter, a similarity-based voting method, to mitigate the linguistic discrimination in LLMs. We comprehensively evaluate LDFighter against a spectrum of queries including benign, harmful, and adversarial prompts. The results show that LDFighter significantly reduces jailbreak success rates and improves response quality. All code, data, and the technical appendix are publicly available at: \\url{https://github.com/dgl-prc/ldfighter}.",
+      "relevanceScore": 10,
+      "relevanceSignals": [
+        "jailbreak",
+        "safety alignment"
+      ],
+      "category": "Defense",
+      "target": "Text"
+    },
+    {
+      "venue": "IJCAI",
+      "year": 2025,
+      "title": "Feint and Attack:  Jailbreaking and Protecting LLMs via Attention Distribution Modeling",
+      "authors": [
+        "Rui Pu",
+        "Chaozhuo Li",
+        "Rui Ha",
+        "Zejian Chen",
+        "Litian Zhang",
+        "Zheng Liu",
+        "Lirong Qiu",
+        "Zaisheng Ye"
+      ],
+      "firstAuthorAffiliation": "N/A",
+      "track": "Main Track",
+      "status": "Published",
+      "doi": "10.24963/ijcai.2025/56",
+      "url": "https://www.ijcai.org/proceedings/2025/56",
+      "officialSource": "https://www.ijcai.org/proceedings/2025/56",
+      "abstractSource": "https://www.ijcai.org/proceedings/2025/56",
+      "abstract": "Most jailbreak methods for large language models (LLMs) focus on superficially improving attack success through manually defined rules. However, they fail to uncover the underlying mechanisms within target LLMs that explain why an attack succeeds or fails. In this paper, we propose investigating the phenomenon of jailbreaks and defenses for LLMs from the perspective of attention distributions within the models. A preliminary experiment reveals that the success of a jailbreak is closely linked to the LLM's attention on sensitive words.Inspired by this interesting finding, we propose incorporating critical signals derived from internal attention distributions within LLMs, namely Attention Intensity on Sensitive Words and Attention Dispersion Entropy, to guide both attacks and defenses. Drawing inspiration from the concept of \"Feint and Attack\", we introduce an attention-guided jailbreak model, ABA, which redirects the model's attention to benign contexts, and an attention-based defense model, ABD, designed to detect attacks by analyzing internal attention entropy. Experimental results demonstrate the superiority of our proposal when compared to SOTA baselines.",
+      "relevanceScore": 8,
+      "relevanceSignals": [
+        "jailbreak"
+      ],
+      "category": "Mechanism",
+      "target": "Text"
+    },
+    {
+      "venue": "IJCAI",
+      "year": 2025,
+      "title": "REVEAL: Multi-turn Evaluation of Image-Input Harms for Vision LLMs",
+      "authors": [
+        "Madhur Jindal",
+        "Saurabh Deshpande"
+      ],
+      "firstAuthorAffiliation": "N/A",
+      "track": "AI and Social Good",
+      "status": "Published",
+      "doi": "10.24963/ijcai.2025/1081",
+      "url": "https://www.ijcai.org/proceedings/2025/1081",
+      "officialSource": "https://www.ijcai.org/proceedings/2025/1081",
+      "abstractSource": "https://www.ijcai.org/proceedings/2025/1081",
+      "abstract": "Vision Large Language Models (VLLMs) represent a significant advancement in artificial intelligence by integrating image-processing capabilities with textual understanding, thereby enhancing user interactions and expanding application domains. However, their increased complexity introduces novel safety and ethical challenges, particularly in multi-modal and multi-turn conversations. Traditional safety evaluation frameworks, designed for text-based, single-turn interactions, are inadequate for addressing these complexities. To bridge this gap, we introduce the REVEAL (Responsible Evaluation of Vision-Enabled AI LLMs) Framework, a scalable and automated pipeline for evaluating image-input harms in VLLMs. REVEAL includes automated image mining, synthetic adversarial data generation, multi-turn conversational expansion using crescendo attack strategies, and comprehensive harm assessment through evaluators like GPT-4o. We extensively evaluated five state-of-the-art VLLMs, GPT-4o, Llama-3.2, Qwen2-VL, Phi3.5V, and Pixtral, across three important harm categories: sexual harm, violence, and misinformation. Our findings reveal that multi-turn interactions result in significantly higher defect rates compared to single-turn evaluations, highlighting deeper vulnerabilities in VLLMs. Notably, GPT-4o demonstrated the most balanced performance as measured by our Safety-Usability Index (SUI) followed closely by Pixtral. Additionally, misinformation emerged as a critical area requiring enhanced contextual defenses. Llama-3.2 exhibited the highest MT defect rate (16.55%) while Qwen2-VL showed the highest MT refusal rate (19.1%).",
+      "relevanceScore": 11,
+      "relevanceSignals": [
+        "crescendo attack",
+        "image-input harm"
+      ],
+      "category": "Benchmark",
+      "target": "Vision"
+    }
+  ],
+  "generatedAt": "2026-07-17T12:40:27+00:00"
+}

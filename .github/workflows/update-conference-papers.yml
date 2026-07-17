@@ -1,0 +1,31 @@
+name: Update formal conference papers
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Crawl official KDD and IJCAI proceedings
+        run: python scripts/update_conference_papers.py
+      - name: Rebuild visualization data
+        run: python scripts/build_site_data.py
+      - name: Commit changed records
+        run: |
+          if git diff --quiet; then
+            echo "No conference updates found."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Conference/KDD Conference/IJCAI data/conference_latest.json README.md docs/data.js
+          git commit -m "Update formal KDD and IJCAI papers"
+          git push

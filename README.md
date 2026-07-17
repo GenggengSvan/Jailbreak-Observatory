@@ -11,6 +11,8 @@ Explore the collection as a visual timeline of attacks, defenses, benchmarks, an
 
 Select a paper to reveal metadata-derived research neighbors and attack–defense counterpoints. The original Markdown collection remains the source of truth; the visualization dataset is rebuilt automatically for GitHub Pages.
 
+Latest-edition KDD and IJCAI records are collected by `scripts/update_conference_papers.py`. Publication eligibility comes from official proceedings/DOI pages; title and abstract signals are then used for relevance filtering and classification. Preprints alone are not eligible.
+
 > [!Important]
 >
 > In this repository, you can find 📊 the [acceptance status of papers related to Jailbreak research](#document-list-by-conference) and 📑 the [top 100 most cited Jailbreak articles](#cite).
@@ -43,6 +45,8 @@ Select a paper to reveal metadata-derived research neighbors and attack–defens
 <tr><td style='text-align:center'>2024</td><td><a href='Conference/SP/sp2024.md'>SP2024</a></td><td style='text-align:center'>1</td></tr>
 <tr><td style='text-align:center;vertical-align:middle' rowspan='1'><strong>CCS</strong></td><td style='text-align:center'>2024</td><td><a href='Conference/CCS/ccs2024.md'>CCS2024</a></td><td style='text-align:center'>1</td></tr>
 <tr><td style='text-align:center;vertical-align:middle' rowspan='1'><strong>NDSS</strong></td><td style='text-align:center'>2024</td><td><a href='Conference/NDSS/ndss2024_fall.md'>NDSS2024_FALL</a></td><td style='text-align:center'>1</td></tr>
+<tr><td style='text-align:center;vertical-align:middle' rowspan='1'><strong>KDD</strong></td><td style='text-align:center'>2025</td><td><a href='Conference/KDD/kdd2025.md'>KDD2025</a></td><td style='text-align:center'>2</td></tr>
+<tr><td style='text-align:center;vertical-align:middle' rowspan='1'><strong>IJCAI</strong></td><td style='text-align:center'>2025</td><td><a href='Conference/IJCAI/ijcai2025.md'>IJCAI2025</a></td><td style='text-align:center'>4</td></tr>
 </table>
 
 

@@ -1,0 +1,26 @@
+{
+  "10.1145/3711896.3737014": {
+    "category": "Attack",
+    "target": "Text"
+  },
+  "10.1145/3690624.3709179": {
+    "category": "Benchmark",
+    "target": "Agent"
+  },
+  "10.24963/ijcai.2025/40": {
+    "category": "Defense",
+    "target": "Text"
+  },
+  "10.24963/ijcai.2025/56": {
+    "category": "Mechanism",
+    "target": "Text"
+  },
+  "10.24963/ijcai.2025/867": {
+    "category": "Defense",
+    "target": "Agent"
+  },
+  "10.24963/ijcai.2025/1081": {
+    "category": "Benchmark",
+    "target": "Vision"
+  }
+}

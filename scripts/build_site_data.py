@@ -12,6 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "docs" / "data.js"
+LATEST_METADATA = ROOT / "data" / "conference_latest.json"
 
 CATEGORY_ORDER = {"Attack": 0, "Defense": 1, "Benchmark": 2, "Mechanism": 3, "Other": 4}
 STOP_WORDS = {
@@ -132,21 +133,52 @@ def parse_citations() -> list[dict]:
     return entries
 
 
-def merge_papers(conference: list[dict], cited: list[dict]) -> list[dict]:
+def parse_latest_metadata() -> list[dict]:
+    if not LATEST_METADATA.exists():
+        return []
+    payload = json.loads(LATEST_METADATA.read_text(encoding="utf-8"))
+    entries = []
+    for paper in payload.get("papers", []):
+        entries.append(
+            {
+                "id": stable_id(paper["title"]),
+                "title": paper["title"],
+                "year": int(paper["year"]),
+                "venue": paper["venue"],
+                "category": normalize_category(paper["category"]),
+                "target": normalize_target(paper["target"]),
+                "url": paper["url"],
+                "codeUrl": "",
+                "citations": None,
+                "abstract": paper.get("abstract", ""),
+                "doi": paper.get("doi", ""),
+                "officialSource": paper.get("officialSource", ""),
+                "relevanceSignals": paper.get("relevanceSignals", []),
+                "source": "data/conference_latest.json",
+            }
+        )
+    return entries
+
+
+def merge_papers(conference: list[dict], cited: list[dict], latest: list[dict]) -> list[dict]:
     by_title = {normalize_title(p["title"]): p for p in conference}
-    for citation in cited:
-        key = normalize_title(citation["title"])
+    for enriched in [*cited, *latest]:
+        key = normalize_title(enriched["title"])
         if key in by_title:
             existing = by_title[key]
             existing.update(
-                citations=citation["citations"],
-                abstract=citation["abstract"],
-                codeUrl=citation.get("codeUrl", ""),
+                abstract=enriched.get("abstract", "") or existing.get("abstract", ""),
+                codeUrl=enriched.get("codeUrl", "") or existing.get("codeUrl", ""),
             )
+            if enriched.get("citations") is not None:
+                existing["citations"] = enriched["citations"]
+            for field in ("doi", "officialSource", "relevanceSignals"):
+                if enriched.get(field):
+                    existing[field] = enriched[field]
             if not existing.get("url"):
-                existing["url"] = citation.get("url", "")
+                existing["url"] = enriched.get("url", "")
         else:
-            by_title[key] = citation
+            by_title[key] = enriched
     return sorted(
         by_title.values(),
         key=lambda p: (p["year"], CATEGORY_ORDER.get(p["category"], 9), p["venue"], p["title"]),
@@ -214,10 +246,10 @@ def build_relations(papers: list[dict]) -> list[dict]:
 
 
 def main() -> None:
-    papers = merge_papers(parse_conference_files(), parse_citations())
+    papers = merge_papers(parse_conference_files(), parse_citations(), parse_latest_metadata())
     relations = build_relations(papers)
     payload = {
-        "generatedFrom": "Conference/**/*.md + citations_top_100.md",
+        "generatedFrom": "Conference/**/*.md + citations_top_100.md + data/conference_latest.json",
         "papers": papers,
         "relations": relations,
     }
