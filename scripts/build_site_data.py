@@ -15,6 +15,7 @@ OUTPUT = ROOT / "docs" / "data.js"
 CONFERENCE_METADATA = sorted((ROOT / "data").glob("conference_*.json"))
 
 CATEGORY_ORDER = {"Attack": 0, "Defense": 1, "Benchmark": 2, "Mechanism": 3, "Other": 4}
+RELATION_LIMITS = {"affinity": 2, "counterpoint": 1, "context": 1}
 STOP_WORDS = {
     "a", "an", "and", "are", "as", "at", "against", "by", "for", "from", "in",
     "into", "is", "it", "language", "large", "llm", "llms", "model", "models", "of",
@@ -214,25 +215,31 @@ def relation_score(a: dict, b: dict) -> tuple[float, str]:
 
 
 def build_relations(papers: list[dict]) -> list[dict]:
-    candidates: list[list[tuple[float, str, int]]] = [[] for _ in papers]
+    candidates: list[tuple[float, str, int, int]] = []
     for left in range(len(papers)):
         for right in range(left + 1, len(papers)):
             score, kind = relation_score(papers[left], papers[right])
             if score >= (1.1 if kind == "context" else 1.4):
-                candidates[left].append((score, kind, right))
-                candidates[right].append((score, kind, left))
+                candidates.append((score, kind, left, right))
 
-    chosen: dict[tuple[int, int], tuple[float, str]] = {}
-    for index, options in enumerate(candidates):
-        by_kind: dict[str, list[tuple[float, str, int]]] = {}
-        for option in options:
-            by_kind.setdefault(option[1], []).append(option)
-        limits = {"affinity": 4, "counterpoint": 2, "context": 2}
-        for kind, group in by_kind.items():
-            for score, _, other in sorted(group, reverse=True)[: limits[kind]]:
-                key = tuple(sorted((index, other)))
-                if key not in chosen or score > chosen[key][0]:
-                    chosen[key] = (score, kind)
+    relation_counts = [dict.fromkeys(RELATION_LIMITS, 0) for _ in papers]
+    chosen: list[tuple[float, str, int, int]] = []
+    ranked = sorted(
+        candidates,
+        key=lambda option: (
+            -option[0],
+            option[1],
+            papers[option[2]]["id"],
+            papers[option[3]]["id"],
+        ),
+    )
+    for score, kind, left, right in ranked:
+        limit = RELATION_LIMITS[kind]
+        if relation_counts[left][kind] >= limit or relation_counts[right][kind] >= limit:
+            continue
+        chosen.append((score, kind, left, right))
+        relation_counts[left][kind] += 1
+        relation_counts[right][kind] += 1
 
     return [
         {
@@ -241,7 +248,7 @@ def build_relations(papers: list[dict]) -> list[dict]:
             "kind": kind,
             "score": round(score, 3),
         }
-        for (left, right), (score, kind) in sorted(chosen.items())
+        for score, kind, left, right in sorted(chosen, key=lambda item: (item[2], item[3], item[1]))
     ]
 
 
