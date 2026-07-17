@@ -1,7 +1,9 @@
-name: Update formal conference papers
+name: Update conference papers
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "17 3 * * 1"
 
 permissions:
   contents: write
@@ -14,8 +16,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Crawl official KDD and IJCAI proceedings
-        run: python scripts/update_conference_papers.py
+      - name: Install crawler dependencies
+        run: python -m pip install beautifulsoup4
+      - name: Crawl official proceedings and accepted-paper pages
+        run: |
+          python scripts/update_conference_papers.py
+          python scripts/update_2026_papers.py
       - name: Rebuild visualization data
         run: python scripts/build_site_data.py
       - name: Commit changed records
@@ -26,6 +32,6 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add Conference/KDD Conference/IJCAI data/conference_latest.json README.md docs/data.js
-          git commit -m "Update formal KDD and IJCAI papers"
+          git add Conference data/conference_latest.json data/conference_2026.json README.md docs/data.js
+          git commit -m "Update published and accepted conference papers"
           git push

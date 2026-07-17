@@ -11,7 +11,7 @@ Explore the collection as a visual timeline of attacks, defenses, benchmarks, an
 
 Select a paper to reveal metadata-derived research neighbors and attack–defense counterpoints. The original Markdown collection remains the source of truth; the visualization dataset is rebuilt automatically for GitHub Pages.
 
-KDD and IJCAI records (2023 onward) are collected by `scripts/update_conference_papers.py`. Publication eligibility comes from official proceedings/DOI pages; title and abstract signals are then used for relevance filtering and classification. Preprints alone are not eligible, and a zero-paper year is retained to document completed coverage.
+KDD and IJCAI historical records are collected by `scripts/update_conference_papers.py`; 2026 records are collected across official proceedings, accepted-paper indexes, and conference programs by `scripts/update_2026_papers.py`. `Published` means a formal proceedings/DOI record exists, while `Accepted` means the title is verifiable on an official acceptance or program page. Preprints alone are not eligible. Title candidates are filtered and classified with title + abstract signals.
 
 > [!Important]
 >
@@ -28,29 +28,39 @@ KDD and IJCAI records (2023 onward) are collected by `scripts/update_conference_
 <tr><td style='text-align:center;vertical-align:middle' rowspan='3'><strong>NIPS</strong></td><td style='text-align:center'>2025</td><td><a href='Conference/NIPS/nips2025.md'>NIPS2025</a></td><td style='text-align:center'>37</td></tr>
 <tr><td style='text-align:center'>2024</td><td><a href='Conference/NIPS/nips2024.md'>NIPS2024</a></td><td style='text-align:center'>33</td></tr>
 <tr><td style='text-align:center'>2023</td><td><a href='Conference/NIPS/nips2023.md'>NIPS2023</a></td><td style='text-align:center'>2</td></tr>
-<tr><td style='text-align:center;vertical-align:middle' rowspan='2'><strong>ICLR</strong></td><td style='text-align:center'>2025</td><td><a href='Conference/ICLR/iclr2025.md'>ICLR2025</a></td><td style='text-align:center'>35</td></tr>
+<tr><td style='text-align:center;vertical-align:middle' rowspan='3'><strong>ICLR</strong></td><td style='text-align:center'>2026</td><td><a href='Conference/ICLR/iclr2026.md'>ICLR2026</a></td><td style='text-align:center'>46</td></tr>
+<tr><td style='text-align:center'>2025</td><td><a href='Conference/ICLR/iclr2025.md'>ICLR2025</a></td><td style='text-align:center'>35</td></tr>
 <tr><td style='text-align:center'>2024</td><td><a href='Conference/ICLR/iclr2024.md'>ICLR2024</a></td><td style='text-align:center'>8</td></tr>
-<tr><td style='text-align:center;vertical-align:middle' rowspan='2'><strong>ICML</strong></td><td style='text-align:center'>2025</td><td><a href='Conference/ICML/icml2025.md'>ICML2025</a></td><td style='text-align:center'>23</td></tr>
+<tr><td style='text-align:center;vertical-align:middle' rowspan='3'><strong>ICML</strong></td><td style='text-align:center'>2026</td><td><a href='Conference/ICML/icml2026.md'>ICML2026</a></td><td style='text-align:center'>46</td></tr>
+<tr><td style='text-align:center'>2025</td><td><a href='Conference/ICML/icml2025.md'>ICML2025</a></td><td style='text-align:center'>23</td></tr>
 <tr><td style='text-align:center'>2024</td><td><a href='Conference/ICML/icml2024.md'>ICML2024</a></td><td style='text-align:center'>10</td></tr>
-<tr><td style='text-align:center;vertical-align:middle' rowspan='2'><strong>AAAI</strong></td><td style='text-align:center'>2025</td><td><a href='Conference/AAAI/aaai2025.md'>AAAI2025</a></td><td style='text-align:center'>17</td></tr>
+<tr><td style='text-align:center;vertical-align:middle' rowspan='3'><strong>AAAI</strong></td><td style='text-align:center'>2026</td><td><a href='Conference/AAAI/aaai2026.md'>AAAI2026</a></td><td style='text-align:center'>22</td></tr>
+<tr><td style='text-align:center'>2025</td><td><a href='Conference/AAAI/aaai2025.md'>AAAI2025</a></td><td style='text-align:center'>17</td></tr>
 <tr><td style='text-align:center'>2024</td><td><a href='Conference/AAAI/aaai2024.md'>AAAI2024</a></td><td style='text-align:center'>1</td></tr>
-<tr><td style='text-align:center;vertical-align:middle' rowspan='2'><strong>ACL</strong></td><td style='text-align:center'>2025</td><td><a href='Conference/ACL/acl2025.md'>ACL2025</a></td><td style='text-align:center'>59</td></tr>
+<tr><td style='text-align:center;vertical-align:middle' rowspan='3'><strong>ACL</strong></td><td style='text-align:center'>2026</td><td><a href='Conference/ACL/acl2026.md'>ACL2026</a></td><td style='text-align:center'>42</td></tr>
+<tr><td style='text-align:center'>2025</td><td><a href='Conference/ACL/acl2025.md'>ACL2025</a></td><td style='text-align:center'>59</td></tr>
 <tr><td style='text-align:center'>2024</td><td><a href='Conference/ACL/acl2024.md'>ACL2024</a></td><td style='text-align:center'>18</td></tr>
 <tr><td style='text-align:center;vertical-align:middle' rowspan='2'><strong>EMNLP</strong></td><td style='text-align:center'>2024</td><td><a href='Conference/EMNLP/emnlp2024.md'>EMNLP2024</a></td><td style='text-align:center'>20</td></tr>
 <tr><td style='text-align:center'>2023</td><td><a href='Conference/EMNLP/emnlp2023.md'>EMNLP2023</a></td><td style='text-align:center'>4</td></tr>
 <tr><td style='text-align:center;vertical-align:middle' rowspan='2'><strong>NAACL</strong></td><td style='text-align:center'>2025</td><td><a href='Conference/NAACL/naacl2025.md'>NAACL2025</a></td><td style='text-align:center'>26</td></tr>
 <tr><td style='text-align:center'>2024</td><td><a href='Conference/NAACL/naacl2024.md'>NAACL2024</a></td><td style='text-align:center'>6</td></tr>
-<tr><td style='text-align:center;vertical-align:middle' rowspan='1'><strong>WWW</strong></td><td style='text-align:center'>2025</td><td><a href='Conference/WWW/www2025.md'>WWW2025</a></td><td style='text-align:center'>2</td></tr>
-<tr><td style='text-align:center;vertical-align:middle' rowspan='2'><strong>SP</strong></td><td style='text-align:center'>2025</td><td><a href='Conference/SP/sp2025.md'>SP2025</a></td><td style='text-align:center'>2</td></tr>
+<tr><td style='text-align:center;vertical-align:middle' rowspan='2'><strong>WWW</strong></td><td style='text-align:center'>2026</td><td><a href='Conference/WWW/www2026.md'>WWW2026</a></td><td style='text-align:center'>2</td></tr>
+<tr><td style='text-align:center'>2025</td><td><a href='Conference/WWW/www2025.md'>WWW2025</a></td><td style='text-align:center'>2</td></tr>
+<tr><td style='text-align:center;vertical-align:middle' rowspan='3'><strong>SP</strong></td><td style='text-align:center'>2026</td><td><a href='Conference/SP/sp2026.md'>SP2026</a></td><td style='text-align:center'>8</td></tr>
+<tr><td style='text-align:center'>2025</td><td><a href='Conference/SP/sp2025.md'>SP2025</a></td><td style='text-align:center'>2</td></tr>
 <tr><td style='text-align:center'>2024</td><td><a href='Conference/SP/sp2024.md'>SP2024</a></td><td style='text-align:center'>1</td></tr>
 <tr><td style='text-align:center;vertical-align:middle' rowspan='1'><strong>CCS</strong></td><td style='text-align:center'>2024</td><td><a href='Conference/CCS/ccs2024.md'>CCS2024</a></td><td style='text-align:center'>1</td></tr>
-<tr><td style='text-align:center;vertical-align:middle' rowspan='1'><strong>NDSS</strong></td><td style='text-align:center'>2024</td><td><a href='Conference/NDSS/ndss2024_fall.md'>NDSS2024_FALL</a></td><td style='text-align:center'>1</td></tr>
-<tr><td style='text-align:center;vertical-align:middle' rowspan='3'><strong>KDD</strong></td><td style='text-align:center'>2025</td><td><a href='Conference/KDD/kdd2025.md'>KDD2025</a></td><td style='text-align:center'>2</td></tr>
+<tr><td style='text-align:center;vertical-align:middle' rowspan='2'><strong>NDSS</strong></td><td style='text-align:center'>2026</td><td><a href='Conference/NDSS/ndss2026.md'>NDSS2026</a></td><td style='text-align:center'>8</td></tr>
+<tr><td style='text-align:center'>2024</td><td><a href='Conference/NDSS/ndss2024_fall.md'>NDSS2024</a></td><td style='text-align:center'>1</td></tr>
+<tr><td style='text-align:center;vertical-align:middle' rowspan='4'><strong>KDD</strong></td><td style='text-align:center'>2026</td><td><a href='Conference/KDD/kdd2026.md'>KDD2026</a></td><td style='text-align:center'>1</td></tr>
+<tr><td style='text-align:center'>2025</td><td><a href='Conference/KDD/kdd2025.md'>KDD2025</a></td><td style='text-align:center'>2</td></tr>
 <tr><td style='text-align:center'>2024</td><td><a href='Conference/KDD/kdd2024.md'>KDD2024</a></td><td style='text-align:center'>1</td></tr>
 <tr><td style='text-align:center'>2023</td><td><a href='Conference/KDD/kdd2023.md'>KDD2023</a></td><td style='text-align:center'>0</td></tr>
-<tr><td style='text-align:center;vertical-align:middle' rowspan='3'><strong>IJCAI</strong></td><td style='text-align:center'>2025</td><td><a href='Conference/IJCAI/ijcai2025.md'>IJCAI2025</a></td><td style='text-align:center'>4</td></tr>
+<tr><td style='text-align:center;vertical-align:middle' rowspan='4'><strong>IJCAI</strong></td><td style='text-align:center'>2026</td><td><a href='Conference/IJCAI/ijcai2026.md'>IJCAI2026</a></td><td style='text-align:center'>1</td></tr>
+<tr><td style='text-align:center'>2025</td><td><a href='Conference/IJCAI/ijcai2025.md'>IJCAI2025</a></td><td style='text-align:center'>4</td></tr>
 <tr><td style='text-align:center'>2024</td><td><a href='Conference/IJCAI/ijcai2024.md'>IJCAI2024</a></td><td style='text-align:center'>1</td></tr>
 <tr><td style='text-align:center'>2023</td><td><a href='Conference/IJCAI/ijcai2023.md'>IJCAI2023</a></td><td style='text-align:center'>0</td></tr>
+<tr><td style='text-align:center;vertical-align:middle' rowspan='1'><strong>USENIX Security</strong></td><td style='text-align:center'>2026</td><td><a href='Conference/USENIX Security/usenixsecurity2026.md'>USENIX Security2026</a></td><td style='text-align:center'>10</td></tr>
 </table>
 
 

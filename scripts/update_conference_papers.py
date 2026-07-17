@@ -35,7 +35,8 @@ CANDIDATE_RE = re.compile(
     r"jailbreak|prompt injection|red[ -]?team|input moderation|image-input harms|"
     r"safety benchmark|safety equity|harmful|guardrail|refusal|safety alignment|"
     r"protecting llms|llm security|agent security|prompt perturbation|"
-    r"safety of (?:multimodal )?large language models",
+    r"safety of (?:multimodal )?large language models|safety awareness|"
+    r"alignment vulnerabilities|safety bypass|unsafe (?:input|output|content)",
     re.I,
 )
 
@@ -44,6 +45,8 @@ RELEVANCE_RULES = (
     (re.compile(r"\b(?:indirect )?prompt injection(?: attacks?)?\b", re.I), 8, "prompt injection"),
     (re.compile(r"\bprompt perturbation\b", re.I), 6, "prompt perturbation"),
     (re.compile(r"\bred[ -]?team(?:ing)?\b", re.I), 6, "red teaming"),
+    (re.compile(r"\brefusal(?:s| suppression| steering| instability| behavior)?\b", re.I), 5, "refusal behavior"),
+    (re.compile(r"\badversarial\b.{0,80}\bguardrails?\b", re.I), 5, "adversarial guardrail behavior"),
     (re.compile(r"\bcrescendo attack", re.I), 6, "crescendo attack"),
     (re.compile(r"\bsafety benchmark", re.I), 5, "safety benchmark"),
     (re.compile(r"\binput moderation\b", re.I), 5, "input moderation"),
@@ -57,7 +60,9 @@ RELEVANCE_RULES = (
 
 MODEL_SCOPE_RE = re.compile(
     r"\b(?:large language models?|llms?|vision[- ]language models?|vllms?|multimodal llms?|"
-    r"multimodal large language models?|mllms?|embodied agents?|language-model agents?)\b",
+    r"multimodal large language models?|mllms?|large audio[- ]language models?|"
+    r"speech[- ]driven llms?|text-to-image (?:generation )?(?:systems?|models?)|"
+    r"multimodal guardrails?|web agents?|embodied agents?|language-model agents?|llm[- ]based agents?)\b",
     re.I,
 )
 
@@ -183,8 +188,23 @@ def relevance(title: str, abstract: str) -> tuple[int, list[str]]:
 
 
 def classify(title: str, abstract: str) -> tuple[str, str]:
+    title_text = title.lower()
     text = f"{title}. {abstract}".lower()
-    if re.search(r"benchmark|evaluat|assessment|audit|measurement|taxonomy", text):
+    # Titles state the paper's primary contribution more reliably than generic
+    # evaluation/defense language that appears in nearly every abstract.
+    if re.search(r"benchmark|evaluation|evaluating|assessment|audit|measurement|taxonomy|profiling", title_text):
+        category = "Benchmark"
+    elif re.search(
+        r"\bdefending\b|\bdefense against\b|\bdefence against\b|mitigat|detect|moderation|"
+        r"prevention|protect|\bguard(?:rail)? for\b|\bguard to\b|filter|shield|immun",
+        title_text,
+    ):
+        category = "Defense"
+    elif re.search(r"mechanism|understand|explaining|dissect|unveil|causal perspective|representation", title_text):
+        category = "Mechanism"
+    elif re.search(r"attack|jailbreak|exploit|bypass|prompt injection|red[ -]?team|evad", title_text):
+        category = "Attack"
+    elif re.search(r"benchmark|evaluat|assessment|audit|measurement|taxonomy", text):
         category = "Benchmark"
     elif re.search(r"defen[cs]|mitigat|detect|moderation|protect|guard|filter", text):
         category = "Defense"

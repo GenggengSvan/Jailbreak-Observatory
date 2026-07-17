@@ -97,7 +97,7 @@
   const isPaperVisible = (paper) => {
     if (!state.activeCategories.has(paper.category)) return false;
     if (!state.query) return true;
-    const haystack = `${paper.title} ${paper.venue} ${paper.category} ${paper.target} ${paper.year}`.toLowerCase();
+    const haystack = `${paper.title} ${paper.venue} ${paper.category} ${paper.target} ${paper.year} ${paper.status || ""}`.toLowerCase();
     return haystack.includes(state.query);
   };
 
@@ -265,7 +265,7 @@
     detailPanel.style.setProperty("--panel-color", color);
     document.getElementById("panelKicker").textContent = `${paper.category} / ${paper.target}`;
     document.getElementById("panelTitle").textContent = paper.title;
-    const meta = [shortenVenue(paper.venue), paper.year, paper.citations !== null && paper.citations !== undefined ? `${paper.citations} citations` : null].filter(Boolean);
+    const meta = [shortenVenue(paper.venue), paper.year, paper.status, paper.citations !== null && paper.citations !== undefined ? `${paper.citations} citations` : null].filter(Boolean);
     document.getElementById("panelMeta").innerHTML = meta.map((item) => `<span>${escapeHtml(String(item))}</span>`).join("");
     const abstract = paper.abstract || "This entry comes from the conference index. Open the paper for its abstract, method, and evaluation details.";
     document.getElementById("panelAbstract").textContent = abstract.length > 920 ? `${abstract.slice(0, 917).trim()}…` : abstract;
@@ -331,6 +331,17 @@
 
   function fitAll() {
     fitBounds({ minX: 55, minY: 35, maxX: graphWidth, maxY: graphHeight }, 0.75);
+  }
+
+  function fitYear(year) {
+    const visible = papers.filter((paper) => paper.year === year).map((paper) => positions.get(paper.id)).filter(Boolean);
+    if (!visible.length) return fitAll();
+    fitBounds({
+      minX: Math.min(...visible.map((position) => position.x)) - 85,
+      minY: 45,
+      maxX: Math.max(...visible.map((position) => position.x)) + NODE_W + 85,
+      maxY: Math.max(...visible.map((position) => position.y)) + NODE_H + 85,
+    }, 0.82);
   }
 
   function fitSelection(id) {
@@ -466,12 +477,8 @@
     document.getElementById("venueCount").textContent = new Set(papers.map((paper) => shortenVenue(paper.venue))).size;
     document.getElementById("yearCount").textContent = new Set(papers.map((paper) => paper.year)).size;
     updateVisibility();
-    fitAll();
-
-    const featured = [...papers].filter((paper) => paper.citations).sort((a, b) => b.citations - a.citations)[0];
-    if (featured && window.innerWidth > 700) {
-      requestAnimationFrame(() => selectPaper(featured.id, true));
-    }
+    const latestYear = Math.max(...papers.map((paper) => paper.year));
+    requestAnimationFrame(() => fitYear(latestYear));
   }
 
   initialize();

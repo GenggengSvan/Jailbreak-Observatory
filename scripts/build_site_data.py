@@ -12,7 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "docs" / "data.js"
-LATEST_METADATA = ROOT / "data" / "conference_latest.json"
+CONFERENCE_METADATA = sorted((ROOT / "data").glob("conference_*.json"))
 
 CATEGORY_ORDER = {"Attack": 0, "Defense": 1, "Benchmark": 2, "Mechanism": 3, "Other": 4}
 STOP_WORDS = {
@@ -134,13 +134,13 @@ def parse_citations() -> list[dict]:
 
 
 def parse_latest_metadata() -> list[dict]:
-    if not LATEST_METADATA.exists():
-        return []
-    payload = json.loads(LATEST_METADATA.read_text(encoding="utf-8"))
     entries = []
-    for paper in payload.get("papers", []):
-        entries.append(
-            {
+    for metadata_path in CONFERENCE_METADATA:
+        if metadata_path.name == "conference_overrides.json":
+            continue
+        payload = json.loads(metadata_path.read_text(encoding="utf-8"))
+        for paper in payload.get("papers", []):
+            entries.append({
                 "id": stable_id(paper["title"]),
                 "title": paper["title"],
                 "year": int(paper["year"]),
@@ -154,9 +154,9 @@ def parse_latest_metadata() -> list[dict]:
                 "doi": paper.get("doi", ""),
                 "officialSource": paper.get("officialSource", ""),
                 "relevanceSignals": paper.get("relevanceSignals", []),
-                "source": "data/conference_latest.json",
-            }
-        )
+                "status": paper.get("status", "Published"),
+                "source": str(metadata_path.relative_to(ROOT)),
+            })
     return entries
 
 
@@ -172,7 +172,7 @@ def merge_papers(conference: list[dict], cited: list[dict], latest: list[dict]) 
             )
             if enriched.get("citations") is not None:
                 existing["citations"] = enriched["citations"]
-            for field in ("doi", "officialSource", "relevanceSignals"):
+            for field in ("doi", "officialSource", "relevanceSignals", "status"):
                 if enriched.get(field):
                     existing[field] = enriched[field]
             if not existing.get("url"):
@@ -249,7 +249,7 @@ def main() -> None:
     papers = merge_papers(parse_conference_files(), parse_citations(), parse_latest_metadata())
     relations = build_relations(papers)
     payload = {
-        "generatedFrom": "Conference/**/*.md + citations_top_100.md + data/conference_latest.json",
+        "generatedFrom": "Conference/**/*.md + citations_top_100.md + data/conference_*.json",
         "papers": papers,
         "relations": relations,
     }
