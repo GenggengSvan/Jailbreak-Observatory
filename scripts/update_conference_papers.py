@@ -16,6 +16,7 @@ import json
 import re
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 from pathlib import Path
 
@@ -33,13 +34,15 @@ ALLOWED_TARGETS = {"Text", "Vision", "Hybrid", "Agent"}
 CANDIDATE_RE = re.compile(
     r"jailbreak|prompt injection|red[ -]?team|input moderation|image-input harms|"
     r"safety benchmark|safety equity|harmful|guardrail|refusal|safety alignment|"
-    r"protecting llms|llm security|agent security",
+    r"protecting llms|llm security|agent security|prompt perturbation|"
+    r"safety of (?:multimodal )?large language models",
     re.I,
 )
 
 RELEVANCE_RULES = (
     (re.compile(r"\bjailbreak(?:ing|s)?\b", re.I), 8, "jailbreak"),
     (re.compile(r"\b(?:indirect )?prompt injection(?: attacks?)?\b", re.I), 8, "prompt injection"),
+    (re.compile(r"\bprompt perturbation\b", re.I), 6, "prompt perturbation"),
     (re.compile(r"\bred[ -]?team(?:ing)?\b", re.I), 6, "red teaming"),
     (re.compile(r"\bcrescendo attack", re.I), 6, "crescendo attack"),
     (re.compile(r"\bsafety benchmark", re.I), 5, "safety benchmark"),
@@ -48,11 +51,13 @@ RELEVANCE_RULES = (
     (re.compile(r"\bharmful (?:instruction|prompt|query|request|content)s?\b", re.I), 4, "harmful inputs"),
     (re.compile(r"\bbypass(?:ing|es|ed)? (?:the )?(?:safety|safeguards?|guardrails?)\b", re.I), 5, "safety bypass"),
     (re.compile(r"\b(?:safety|human) alignment\b", re.I), 2, "safety alignment"),
+    (re.compile(r"\bunsafe instructions?\b", re.I), 5, "unsafe instructions"),
+    (re.compile(r"\b(?:mllm|llm|model) safety\b", re.I), 3, "model safety"),
 )
 
 MODEL_SCOPE_RE = re.compile(
     r"\b(?:large language models?|llms?|vision[- ]language models?|vllms?|multimodal llms?|"
-    r"embodied agents?|language-model agents?)\b",
+    r"multimodal large language models?|mllms?|embodied agents?|language-model agents?)\b",
     re.I,
 )
 
@@ -110,21 +115,58 @@ def crossref_metadata(doi: str) -> dict:
         payload = json.loads(fetch(url)).get("message", {})
     except (RuntimeError, json.JSONDecodeError):
         return {}
-    authors = []
+    return crossref_author_metadata(payload)
+
+
+def crossref_author_metadata(payload: dict) -> dict:
+    authors: list[str] = []
     first_affiliation = "N/A"
     for author in payload.get("author", []):
-        name = " ".join(part for part in (author.get("given", ""), author.get("family", "")) if part).strip()
+        name = html.unescape(
+            " ".join(part for part in (author.get("given", ""), author.get("family", "")) if part).strip()
+        )
         if name:
             authors.append(name)
         if first_affiliation == "N/A" and author.get("sequence") == "first" and author.get("affiliation"):
-            first_affiliation = author["affiliation"][0].get("name") or "N/A"
+            first_affiliation = html.unescape(author["affiliation"][0].get("name") or "N/A")
     published = payload.get("published", {}).get("date-parts", [[]])[0]
     return {
         "authors": authors,
         "firstAuthorAffiliation": first_affiliation,
         "publishedYear": published[0] if published else None,
-        "containerTitle": (payload.get("container-title") or [""])[0],
+        "containerTitle": html.unescape((payload.get("container-title") or [""])[0]),
     }
+
+
+KDD_HISTORICAL_PROCEEDINGS = {
+    2023: {
+        "doi": "10.1145/3580305",
+        "title": "Proceedings of the 29th ACM SIGKDD Conference on Knowledge Discovery and Data Mining",
+    },
+    2024: {
+        "doi": "10.1145/3637528",
+        "title": "Proceedings of the 30th ACM SIGKDD Conference on Knowledge Discovery and Data Mining",
+    },
+}
+
+
+def crossref_proceedings_entries(year: int) -> tuple[str, list[dict]]:
+    proceedings = KDD_HISTORICAL_PROCEEDINGS[year]
+    params = urllib.parse.urlencode(
+        {
+            "query.container-title": proceedings["title"],
+            "filter": f"from-pub-date:{year}-01-01,until-pub-date:{year}-12-31",
+            "rows": 1000,
+            "select": "DOI,title,container-title,published,author,URL",
+        }
+    )
+    payload = json.loads(fetch(f"https://api.crossref.org/works?{params}"))["message"]["items"]
+    exact = [
+        item
+        for item in payload
+        if (item.get("container-title") or [""])[0] == proceedings["title"]
+    ]
+    return f"https://doi.org/{proceedings['doi']}", exact
 
 
 def relevance(title: str, abstract: str) -> tuple[int, list[str]]:
@@ -198,23 +240,32 @@ def discover_kdd_year(start_year: int) -> tuple[int, str, str]:
     raise RuntimeError("No published KDD proceedings page found")
 
 
-def collect_kdd(start_year: int, overrides: dict[str, dict[str, str]]) -> tuple[int, str, list[dict]]:
-    year, source_url, page = discover_kdd_year(start_year)
-    entries = re.findall(
-        r"<strong[^>]*>(.*?)</strong>\s*<br\s*/?>\s*DOI:\s*(https?://doi\.org/10\.1145/[^<\s]+)",
-        page,
-        flags=re.I | re.S,
-    )
+def collect_kdd_exact(year: int, overrides: dict[str, dict[str, str]]) -> tuple[int, str, list[dict]]:
+    if year in KDD_HISTORICAL_PROCEEDINGS:
+        source_url, items = crossref_proceedings_entries(year)
+        entries = [((item.get("title") or [""])[0], item.get("DOI", ""), item) for item in items]
+    else:
+        source_url = f"https://www.kdd.org/kdd{year}/research-track-papers-2/"
+        page = fetch(source_url)
+        raw_entries = re.findall(
+            r"<strong[^>]*>(.*?)</strong>\s*<br\s*/?>\s*DOI:\s*(https?://doi\.org/10\.1145/[^<\s]+)",
+            page,
+            flags=re.I | re.S,
+        )
+        entries = [(strip_tags(title), normalize_doi(doi), None) for title, doi in raw_entries]
+
     papers = []
-    for raw_title, doi_url in entries:
+    for raw_title, doi_url, crossref_item in entries:
         title = strip_tags(raw_title)
         if not CANDIDATE_RE.search(title):
             continue
         doi = normalize_doi(doi_url)
-        bibliographic = crossref_metadata(doi)
+        bibliographic = crossref_author_metadata(crossref_item) if crossref_item else crossref_metadata(doi)
         if bibliographic.get("publishedYear") != year:
             continue
         abstract = openalex_abstract(doi)
+        if re.search(r"\b(?:this|our) tutorial\b|\bworkshop\b", f"{title}. {abstract}", re.I):
+            continue
         score, signals = relevance(title, abstract)
         if score < 5:
             continue
@@ -238,8 +289,13 @@ def collect_kdd(start_year: int, overrides: dict[str, dict[str, str]]) -> tuple[
     return year, source_url, sorted(papers, key=lambda item: item["title"].lower())
 
 
+def collect_kdd(start_year: int, overrides: dict[str, dict[str, str]]) -> tuple[int, str, list[dict]]:
+    year, _, _ = discover_kdd_year(start_year)
+    return collect_kdd_exact(year, overrides)
+
+
 def discover_ijcai_year(start_year: int) -> tuple[int, str, str]:
-    for year in range(start_year, 2024, -1):
+    for year in range(start_year, 2022, -1):
         url = f"https://www.ijcai.org/proceedings/{year}/"
         try:
             page = fetch(url)
@@ -279,8 +335,9 @@ def parse_ijcai_detail(url: str, year: int) -> dict:
     }
 
 
-def collect_ijcai(start_year: int, overrides: dict[str, dict[str, str]]) -> tuple[int, str, list[dict]]:
-    year, source_url, index = discover_ijcai_year(start_year)
+def collect_ijcai_exact(year: int, overrides: dict[str, dict[str, str]]) -> tuple[int, str, list[dict]]:
+    source_url = f"https://www.ijcai.org/proceedings/{year}/"
+    index = fetch(source_url)
     entries = re.findall(
         rf'<div id="paper\d+" class="paper_wrapper">.*?<div class="title">(.*?)</div>.*?'
         rf'<a href="(/proceedings/{year}/\d+)">\s*Details</a>',
@@ -299,6 +356,11 @@ def collect_ijcai(start_year: int, overrides: dict[str, dict[str, str]]) -> tupl
         paper.update(relevanceScore=score, relevanceSignals=signals)
         papers.append(apply_classification(paper, overrides))
     return year, source_url, sorted(papers, key=lambda item: item["title"].lower())
+
+
+def collect_ijcai(start_year: int, overrides: dict[str, dict[str, str]]) -> tuple[int, str, list[dict]]:
+    year, _, _ = discover_ijcai_year(start_year)
+    return collect_ijcai_exact(year, overrides)
 
 
 def markdown_for(venue: str, year: int, papers: list[dict], source_url: str) -> str:
@@ -339,44 +401,61 @@ def markdown_for(venue: str, year: int, papers: list[dict], source_url: str) -> 
     return "\n".join(lines).rstrip() + "\n"
 
 
-def update_readme(venue: str, year: int, count: int, relative_path: str) -> None:
+def update_readme(venue: str, records: list[tuple[int, int, str]]) -> None:
     path = ROOT / "README.md"
     content = path.read_text(encoding="utf-8")
-    row = (
-        f"<tr><td style='text-align:center;vertical-align:middle' rowspan='1'><strong>{venue}</strong></td>"
-        f"<td style='text-align:center'>{year}</td><td><a href='{relative_path}'>{venue}{year}</a></td>"
-        f"<td style='text-align:center'>{count}</td></tr>"
-    )
+    records = sorted(records, reverse=True)
+    rows = []
+    for index, (year, count, relative_path) in enumerate(records):
+        prefix = (
+            f"<tr><td style='text-align:center;vertical-align:middle' rowspan='{len(records)}'><strong>{venue}</strong></td>"
+            if index == 0
+            else "<tr>"
+        )
+        rows.append(
+            f"{prefix}<td style='text-align:center'>{year}</td><td><a href='{relative_path}'>{venue}{year}</a></td>"
+            f"<td style='text-align:center'>{count}</td></tr>"
+        )
+    block = "\n".join(rows)
     pattern = re.compile(
-        rf"<tr><td[^>]*><strong>{re.escape(venue)}</strong></td>.*?</tr>", re.I | re.S
+        rf"<tr><td[^>]*><strong>{re.escape(venue)}</strong></td>.*?</tr>"
+        rf"(?:\n<tr><td style='text-align:center'>.*?</tr>)*",
+        re.I | re.S,
     )
     if pattern.search(content):
-        content = pattern.sub(row, content, count=1)
+        content = pattern.sub(block, content, count=1)
     else:
-        content = content.replace("</table>", row + "\n</table>", 1)
+        content = content.replace("</table>", block + "\n</table>", 1)
     path.write_text(content, encoding="utf-8")
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--start-year", type=int, default=dt.date.today().year)
+    parser.add_argument("--years", nargs="+", type=int, help="Collect exact years instead of historical years plus latest")
     args = parser.parse_args()
     overrides = load_overrides()
 
-    collections = []
-    for collector in (collect_kdd, collect_ijcai):
-        collections.append(collector(args.start_year, overrides))
-
     all_papers: list[dict] = []
     sources = []
-    for venue, (year, source_url, papers) in zip(("KDD", "IJCAI"), collections):
-        output = ROOT / "Conference" / venue / f"{venue.lower()}{year}.md"
-        output.parent.mkdir(parents=True, exist_ok=True)
-        output.write_text(markdown_for(venue, year, papers, source_url), encoding="utf-8")
-        update_readme(venue, year, len(papers), str(output.relative_to(ROOT)))
-        sources.append({"venue": venue, "year": year, "url": source_url, "paperCount": len(papers)})
-        all_papers.extend(papers)
-        print(f"{venue} {year}: wrote {len(papers)} papers to {output.relative_to(ROOT)}")
+    latest_kdd, _, _ = discover_kdd_year(args.start_year)
+    latest_ijcai, _, _ = discover_ijcai_year(args.start_year)
+    requested = sorted(set(args.years or [2023, 2024, latest_kdd, latest_ijcai]))
+    for venue, collector, latest in (
+        ("KDD", collect_kdd_exact, latest_kdd),
+        ("IJCAI", collect_ijcai_exact, latest_ijcai),
+    ):
+        venue_records = []
+        for year in [value for value in requested if value <= latest]:
+            year, source_url, papers = collector(year, overrides)
+            output = ROOT / "Conference" / venue / f"{venue.lower()}{year}.md"
+            output.parent.mkdir(parents=True, exist_ok=True)
+            output.write_text(markdown_for(venue, year, papers, source_url), encoding="utf-8")
+            venue_records.append((year, len(papers), str(output.relative_to(ROOT))))
+            sources.append({"venue": venue, "year": year, "url": source_url, "paperCount": len(papers)})
+            all_papers.extend(papers)
+            print(f"{venue} {year}: wrote {len(papers)} papers to {output.relative_to(ROOT)}")
+        update_readme(venue, venue_records)
 
     payload = {
         "eligibility": "Official proceedings index plus formal DOI/detail page; abstracts are used only for relevance and classification.",

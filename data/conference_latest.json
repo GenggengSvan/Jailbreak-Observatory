@@ -3,9 +3,33 @@
   "sources": [
     {
       "venue": "KDD",
+      "year": 2023,
+      "url": "https://doi.org/10.1145/3580305",
+      "paperCount": 0
+    },
+    {
+      "venue": "KDD",
+      "year": 2024,
+      "url": "https://doi.org/10.1145/3637528",
+      "paperCount": 1
+    },
+    {
+      "venue": "KDD",
       "year": 2025,
       "url": "https://www.kdd.org/kdd2025/research-track-papers-2/",
       "paperCount": 2
+    },
+    {
+      "venue": "IJCAI",
+      "year": 2023,
+      "url": "https://www.ijcai.org/proceedings/2023/",
+      "paperCount": 0
+    },
+    {
+      "venue": "IJCAI",
+      "year": 2024,
+      "url": "https://www.ijcai.org/proceedings/2024/",
+      "paperCount": 1
     },
     {
       "venue": "IJCAI",
@@ -15,6 +39,32 @@
     }
   ],
   "papers": [
+    {
+      "venue": "KDD",
+      "year": 2024,
+      "title": "Prompt Perturbation in Retrieval-Augmented Generation based Large Language Models",
+      "authors": [
+        "Zhibo Hu",
+        "Chen Wang",
+        "Yanfeng Shu",
+        "Hye-Young Paik",
+        "Liming Zhu"
+      ],
+      "firstAuthorAffiliation": "The University of New South Wales & CSIRO Data61, Sydney, NSW, Australia",
+      "track": "Proceedings of the 30th ACM SIGKDD Conference on Knowledge Discovery and Data Mining",
+      "status": "Published",
+      "doi": "10.1145/3637528.3671932",
+      "url": "https://doi.org/10.1145/3637528.3671932",
+      "officialSource": "https://doi.org/10.1145/3637528",
+      "abstractSource": "https://api.openalex.org/works/https://doi.org/10.1145/3637528.3671932",
+      "abstract": "The robustness of large language models (LLMs) becomes increasingly important as their use rapidly grows in a wide range of domains. Retrieval-Augmented Generation (RAG) is considered as a means to improve the trustworthiness of text generation from LLMs. However, how the outputs from RAG-based LLMs are affected by slightly different inputs is not well studied. In this work, we find that the insertion of even a short prefix to the prompt leads to the generation of outputs far away from factually correct answers. We systematically evaluate the effect of such prefixes on RAG by introducing a novel optimization technique called Gradient Guided Prompt Perturbation (GGPP). GGPP achieves a high success rate in steering outputs of RAG-based LLMs to targeted wrong answers. It can also cope with instructions in the prompts requesting to ignore irrelevant context. We also exploit LLMs' neuron activation difference between prompts with and without GGPP perturbations to give a method that improves the robustness of RAG-based LLMs through a highly effective detector trained on neuron activation triggered by GGPP generated prompts. Our evaluation on open-sourced LLMs demonstrates the effectiveness of our methods.",
+      "relevanceScore": 6,
+      "relevanceSignals": [
+        "prompt perturbation"
+      ],
+      "category": "Attack",
+      "target": "Text"
+    },
     {
       "venue": "KDD",
       "year": 2025,
@@ -72,6 +122,32 @@
       ],
       "category": "Attack",
       "target": "Text"
+    },
+    {
+      "venue": "IJCAI",
+      "year": 2024,
+      "title": "Safety of Multimodal Large Language Models on Images and Text",
+      "authors": [
+        "Xin Liu",
+        "Yichen Zhu",
+        "Yunshi Lan",
+        "Chao Yang",
+        "Yu Qiao"
+      ],
+      "firstAuthorAffiliation": "N/A",
+      "track": "Survey Track",
+      "status": "Published",
+      "doi": "10.24963/ijcai.2024/901",
+      "url": "https://www.ijcai.org/proceedings/2024/901",
+      "officialSource": "https://www.ijcai.org/proceedings/2024/901",
+      "abstractSource": "https://www.ijcai.org/proceedings/2024/901",
+      "abstract": "Attracted by the impressive power of Multimodal Large Language Models (MLLMs), the public is increasingly utilizing them to improve the efficiency of daily work. Nonetheless, the vulnerabilities of MLLMs to unsafe instructions bring huge safety risks when these models are deployed in real-world scenarios. In this paper, we systematically survey current efforts on the evaluation, attack, and defense of MLLMs' safety on images and text. We begin with introducing the overview of MLLMs on images and text and understanding of safety, which helps researchers know the detailed scope of our survey. Then, we review the evaluation datasets and metrics for measuring the safety of MLLMs. Next, we comprehensively present attack and defense techniques related to MLLMs' safety. Finally, we analyze several unsolved issues and discuss promising research directions. The relevant papers are collected at \"https://github.com/isXinLiu/Awesome-MLLM-Safety\".",
+      "relevanceScore": 5,
+      "relevanceSignals": [
+        "unsafe instructions"
+      ],
+      "category": "Benchmark",
+      "target": "Vision"
     },
     {
       "venue": "IJCAI",
@@ -181,5 +257,5 @@
       "target": "Vision"
     }
   ],
-  "generatedAt": "2026-07-17T12:40:27+00:00"
+  "generatedAt": "2026-07-17T13:25:46+00:00"
 }
