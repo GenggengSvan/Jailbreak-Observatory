@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0d12">
+  <meta name="description" content="An interactive map of jailbreak research across attacks, defenses, benchmarks, and mechanisms.">
+  <title>Jailbreak Observatory — Research Map</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="Jailbreak Observatory home">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>Jailbreak <em>Observatory</em></span>
+    </a>
+    <nav class="top-actions" aria-label="Primary navigation">
+      <button class="text-button" id="aboutButton" type="button">About</button>
+      <a class="github-link" href="https://github.com/GenggengSvan/Jailbreak-Observatory" target="_blank" rel="noreferrer">GitHub ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="pageTitle">
+      <div class="eyebrow">A living map of adversarial AI safety research</div>
+      <div class="intro-grid">
+        <div>
+          <h1 id="pageTitle">See the field.<br><span>Trace the tension.</span></h1>
+          <p class="lede">Every card is a paper. Select one to reveal neighboring methods, attack–defense counterpoints, and the benchmarks or mechanism studies that frame it.</p>
+        </div>
+        <dl class="stats" aria-label="Collection statistics">
+          <div><dt id="paperCount">—</dt><dd>Papers</dd></div>
+          <div><dt id="venueCount">—</dt><dd>Venues</dd></div>
+          <div><dt id="yearCount">—</dt><dd>Years</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="explorer" aria-label="Interactive research map">
+      <div class="toolbar">
+        <label class="search-wrap">
+          <span class="sr-only">Search papers</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg>
+          <input id="searchInput" type="search" placeholder="Search title, venue, target…" autocomplete="off">
+          <kbd>/</kbd>
+        </label>
+        <div class="category-filters" id="categoryFilters" aria-label="Filter by research category"></div>
+        <div class="view-actions">
+          <button id="resetButton" type="button" title="Show the full map">Overview</button>
+          <button id="zoomOutButton" class="icon-button" type="button" aria-label="Zoom out">−</button>
+          <button id="zoomInButton" class="icon-button" type="button" aria-label="Zoom in">+</button>
+        </div>
+      </div>
+
+      <div class="map-shell" id="mapShell">
+        <svg id="map" role="img" aria-label="Timeline map of jailbreak research papers">
+          <g id="viewport">
+            <g id="timelineLayer"></g>
+            <g id="edgeLayer"></g>
+            <g id="nodeLayer"></g>
+          </g>
+        </svg>
+        <div class="map-hint" id="mapHint">Drag to pan · Scroll to zoom · Select a paper to trace connections</div>
+        <div class="legend" aria-label="Connection legend">
+          <span><i class="line affinity"></i>Related approach</span>
+          <span><i class="line counterpoint"></i>Attack–defense counterpoint</span>
+          <span><i class="line context"></i>Context / mechanism</span>
+          <button id="legendInfo" type="button" aria-label="Explain relationships">?</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <aside class="detail-panel" id="detailPanel" aria-hidden="true">
+    <button class="panel-close" id="panelClose" type="button" aria-label="Close details">×</button>
+    <div class="panel-kicker" id="panelKicker"></div>
+    <h2 id="panelTitle"></h2>
+    <div class="panel-meta" id="panelMeta"></div>
+    <p class="panel-abstract" id="panelAbstract"></p>
+    <div class="panel-relations">
+      <span id="relationCount"></span>
+      <span class="derived-label">metadata-derived links</span>
+    </div>
+    <div class="panel-links" id="panelLinks"></div>
+  </aside>
+
+  <dialog id="aboutDialog">
+    <button class="dialog-close" type="button" aria-label="Close">×</button>
+    <div class="eyebrow">About this map</div>
+    <h2>Orientation, not ontology.</h2>
+    <p>The Observatory turns the repository’s conference lists and citation index into an explorable research landscape. Papers are positioned by publication year and research category.</p>
+    <p>Connections are computed from shared metadata and title vocabulary. They suggest useful reading paths; they do <strong>not</strong> claim citation, influence, reproduction, or direct rebuttal.</p>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

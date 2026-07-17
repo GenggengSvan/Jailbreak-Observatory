@@ -3,6 +3,14 @@
 [![GitHub Repo stars](https://img.shields.io/github/stars/GenggengSvan/Jailbreak-Observatory)](https://github.com/GenggengSvan/Jailbreak-Observatory)
 <img src="https://img.shields.io/badge/Jailbreak-green">
 
+## 🔭 Interactive Research Map
+
+Explore the collection as a visual timeline of attacks, defenses, benchmarks, and mechanism studies:
+
+### **[Open the Jailbreak Observatory →](https://genggengsvan.github.io/Jailbreak-Observatory/)**
+
+Select a paper to reveal metadata-derived research neighbors and attack–defense counterpoints. The original Markdown collection remains the source of truth; the visualization dataset is rebuilt automatically for GitHub Pages.
+
 > [!Important]
 >
 > In this repository, you can find 📊 the [acceptance status of papers related to Jailbreak research](#document-list-by-conference) and 📑 the [top 100 most cited Jailbreak articles](#cite).
