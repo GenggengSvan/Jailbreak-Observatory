@@ -15,7 +15,7 @@
       "venue": "ICML",
       "year": 2026,
       "url": "https://icml.cc/virtual/2026/papers.html?filter=titles",
-      "paperCount": 46
+      "paperCount": 47
     },
     {
       "venue": "AAAI",
@@ -1457,7 +1457,7 @@
       "url": "https://icml.cc/virtual/2026/poster/65189",
       "officialSource": "https://icml.cc/virtual/2026/papers.html?filter=titles",
       "abstractSource": "https://icml.cc/virtual/2026/poster/65189",
-      "abstract": "The integration of audio modality into Large Audio Language Models (LALMs) significantly expands their attack surface. Existing jailbreak paradigms predominantly treat audio as a carrier for malicious payloads, relying on semantic optimization, acoustic parameter control, or additive perturbation to embed harmful content into the audio signal. In this work, we challenge this necessity and propose a new paradigm in which the role of audio shifts from content injection to safety alignment interference. We reveal that LALM safety alignment can be compromised solely by specific Acoustic Latent Semantics (ALS) , the underlying paralinguistic features intrinsic to the priors of audio generative models. Distinct from previous works that leverage explicit acoustic parameters to merely style malicious audio, we demonstrate that interference audio, benign in content but infused with specific ALS, can serve as a universal jailbreak trigger. Leveraging this insight, we propose the Acoustic Interference Attack (AIA) , which decouples the attack payload from the audio. Specifically, AIA employs a set of universal, instruction-neutral interference audio, enabling standard malicious text queries to bypass safety alignment without instance-specific optimization. Extensive experiments on 10 LALMs across five datasets demonstrate that AIA achieves the state-of-the-art attack success rate. Furthermore, our interpretability analysis uncovers the inference path drift induced by AIA and identifies the inherent effective patterns within ALS, revealing the fundamental vulnerability of cross-modal alignment in LALMs.",
+      "abstract": "The integration of audio modality into Large Audio Language Models (LALMs) significantly expands their attack surface. Existing jailbreaks predominantly treat audio as a carrier for malicious payloads, relying on semantic optimization, acoustic parameter control, or additive perturbation to embed harmful content into the audio signal. In this work, we challenge this necessity and propose a new paradigm in which the role of audio shifts from content injection to safety alignment interference. We reveal that LALM safety alignment can be compromised solely by specific Acoustic Latent Semantics (ALS) , the underlying paralinguistic features intrinsic to the priors of audio generative models. Distinct from previous works that leverage explicit acoustic parameters to merely style malicious audio, we demonstrate that interference audio, benign in content but infused with specific ALS, can serve as a universal jailbreak trigger. Leveraging this insight, we propose Acoustic Interference Attack (AIA) , which decouples the attack payload from the audio. It employs a set of universal, instruction-neutral interference audio, enabling standard malicious text queries to bypass safety alignment without instance-specific optimization. Experiments on 10 LALMs across five datasets demonstrate that AIA achieves the state-of-the-art attack success rate. Furthermore, our interpretability analysis uncovers the inference path drift induced by AIA and identifies the inherent effective patterns within ALS, revealing the fundamental vulnerability of cross-modal alignment in LALMs.",
       "relevanceScore": 19,
       "relevanceSignals": [
         "jailbreak",
@@ -1510,7 +1510,7 @@
       "url": "https://icml.cc/virtual/2026/poster/64835",
       "officialSource": "https://icml.cc/virtual/2026/papers.html?filter=titles",
       "abstractSource": "https://icml.cc/virtual/2026/poster/64835",
-      "abstract": "Recent work has demonstrated the potential of contrastive steering for jailbreaking Large Language Models (LLMs). However, existing methods rely on limited and inherently biased contrastive prompts and require laborious manual tuning of steering strength, limiting their robustness and effectiveness. In this paper, we leverage the idea of model extraction to guide the learned steering vectors to approximate the ideal one and propose tuning the steering strength adaptively based on contrastive activations' statistics. Experiments demonstrate that our method notably improves the effectiveness and robustness of probe-based steering, without any extra contrastive prompts or laborious manual tuning. Being an attack paper, this paper focuses on revealing the breakdown of fortified LLMs, raising the average harmfulness score from 6\\% to 70\\%.",
+      "abstract": "Recent work has demonstrated the potential of contrastive steering for jailbreaking Large Language Models (LLMs). However, existing methods rely on limited and inherently biased contrastive prompts and require laborious manual tuning of steering strength, limiting their robustness and effectiveness. In this paper, we leverage the idea of model extraction to guide the learned steering vectors to approximate the ideal one and propose tuning the steering strength adaptively based on contrastive activations' statistics. Experiments demonstrate that our method notably improves the effectiveness and robustness of probe-based steering, without any extra contrastive prompts or laborious manual tuning. Being an attack paper, this paper focuses on revealing the breakdown of fortified LLMs, raising the average harmfulness score from 6\\% to 70\\%. Our code is available at \\url{https://github.com/fhdnskfbeuv/adaptiveSteering}.",
       "relevanceScore": 8,
       "relevanceSignals": [
         "jailbreak"
@@ -1582,7 +1582,7 @@
     {
       "venue": "ICML",
       "year": 2026,
-      "title": "Decoy for the Judge: Disrupting Multi-Turn Jailbreaks using Semantics-Preserving Output Rewriting",
+      "title": "D-Judge: Disrupting Multi-Turn Jailbreaks using Semantics-Preserving Output Rewriting",
       "authors": [
         "Huanli Gong",
         "Zhipeng Wei",
@@ -1599,12 +1599,10 @@
       "url": "https://icml.cc/virtual/2026/poster/65706",
       "officialSource": "https://icml.cc/virtual/2026/papers.html?filter=titles",
       "abstractSource": "https://icml.cc/virtual/2026/poster/65706",
-      "abstract": "Multi-turn jailbreak attacks have emerged as a powerful threat to LLM safety, leveraging feedback from auxiliary judge models to iteratively refine harmful queries. Existing defenses mainly focus on detecting or blocking harmful content at the final turn, leaving the judge-driven refinement loop intact and allowing attackers to extract informative feedback from intermediate interactions. We introduce D ecoy for the J udge (DJ), a semantics-preserving output rewriting approach that intervenes directly in this feedback loop by modifying the victim LLM’s responses before they are evaluated by the attacker’s judge. By misaligning the judge’s feedback signal, DJ perturbs the judge-driven refinement loop and degrades the attacker’s optimization process while preserving the semantic content of the original response. To enable robust and transferable rewriting, we construct a dataset that captures fine-grained distinctions among semantically similar responses with differing harmfulness signals. Leveraging this dataset, DJ is trained using a combination of supervised fine-tuning (SFT) and direct preference optimization (DPO), allowing it to reliably manipulate judge feedback across diverse judge LLMs. Experiments on HarmBench show that DJ significantly reduces the success rate of state-of-the-art multi-turn jailbreaks, while preserving performance on benign multi-turn benchmarks.",
-      "relevanceScore": 15,
+      "abstract": "Multi-turn jailbreak attacks pose a growing threat to large language model (LLM) safety because they exploit feedback from auxiliary judge models to iteratively refine prompts toward harmful goals. Existing defenses largely detect or block unsafe content at individual turns or at the final response, leaving the judge-driven refinement loop intact and allowing attackers to extract informative feedback from intermediate interactions. We introduce D-Judge, a semantics-preserving output rewriting defense that intervenes directly in this loop by rewriting the victim LLM’s responses before they are evaluated by the attacker’s judge. By misaligning the judge’s feedback signal without changing the meaning of the original response, D-Judge derails the attacker’s prompt-refinement process, causing subsequent queries to be optimized against a distorted signal of attack progress. To improve D-Judge’s ability to produce such rewrites, we construct a dataset of semantically equivalent response pairs that induce different judge-assigned harmfulness scores, and use it for supervised fine-tuning followed by direct preference optimization. Experiments on HarmBench show that D-Judge reduces the success rate of state-of-the-art multi-turn jailbreaks while preserving performance on benign benchmarks.",
+      "relevanceScore": 8,
       "relevanceSignals": [
-        "jailbreak",
-        "harmful inputs",
-        "model safety"
+        "jailbreak"
       ],
       "category": "Attack",
       "target": "Text"
@@ -1655,7 +1653,7 @@
       "url": "https://icml.cc/virtual/2026/poster/65264",
       "officialSource": "https://icml.cc/virtual/2026/papers.html?filter=titles",
       "abstractSource": "https://icml.cc/virtual/2026/poster/65264",
-      "abstract": "Mitigating sensitive and harmful outputs is fundamental to ensuring safe deployment of LLMs. Existing approaches typically follow two paradigms: Knowledge Deletion (KD), which erases undesirable information during training, and Distinguishable Refusal (DR), which steers models away from using sensitive knowledge during inference. Despite rapid progress, KD-based unlearning struggles with biased deletion due to suppressing specific token sequences as a substitute for complete knowledge removal, whereas DR-based unlearning risks the re-emergence of harmful knowledge because the underlying knowledge remains intact. To address these issues, we propose Distinguishable Deletion ($\\mathrm{D^2}$), a paradigm that restricts the response distribution in the latent space rather than specific tokens to erase undesirable knowledge, while distinguishing it from retained knowledge, enabling a refusal mechanism to handle unlearned inputs safely and coherently. To implement $\\mathrm{D^2}$, we introduce an energy index that quantifies the presence of knowledge and the separation between unlearned and retained content. Mathematical and empirical analyses show that energy is both accurate and efficient, enabling Energy-based Unlearning Alignment (EUA) to enforce energy-boundary unlearning during training and apply an energy-based refusal mechanism at inference. Extensive experiments demonstrate that EUA significantly outperforms previous methods, indicating the superiority of $\\mathrm{D^2}$.",
+      "abstract": "Mitigating sensitive and harmful outputs is fundamental to ensuring safe deployment of LLMs. Existing approaches typically follow two paradigms: Knowledge Deletion (KD), which erases undesirable information during training, and Distinguishable Refusal (DR), which steers models away from using sensitive knowledge during inference. Despite rapid progress, KD-based unlearning struggles with biased deletion due to suppressing specific token sequences as a substitute for complete knowledge removal, whereas DR-based unlearning risks the re-emergence of harmful knowledge because the underlying knowledge remains intact. To address these issues, we propose Distinguishable Deletion ($\\mathrm{D^2}$), a paradigm that restricts the response distribution in the latent representation rather than specific tokens to erase undesirable knowledge, while distinguishing it from retained knowledge, enabling a refusal mechanism to handle unlearned inputs safely and coherently. To implement $\\mathrm{D^2}$, we introduce an energy index that quantifies the presence of knowledge and the separation between unlearned and retained content. Mathematical and empirical analyses show that energy is both accurate and efficient, enabling Energy-based Unlearning Alignment (EUA) to enforce energy-boundary unlearning during training and apply an energy-based refusal mechanism at inference. Extensive experiments demonstrate that EUA significantly outperforms previous methods, indicating the superiority of $\\mathrm{D^2}$. Our code is available at https://github.com/Puning97/EUA-for-LLM-Unlearning.",
       "relevanceScore": 5,
       "relevanceSignals": [
         "refusal behavior"
@@ -1666,7 +1664,7 @@
     {
       "venue": "ICML",
       "year": 2026,
-      "title": "FoeGlass: When Simple In-Context Learning Is Enough for Red Teaming Audio Deepfake Detectors",
+      "title": "FoeGlass: Simple In-Context Learning Is Enough for Red Teaming Audio Deepfake Detectors",
       "authors": [
         "Sepehr Dehdashtian",
         "Jacob Seidman",
@@ -1704,7 +1702,7 @@
       "url": "https://icml.cc/virtual/2026/poster/61220",
       "officialSource": "https://icml.cc/virtual/2026/papers.html?filter=titles",
       "abstractSource": "https://icml.cc/virtual/2026/poster/61220",
-      "abstract": "Safety alignment in large language models (LLMs) and multimodal large language models (MLLMs) is commonly assumed to operate as a near-binary threshold mechanism. We challenge this assumption by revealing that safety behavior is governed by an \\emph{instability region} where small perturbations induce stochastic refusal decisions rather than deterministic outcomes. We develop a multi-metric diagnostic framework combining external and internal signals to characterize this instability. Through systematic experiments, we identify a characteristic \\emph{diagnostic signature}: inputs in unstable regimes exhibit elevated output uncertainty yet \\emph{decreased} internal safety activation, a decoupling phenomenon that explains why detection-based defenses fail against sophisticated attacks. Building on this framework, we introduce \\textbf{Furina}, a jailbreak attack that deliberately induces this signature through fragmented, scene-anchored prompts without model-specific optimization. Furina outperforms strong single-turn and multi-turn baselines on HarmBench and achieves competitive results on MM-SafetyBench, demonstrating that uncertainty amplification provides a principled and transferable mechanism for understanding safety vulnerabilities. Code and supplementary materials: \\url{https://anonymous.4open.science/r/Furina_Jailbreak-EF7C}.",
+      "abstract": "Safety alignment in large language models (LLMs) and multimodal large language models (MLLMs) is commonly assumed to operate as a near-binary threshold mechanism. We challenge this assumption by revealing that safety behavior is governed by an \\emph{instability region} where small perturbations induce stochastic refusal decisions rather than deterministic outcomes. We develop a multi-metric diagnostic framework combining external and internal signals to characterize this instability. Through systematic experiments, we identify a characteristic \\emph{diagnostic signature}: inputs in unstable regimes exhibit elevated output uncertainty yet \\emph{decreased} internal safety activation, a decoupling phenomenon that explains why detection-based defenses fail against sophisticated attacks. Building on this framework, we introduce \\textbf{Furina}, a jailbreak attack that deliberately induces this signature through fragmented, scene-anchored prompts without model-specific optimization. Furina outperforms strong single-turn and multi-turn baselines on HarmBench and achieves competitive results on MM-SafetyBench, demonstrating that uncertainty amplification provides a principled and transferable mechanism for understanding safety vulnerabilities. Code is available at: \\url{https://github.com/0xCavaliers/Furina_Jailbreak}.",
       "relevanceScore": 15,
       "relevanceSignals": [
         "jailbreak",
@@ -1782,7 +1780,7 @@
       "url": "https://icml.cc/virtual/2026/poster/66343",
       "officialSource": "https://icml.cc/virtual/2026/papers.html?filter=titles",
       "abstractSource": "https://icml.cc/virtual/2026/poster/66343",
-      "abstract": "The visual modality of vision-language models (VLMs) is an underexplored attack surface for bypassing safety alignment. We introduce four jailbreak attacks exploiting the vision component: (1) encoding harmful instructions as visual symbol sequences with a decoding legend, (2) replacing harmful objects with benign substitutes (e.g., bomb $\\rightarrow$ banana) then prompting for harmful actions using the substitute term, (3) replacing harmful text in images (e.g., on book covers) with benign words while visual context preserves the original meaning, and (4) visual analogy puzzles whose solution requires inferring a prohibited concept. Evaluating across five frontier VLMs, we find visual attacks achieve comparable and sometimes superior success rates to their text-only counterparts. For example, our visual cipher achieves 40.9\\% attack success on Claude-Haiku-4.5 versus 10.7\\% for an equivalent textual cipher. To further our insight into the attack mechanism, we present preliminary interpretability and mitigation results. These findings highlight that robust VLM alignment requires treating vision as a first-class target for safety post-training.",
+      "abstract": "The visual modality of vision-language models (VLMs) is an underexplored attack surface for bypassing safety alignment. We introduce four jailbreak attacks exploiting the vision component: (1) encoding harmful instructions as visual symbol sequences with a decoding legend, (2) replacing harmful objects with benign substitutes (e.g., bomb $\\rightarrow$ banana) then prompting for harmful actions using the substitute term, (3) replacing harmful text in images (e.g., on book covers) with benign words while visual context preserves the original meaning, and (4) visual analogy puzzles whose solution requires inferring a prohibited concept. Evaluating across six frontier VLMs, our visual attacks bypass safety alignment and expose a cross-modality alignment gap: text-based safety training does not automatically generalize to harmful intent conveyed visually. For example, our visual cipher achieves 40.9\\% attack success on Claude-Haiku-4.5 versus 10.7\\% for an equivalent textual cipher. To further our insight into the attack mechanism, we present preliminary interpretability and mitigation results. These findings highlight that robust VLM alignment requires treating vision as a first-class target for safety post-training.",
       "relevanceScore": 19,
       "relevanceSignals": [
         "jailbreak",
@@ -1813,7 +1811,7 @@
       "url": "https://icml.cc/virtual/2026/poster/63777",
       "officialSource": "https://icml.cc/virtual/2026/papers.html?filter=titles",
       "abstractSource": "https://icml.cc/virtual/2026/poster/63777",
-      "abstract": "Adversarial images pose a severe security threat to multimodal large language models through prompt injection. Existing defenses largely lack a principled understanding of the underlying mechanisms and struggle to balance efficiency and fidelity. In this work, we show that successful adversarial attacks do not rely on the entire image uniformly but instead depend on a small subset of critical image tokens. Based on this insight, we propose a defense that first localizes these critical tokens via gradient analysis and then neutralizes them through masking. We show that attribution based on output probabilities fails when adversarial attacks preserve the predicted token. To overcome this limitation, we introduce the Hidden-State Gradient Norm score for adversarial behavior attribution and prove that its ranking is consistent with that of the full adversarial loss gradient, providing a theoretical guarantee for accurate localization. GTM requires only a single forward–backward pass to identify and zero out a small number of high-scoring tokens, effectively disrupting the adversarial attack path. Extensive experiments on prompt injection and multimodal jailbreak attacks demonstrate that our approach reduces attack success rates (ASR) to near zero while preserving model utility with negligible computational overhead.",
+      "abstract": "Adversarial images pose a severe security threat to multimodal large language models through prompt injection. Existing defenses largely lack a principled understanding of the underlying mechanisms and struggle to balance efficiency and fidelity. In this work, we show that successful adversarial attacks do not rely on the entire image uniformly but instead depend on a small subset of critical image tokens. Based on this insight, we propose a defense that first localizes these critical tokens via gradient analysis and then neutralizes them through masking. We show that attribution based on output probabilities fails when adversarial attacks preserve the predicted token. To overcome this limitation, we introduce the Hidden-State Gradient Norm score for adversarial behavior attribution and prove that its ranking is consistent with that of the full adversarial loss gradient, providing a theoretical guarantee for accurate localization. GTM requires only a single forward–backward pass to identify and zero out a small number of high-scoring tokens, effectively disrupting the adversarial attack path. Extensive experiments on prompt injection and multimodal jailbreak attacks demonstrate that our approach reduces attack success rates (ASR) to near zero while preserving model utility with negligible computational overhead. The code is available at: https://github.com/fish883/GTM-Defense.",
       "relevanceScore": 16,
       "relevanceSignals": [
         "jailbreak",
@@ -1825,7 +1823,7 @@
     {
       "venue": "ICML",
       "year": 2026,
-      "title": "Lookahead-GCG: Improving Multi-Model Gradient-Based Jailbreaking Attacks via Nesterov Momentum",
+      "title": "Lookahead-GCG: Improving Universal Multi-Model Optimization-Based Jailbreaking Attacks via Stochastic Nesterov Optimization",
       "authors": [
         "Rong Feng",
         "Haohan Zhao",
@@ -1845,7 +1843,7 @@
       "url": "https://icml.cc/virtual/2026/poster/66388",
       "officialSource": "https://icml.cc/virtual/2026/papers.html?filter=titles",
       "abstractSource": "https://icml.cc/virtual/2026/poster/66388",
-      "abstract": "Transferable jailbreaking attacks enable red-teaming of black-box large language models by optimizing adversarial prompts on open-source surrogates. A natural approach to improve transferability is multi-model training---optimizing against multiple source models simultaneously. Yet this approach has been largely abandoned, as it yields only marginal gains with standard optimizers. We argue the root cause is poor generalization: standard gradient descent lacks stability whenaggregating gradients from diverse models. Since GCG and its variants~\\citep{zou2023universal, jia2024improved, yang2025guiding} mplicitly perform SGD in discrete token space, they inherit this instability in multi-model settings.We address this with \\textbf{Lookahead-GCG}, which combines: (1) Stochastic Nesterov Accelerated Gradient (SNAG), whose lookahead mechanism reduces sensitivity to individual gradient updates, providing stability for multi-model optimization; (2) embedding-space momentum accumulation, which enables SNAG in discrete token optimization; and (3) maximally distant initialization, which exploits SNAG's improved generalization by starting from a universally beneficial point. Experiments show our method achieves 50.37\\% ASR on open-source and 34.03\\% on closed-source LLMs, outperforming GCG and TransferAttack with +11.78\\% gains from multi-model optimization.",
+      "abstract": "Transferable jailbreaking attacks enable red-teaming of black-box large language models by optimizing adversarial prompts on open-source surrogates. A natural approach to improve transferability is multi-model training---optimizing against multiple source models simultaneously. Yet this approach has been largely abandoned, as it yields only marginal gains with standard optimizers. We argue the root cause is poor generalization: standard gradient descent lacks stability when aggregating gradients from diverse models. Since GCG and its variants implicitly perform SGD in discrete token space, they inherit this instability in multi-model settings. We address this with Lookahead-GCG, which combines: (1) Stochastic Nesterov Accelerated Gradient (SNAG), whose lookahead mechanism reduces sensitivity to individual gradient updates, providing stability for multi-model optimization; (2) embedding-space momentum accumulation, which enables SNAG in discrete token optimization; and (3) maximally distant initialization, which exploits SNAG's improved generalization by starting from a universally beneficial point. Experiments show our method achieves 50.37% ASR on open-source and 34.03\\% on closed-source LLMs, outperforming GCG and TransferAttack with +11.78% gains from multi-model optimization.",
       "relevanceScore": 14,
       "relevanceSignals": [
         "jailbreak",
@@ -1874,7 +1872,7 @@
       "url": "https://icml.cc/virtual/2026/poster/61928",
       "officialSource": "https://icml.cc/virtual/2026/papers.html?filter=titles",
       "abstractSource": "https://icml.cc/virtual/2026/poster/61928",
-      "abstract": "Multimodal LLMs (MLLMs) are increasingly deployed across diverse applications, but they pose significant safety concerns due to cross-modal interactions. To improve model safety awareness, existing methods rely on explicit-risk preference datasets and reinforcement learning guided by safety rewards. While effective in improving models' safety awareness, these methods still face data scarcity and reward hacking in implicit-risk scenarios, leading to insufficient risk perception and harmful responses. To address these challenges, we propose Meerkat-VL, a framework that enables models to perceive and verify implicit risks while generating safe responses. First, we introduce Meerkat-Safe, the first training dataset with detailed labels for implicit risks. Second, we develop Normative Perceptual Self-Verification, which enables models to verify both perceptual reasoning and responses. This process provides denser and more reliable rewards for perception accuracy and answer safety, thereby mitigating reward hacking. Finally, we propose Dual-Objective Perceptual Consistency Alignment, encouraging models to generate safe responses by penalizing answers that follow safe templates without accurate risk perception. Extensive experiments show that Meerkat-VL consistently outperforms baselines on multimodal safety benchmarks, improving safety and helpfulness by 16\\% and 13\\%, and achieving a 32\\% safety gain on implicit-risk tasks. Our codes are available here .",
+      "abstract": "Multimodal LLMs (MLLMs) are increasingly deployed across diverse applications, but they pose significant safety concerns due to cross-modal interactions. To improve model safety awareness, existing methods rely on explicit-risk preference datasets and reinforcement learning guided by safety rewards. While effective in improving models' safety awareness, these methods still face data scarcity and reward hacking in implicit-risk scenarios, leading to insufficient risk perception and harmful responses. To address these challenges, we propose Meerkat-VL, a framework that enables models to perceive and verify implicit risks while generating safe responses. First, we introduce Meerkat-Safe, the first training dataset with detailed labels for implicit risks. Second, we develop Normative Perceptual Self-Verification, which enables models to verify both perceptual reasoning and responses. This process provides denser and more reliable rewards for perception accuracy and answer safety, thereby mitigating reward hacking. Finally, we propose Dual-Objective Perceptual Consistency Alignment, encouraging models to generate safe responses by penalizing answers that follow safe templates without accurate risk perception. Extensive experiments show that Meerkat-VL consistently outperforms baselines on multimodal safety benchmarks, improving safety and helpfulness by 16% and 13%, and achieving a 32% safety gain on implicit-risk tasks. Our codes are available at https://github.com/Tunanzzz/Meerkat-VL.",
       "relevanceScore": 10,
       "relevanceSignals": [
         "safety benchmark",
@@ -1907,7 +1905,7 @@
       "url": "https://icml.cc/virtual/2026/poster/63565",
       "officialSource": "https://icml.cc/virtual/2026/papers.html?filter=titles",
       "abstractSource": "https://icml.cc/virtual/2026/poster/63565",
-      "abstract": "Red teaming is critical for uncovering vulnerabilities in Large Language Models (LLMs). While automated methods have improved scalability, existing approaches often rely on static heuristics or stochastic search, rendering them brittle against advanced safety alignment. To address this, we introduce \\textbf{Metis}, a framework that reformulates jailbreaking as inference-time policy optimization within an adversarial Partially Observable Markov Decision Process (POMDP). Metis employs a self-evolving metacognitive loop to perform causal diagnosis of a target's defense logic and leverages structured feedback as a semantic gradient to refine its policy, offering enhanced interpretability through transparent reasoning traces. Extensive evaluations across 10 diverse models demonstrate that Metis establishes a new state-of-the-art with an average Attack Success Rate (ASR) of 89.2\\%, maintaining high efficacy on resilient frontier models (e.g., 76.0\\% on O1 and 78.0\\% on GPT-5-chat) where traditional baselines exhibit substantial performance degradation. By replacing redundant exploration with directed optimization, Metis reduces token costs by an average of 8.2$\\times$ (and up to 11.4$\\times$). Our analysis reveals that current defenses remain systematically vulnerable to internally-steered, closed-loop reasoning trajectories, highlighting a critical need for next-generation defenses capable of reasoning about safety dynamically during inference.",
+      "abstract": "Red teaming is critical for uncovering vulnerabilities in Large Language Models (LLMs). While automated methods have improved scalability, existing approaches often rely on static heuristics or stochastic search, rendering them brittle against advanced safety alignment. To address this, we introduce \\textbf{Metis}, a framework that reformulates jailbreaking as inference-time policy optimization within an adversarial Partially Observable Markov Decision Process (POMDP). Metis employs a self-evolving metacognitive loop to perform causal diagnosis of a target's defense logic and leverages structured feedback as a semantic gradient to refine its policy, offering enhanced interpretability through transparent reasoning traces. Extensive evaluations across 10 diverse models demonstrate that Metis achieves the strongest average Attack Success Rate (ASR) among compared methods at 89.2\\%, maintaining high efficacy on resilient frontier models (e.g., 76.0\\% on O1 and 78.0\\% on GPT-5-chat) where traditional baselines exhibit substantial performance degradation. By replacing redundant exploration with directed optimization, Metis reduces token costs by an average of 8.2$\\times$ (and up to 11.4$\\times$). Our analysis reveals that current defenses remain vulnerable to internally-steered, closed-loop reasoning trajectories under the tested settings, highlighting a critical need for next-generation defenses capable of reasoning about safety dynamically during inference.",
       "relevanceScore": 16,
       "relevanceSignals": [
         "jailbreak",
@@ -1939,7 +1937,7 @@
       "url": "https://icml.cc/virtual/2026/poster/66117",
       "officialSource": "https://icml.cc/virtual/2026/papers.html?filter=titles",
       "abstractSource": "https://icml.cc/virtual/2026/poster/66117",
-      "abstract": "The capabilities of large language models (LLMs), particularly large reasoning models (LRMs), are rapidly advancing. This raises concerns about whether LRMs can maintain their safety awareness throughout long-form reasoning. Frustratingly, we identify a prevalent safety issue across LLMs and LRMs, where LRMs can reveal dangerous thoughts, leading to harmful knowledge elicitation when confronting sensitive yet benign topics. For example, when explaining the chemical context of Lewisite, a biological weapon, LRMs analyze its synthesis in their reasoning without recognizing the associated risks. We refer to this issue as the unintended elicitation issue. Experiments on our benchmark show that it is a common issue across current LRMs due to their strong multi-step reasoning capabilities. To address this issue, we propose placing LLMs in our synthesized open-ended environments, allowing them to self-search for a safety reasoning pattern to respond responsibly and helpfully. We first design a scalable data synthesis pipeline to generate data that triggers the ``unintended elicitation'' issue. We further propose a safety-first reward model design, which prioritizes safety while also evaluating the helpfulness of responses and the faithfulness of reasoning. Experiments show that our method improves safety, reduces over-refusal, and maintains strong helpfulness, paving the way for safer deployment in high-stakes domains.",
+      "abstract": "The capabilities of large language models (LLMs), particularly large reasoning models (LRMs), are rapidly advancing. This raises concerns about whether LRMs can maintain their safety awareness throughout long-form reasoning. Frustratingly, we identify a prevalent safety issue across LLMs and LRMs, where LRMs can reveal dangerous thoughts, leading to harmful knowledge elicitation when confronting sensitive yet benign topics. For example, when explaining the chemical context of Lewisite, a biological weapon, LRMs analyze its synthesis in their reasoning without recognizing the associated risks. We refer to this issue as the unintended elicitation issue. Experiments on our benchmark show that it is a common issue across current LRMs due to their strong multi-step reasoning capabilities. To address this issue, we propose placing LLMs in our synthesized open-ended environments, allowing them to self-search for a safety reasoning pattern to respond responsibly and helpfully. We first design a scalable data synthesis pipeline to generate data that triggers the unintended elicitation issue. We further propose a safety-first reward model design, which prioritizes safety while also evaluating the helpfulness of responses and the faithfulness of reasoning. Experiments show that our method improves safety, reduces over-refusal, and maintains strong helpfulness, paving the way for safer deployment in high-stakes domains. Code is available at https://github.com/XinhaoS0101/Safety-CoT.",
       "relevanceScore": 5,
       "relevanceSignals": [
         "refusal behavior"
@@ -2100,7 +2098,7 @@
       "url": "https://icml.cc/virtual/2026/poster/64559",
       "officialSource": "https://icml.cc/virtual/2026/papers.html?filter=titles",
       "abstractSource": "https://icml.cc/virtual/2026/poster/64559",
-      "abstract": "Large language models (LLMs) are increasingly deployed in high-stakes settings, yet they remain vulnerable to sequential jailbreaks that exploit multi-turn interaction to circumvent safety mechanisms. Current safety evaluations are largely outcome-based, offering little insight into the latent decision processes that lead to unsafe compliance. We propose an interpretable cognitive modeling framework that couples a controlled elicitation paradigm, the Contextual Iowa Gambling Task (C-IGT), with a Generalized Rescorla--Wagner (GRW) architecture to decompose behavior into measurable mechanisms. Across a diverse set of mainstream LLMs, we find that sequential vulnerability is not explained by scale alone but emerges from interactions among cognitive factors, including optimism-biased learning, perceptual reward amplification, and choice inertia. Moreover, counterfactual feedback and psychologically framed rewards (e.g., regret, authority, threat) substantially accelerate the transition from refusal to compliance. These results yield principled cognitive profiles of LLM ``irrationality'' and provide insights for interdisciplinary research on LLM agents at the intersection of machine learning and human behavioral science.",
+      "abstract": "Large language models (LLMs) are increasingly deployed in high-stakes settings, yet they remain vulnerable to sequential jailbreaks that exploit multi-turn interaction to circumvent safety mechanisms. Current safety evaluations are largely outcome-based, offering little insight into the latent decision processes that lead to unsafe compliance. We propose an interpretable cognitive modeling framework that couples a controlled elicitation paradigm, the Contextual Iowa Gambling Task (C-IGT), with a Generalized Rescorla--Wagner (GRW) architecture to decompose behavior into measurable mechanisms. Across a diverse set of mainstream LLMs, we find that sequential vulnerability is not explained by scale alone but emerges from interactions among cognitive factors, including optimism-biased learning, perceptual reward amplification, and choice inertia. Moreover, counterfactual feedback and psychologically framed rewards (e.g., regret, authority, threat) substantially accelerate the transition from refusal to compliance. These results yield principled cognitive profiles of LLM \"irrationality\" and provide insights for interdisciplinary research on LLM agents at the intersection of machine learning and human behavioral science.",
       "relevanceScore": 13,
       "relevanceSignals": [
         "jailbreak",
@@ -2112,12 +2110,36 @@
     {
       "venue": "ICML",
       "year": 2026,
+      "title": "Prompt Injection as Role Confusion",
+      "authors": [
+        "Charles Ye",
+        "Jasmine Cui",
+        "Dylan Hadfield-Menell"
+      ],
+      "firstAuthorAffiliation": "N/A",
+      "track": "Main Conference",
+      "status": "Accepted",
+      "doi": "",
+      "url": "https://icml.cc/virtual/2026/poster/64605",
+      "officialSource": "https://icml.cc/virtual/2026/papers.html?filter=titles",
+      "abstractSource": "https://icml.cc/virtual/2026/poster/64605",
+      "abstract": "LLMs see the world as a single stream of text, partitioned into roles like <user> or <tool>. We trace prompt injection to role confusion : models perceive the source of text from how it sounds , not its labeled role. A command hidden in a webpage hijacks an agent simply because it sounds like <user> text, despite its <tool> label. We design role probes to measure how LLMs internally perceive \"who is speaking\", and find that injected text occupies the same representational space as the trusted role it imitates. We demonstrate this with CoT Forgery, a zero-shot attack that injects fabricated reasoning into user prompts and tool outputs. Models mistake the forgery for their own thoughts, yielding 60% attack success against frontier models with near-zero baselines. Strikingly, the degree of role confusion predicts attack success before a single token is generated. This mechanism generalizes beyond CoT Forgery to standard agent prompt injections, revealing prompt injection as a measurable consequence of role perception. To the model, sounding like a role is indistinguishable from being one.",
+      "relevanceScore": 8,
+      "relevanceSignals": [
+        "prompt injection"
+      ],
+      "category": "Attack",
+      "target": "Agent"
+    },
+    {
+      "venue": "ICML",
+      "year": 2026,
       "title": "Reasoning as an Attack Surface: Adaptive Evolutionary CoT Jailbreaks for LLMs",
       "authors": [
         "Jianan Li",
         "Simeng Qin",
         "Jiapeng Chen",
-        "Lionel WANG",
+        "Lionel Z. Wang",
         "Tianhang Zheng",
         "Xiaoshuang Jia",
         "Yang Liu",
@@ -2240,7 +2262,7 @@
       "url": "https://icml.cc/virtual/2026/poster/63918",
       "officialSource": "https://icml.cc/virtual/2026/papers.html?filter=titles",
       "abstractSource": "https://icml.cc/virtual/2026/poster/63918",
-      "abstract": "Safety alignment remains brittle under domain shift and noisy preference supervision. Existing robust alignment methods predominantly focus on data uncertainty in alignment data, while being less effective at addressing failures caused by optimization-induced fragility. In this work, we revisit robustness for safety alignment from an optimization geometry perspective, highlighting optimization-induced fragility as a complementary factor to data-space uncertainty. To address this, we propose ShaPO, a geometry-aware preference optimization framework that enforces worst-case alignment objectives via selective geometry control. We instantiate ShaPO at two levels: Token-level ShaPO stabilizes likelihood-based surrogate optimization, while Reward-level ShaPO enforces reward-consistent optimization and provides improved robustness under noisy supervision. Across diverse safety benchmarks and noisy preference settings, ShaPO consistently improves safety robustness over popular preference optimization methods. Moreover, ShaPO composes cleanly with data-robust objectives, yielding additional gains and empirically supporting the proposed optimization-geometry perspective. Our results highlight optimization geometry as a complementary and actionable axis for robust LLM safety alignment. The code is available at \\url{https://anonymous.4open.science/r/ShaPO-D1B0}.",
+      "abstract": "Safety alignment of large language models remains brittle under domain shift and noisy preference supervision. Most existing robust alignment methods focus on uncertainty in alignment data, while overlooking optimization-induced fragility in preference-based objectives. In this work, we revisit robustness for LLM safety alignment from an optimization geometry perspective, and argue that robustness failures cannot be addressed by data-centric methods alone. We propose \\textit{ShaPO}, a geometry-aware preference optimization framework that enforces worst-case alignment objectives via selective geometry control over alignment-critical parameter subspace. By avoiding uniform geometry constraints, ShaPO mitigates the over-regularization that can harm robustness under distribution shift. We instantiate ShaPO at two levels: token-level ShaPO stabilizes likelihood-based surrogate optimization, while reward-level ShaPO enforces reward-consistent optimization under noisy supervision. Across diverse safety benchmarks and noisy preference settings, ShaPO consistently improves safety robustness over popular preference optimization methods. Moreover, ShaPO composes cleanly with data-robust objectives, yielding additional gains and empirically supporting the proposed optimization-geometry perspective. The code is available at \\url{https://github.com/liujilong0116/ShaPO}.",
       "relevanceScore": 10,
       "relevanceSignals": [
         "safety benchmark",
@@ -2298,7 +2320,7 @@
       "url": "https://icml.cc/virtual/2026/poster/64556",
       "officialSource": "https://icml.cc/virtual/2026/papers.html?filter=titles",
       "abstractSource": "https://icml.cc/virtual/2026/poster/64556",
-      "abstract": "With the rapid evolution of foundation models, Large Language Model (LLM) agents have demonstrated increasingly powerful tool-use capabilities. However, this proficiency introduces significant security risks, as malicious actors can manipulate agents into executing tools to generate harmful content. While existing defensive mechanisms are effective, they frequently suffer from the over-refusal problem, where increased safety strictness compromises the agent's utility on benign tasks. To mitigate this trade-off, we propose \\textsc{SafeHarbor}, a novel framework designed to establish precise decision boundaries for LLM agents. Unlike static guidelines, \\textsc{SafeHarbor} extracts context-aware defense rules through enhanced adversarial generation. We design a local hierarchical memory system for dynamic rule injection, offering a training-free, efficient, and plug-and-play solution. Furthermore, we introduce an information entropy-based self-evolution mechanism that continuously optimizes the memory structure through dynamic node splitting and merging. Extensive experiments demonstrate that \\textsc{SafeHarbor} achieves state-of-the-art performance on both ambiguous benign tasks and explicit malicious attacks, notably attaining a peak benign utility of 63.6\\% on GPT-4o while maintaining a robust refusal rate exceeding 93\\% against harmful requests.",
+      "abstract": "Recent advances in foundation models have transformed LLMs from passive conversational systems into autonomous agents capable of reasoning and tool execution. While these capabilities unlock substantial practical value, they also introduce new security risks, as adversaries can manipulate agents into performing harmful actions in real-world environments. Existing defense strategies mitigate such threats but frequently struggle to balance safety and utility, resulting in over-refusal of benign user requests. To mitigate this trade-off, we propose SafeHarbor, a novel framework designed to establish precise decision boundaries for LLM agents. Unlike static guidelines, SafeHarbor extracts context-aware defense rules through enhanced adversarial generation. We design a local hierarchical memory system for dynamic rule injection, offering a training-free, efficient, and plug-and-play solution. Furthermore, we introduce an information entropy-based self-evolution mechanism that continuously optimizes the memory structure through dynamic node splitting and merging. Extensive experiments demonstrate that SafeHarbor achieves state-of-the-art performance on both ambiguous benign tasks and explicit malicious attacks, notably attaining a peak benign utility of 63.6\\% on GPT-4o while maintaining a robust refusal rate exceeding 93\\% against harmful requests. The source code is publicly available at https://github.com/ljj-cyber/SafeHarbor.",
       "relevanceScore": 9,
       "relevanceSignals": [
         "refusal behavior",
@@ -2329,7 +2351,7 @@
       "url": "https://icml.cc/virtual/2026/poster/65893",
       "officialSource": "https://icml.cc/virtual/2026/papers.html?filter=titles",
       "abstractSource": "https://icml.cc/virtual/2026/poster/65893",
-      "abstract": "Search agents connect LLMs to the Internet, enabling them to access broader and more up-to-date information. However, this also introduces a new threat surface: unreliable search results can mislead agents into producing unsafe outputs. Real-world incidents and our two in-the-wild observations show that such failures can occur in practice. To study this threat systematically, we propose SafeSearch, an automated red-teaming framework that is scalable, cost-efficient, and lightweight, enabling harmless safety evaluation of search agents. Using this, we generate 300 test cases spanning five risk categories (e.g., misinformation and prompt injection) and evaluate three search agent scaffolds across 17 representative LLMs. Our results reveal substantial vulnerabilities in LLM-based search agents, with the highest ASR reaching 90.5\\% for GPT-4.1-mini in a search-workflow setting. Moreover, we find that common defenses, such as reminder prompting, offer limited protection. Overall, SafeSearch provides a practical way to measure and improve the safety of LLM-based search agents.",
+      "abstract": "Search agents connect LLMs to the Internet, enabling them to access broader and more up-to-date information. However, this also introduces a new threat surface: unreliable search results can mislead agents into producing unsafe outputs. Real-world incidents and our two in-the-wild observations show that such failures can occur in practice. To study this threat systematically, we propose SafeSearch, an automated red-teaming framework that is scalable, cost-efficient, and lightweight, enabling sandboxed safety evaluation of search agents. Using this, we generate 300 test cases spanning five risk categories (e.g., misinformation and prompt injection) and evaluate three search agent scaffolds across 17 representative LLMs. Our results reveal substantial vulnerabilities in LLM-based search agents, with the highest ASR reaching 90.5\\% for GPT-4.1-mini in a search-workflow setting. Moreover, we find that common defenses, such as reminder prompting, offer limited protection. Overall, SafeSearch provides a practical way to measure and improve the safety of LLM-based search agents.",
       "relevanceScore": 14,
       "relevanceSignals": [
         "prompt injection",
@@ -2355,7 +2377,7 @@
       "url": "https://icml.cc/virtual/2026/poster/66551",
       "officialSource": "https://icml.cc/virtual/2026/papers.html?filter=titles",
       "abstractSource": "https://icml.cc/virtual/2026/poster/66551",
-      "abstract": "Large Audio–Language Models (LALMs) are becoming essential as a powerful multimodal backbone for real-world applications. However, recent studies show that audio inputs can more easily elicit harmful responses than text, exposing new risks toward deployment. While safety alignment has made initial advances in LLMs and Large Vision–Language Models (LVLMs), we find that vanilla adaptation of these approaches to LALMs faces two key limitations: 1) LLM-based steering fails under audio input due to the large distributional gap between activations, and 2) prompt-based defenses induce over-refusals on benign-speech queries. To address these challenges, we propose S afe- A blated R efusal Steer ing (SARSteer), an effective inference-time defense framework for LALMs. Specifically, SARSteer leverages text-derived refusal steering to enforce rejection without manipulating audio inputs and introduces decomposed safe-space ablation to mitigate over-refusal. Extensive experiments demonstrate that SARSteer significantly improves harmful-query refusal while preserving benign responses, establishing a principled step toward safety alignment in LALMs.",
+      "abstract": "Large Audio–Language Models (LALMs) are becoming essential as a powerful multimodal backbone for real-world applications. However, recent studies show that audio inputs can more easily elicit harmful responses than text, exposing new risks toward deployment. While safety alignment has made initial advances in LLMs and Large Vision–Language Models (LVLMs), we find that vanilla adaptation of these approaches to LALMs faces two key limitations: 1) LLM-based steering fails under audio input due to the large distributional gap between activations, and 2) prompt-based defenses induce over-refusals on benign-speech queries. To address these challenges, we propose S afe- A blated R efusal Steer ing (SARSteer), an effective inference-time defense framework for LALMs. Specifically, SARSteer leverages text-derived refusal steering to enforce rejection without manipulating audio inputs and introduces decomposed safe-space ablation to mitigate over-refusal. Extensive experiments demonstrate that SARSteer significantly improves harmful-query refusal while preserving benign responses, establishing a principled step toward safety alignment in LALMs. The codes and constructed datasets are released at https://github.com/linweiii/SARSteer.",
       "relevanceScore": 7,
       "relevanceSignals": [
         "refusal behavior",
@@ -2412,7 +2434,7 @@
       "url": "https://icml.cc/virtual/2026/poster/65200",
       "officialSource": "https://icml.cc/virtual/2026/papers.html?filter=titles",
       "abstractSource": "https://icml.cc/virtual/2026/poster/65200",
-      "abstract": "While Large Language Models (LLMs) have achieved remarkable success across diverse tasks, they remain vulnerable to jailbreak attacks, which pose significant risks to their secure deployment. Current safetymechanisms primarily rely on output guardrails to filter harmful outputs, yet these defenses are not impenetrable. Due to LLMs' inherent reliance on autoregressive, token-by-token inference, their semantic representations lack robustness to spatially structured perturbations, such as redistributing tokens across different rows, columns, or diagonals. Exploiting the Transformer's spatial weakness, we propose SpatialJB to disrupt the model's output generation process, allowing harmful content to bypass guardrails without detection. Comprehensive experiments conducted on leading LLMs get nearly 100% ASR, demonstrating the high effectiveness of SpatialJB. Even after adding advanced output guardrails, like the OpenAI Moderation API, SpatialJB consistently maintains a success rate exceeding 75%, outperforming current jailbreak techniques by a significant margin. The proposal of SpatialJB exposes a key weak- ness in current guardrails and emphasizes the importance of spatial semantics, offering new insights to advance LLM safety research. To prevent potential misuse, we also present baseline defense strategies against SpatialJB and evaluate their effectiveness inmitigating such attacks.",
+      "abstract": "While Large Language Models (LLMs) have achieved remarkable success across diverse tasks, they remain vulnerable to jailbreak attacks, which pose significant risks to their secure deployment. Driven by their inherent token-by-token autoregressive inference, LLMs exhibit semantic representations that lack robustness against spatially structured perturbations, thereby rendering current output-guardrail safety mechanisms penetrable. Exploiting the Transformer's spatial weakness, we propose SpatialJB to disrupt the model’s output generation process, allowing harmful content to bypass guardrails without detection. Comprehensive experiments on leading LLMs demonstrate that SpatialJB achieves a nearly 100\\% ASR and consistently maintains a success rate exceeding 75\\% even against advanced output guardrails like the OpenAI Moderation API, outperforming current jailbreak techniques by a significant margin. While SpatialJB advances LLM safety research by exposing guardrail weaknesses and highlighting spatial semantics, we also propose and evaluate baseline defense strategies to prevent its potential misuse. You can click Video Link and Code Link to see our demo presentation and code.",
       "relevanceScore": 20,
       "relevanceSignals": [
         "jailbreak",
@@ -2457,7 +2479,7 @@
       "authors": [
         "Xutao Mao",
         "Liangjie Zhao",
-        "Liutao",
+        "Tao Liu",
         "Xiang Zheng",
         "Hongying Zan",
         "Cong Wang"
@@ -2530,7 +2552,7 @@
       "url": "https://icml.cc/virtual/2026/poster/64900",
       "officialSource": "https://icml.cc/virtual/2026/papers.html?filter=titles",
       "abstractSource": "https://icml.cc/virtual/2026/poster/64900",
-      "abstract": "Large language models (LLMs) remain vulnerable to jailbreak attacks that bypass safety guardrails. Existing approaches overwhelmingly operate within the prompt-optimization paradigm; the resulting prompts typically retain malicious semantic signals that modern guardrails are primed to detect. In contrast, we identify a deeper vulnerability stemming from the highly interconnected nature of an LLM’s internal knowledge. This structure allows harmful objectives to be realized by weaving together sequences of benign sub-queries, each of which individually evades detection. To exploit this loophole, we introduce the Correlated Knowledge Attack Agent (CKA-Agent), a dynamic framework that reframes jailbreaking as an adaptive, tree-structured exploration of the target model’s knowledge base. The CKA-Agent issues locally innocuous queries, uses model responses to guide exploration across multiple paths, and ultimately assembles the aggregated information to achieve the original harmful objective. Evaluated across SOTA commercial LLMs, CKA-Agent consistently achieves over 95\\% success rates even against strong guardrails, underscoring the severity of this vulnerability and the urgent need for defenses against such knowledge-decomposition attacks. Our codes are available at https://anonymous.4open.science/r/CKA-Agent-ICML",
+      "abstract": "Large language models (LLMs) remain vulnerable to jailbreak attacks that bypass safety guardrails. Existing approaches overwhelmingly operate within the prompt-optimization paradigm; the resulting prompts typically retain malicious semantic signals that modern guardrails are primed to detect. In contrast, we identify a deeper vulnerability stemming from the highly interconnected nature of an LLM’s internal knowledge. This structure allows harmful objectives to be realized by weaving together sequences of benign sub-queries, each of which individually evades detection. To exploit this loophole, we introduce the Correlated Knowledge Attack Agent (CKA-Agent), a dynamic framework that reframes jailbreaking as an adaptive, tree-structured exploration of the target model’s knowledge base. The CKA-Agent issues locally innocuous queries, uses model responses to guide exploration across multiple paths, and ultimately assembles the aggregated information to achieve the original harmful objective. Evaluated across SOTA commercial LLMs, CKA-Agent consistently achieves over 95\\% success rates even against strong guardrails, underscoring the severity of this vulnerability and the urgent need for defenses against such knowledge-decomposition attacks. Our codes are available at https://github.com/Graph-COM/CKA-Agent.",
       "relevanceScore": 13,
       "relevanceSignals": [
         "jailbreak",
@@ -2665,7 +2687,7 @@
       "url": "https://icml.cc/virtual/2026/poster/61094",
       "officialSource": "https://icml.cc/virtual/2026/papers.html?filter=titles",
       "abstractSource": "https://icml.cc/virtual/2026/poster/61094",
-      "abstract": "Vision-Language Models (VLMs) extend large language models with visual reasoning, but their multimodal design also introduces new, underexplored vulnerabilities. Existing multimodal red-teaming methods largely rely on brittle templates, focus on single-attack settings, and expose only a narrow subset of vulnerabilities. To address these limitations, we introduce VERA-V, a variational inference framework that recasts multimodal jailbreak discovery as learning a joint posterior distribution over paired text-image prompts. This probabilistic view captures complex cross-modal interactions, enabling stealthy, coordinated adversarial inputs that bypass model guardrails. We train a lightweight attacker to approximate the posterior, allowing efficient sampling of diverse jailbreaks and providing distributional insights into vulnerabilities. VERA-V further integrates three complementary strategies: (i) typography-based text prompts that embed harmful cues, (ii) diffusion-based image synthesis that introduces adversarial signals, and (iii) structured distractors to fragment VLM attention. Experiments on HarmBench and HADES benchmarks show that VERA-V consistently outperforms state-of-the-art baselines on both open-source and frontier VLMs, achieving up to 53.75\\% higher attack success rate (ASR) over the best baseline on GPT-4o.",
+      "abstract": "Vision-Language Models (VLMs) extend large language models with visual reasoning, but their multimodal design also introduces new, underexplored vulnerabilities. Existing multimodal red-teaming methods largely rely on brittle templates, focus on single-attack settings, and expose only a narrow subset of vulnerabilities. To address these limitations, we introduce VERA-V, a variational inference framework that recasts multimodal jailbreak discovery as learning a joint posterior distribution over paired text-image prompts. This probabilistic view captures complex cross-modal interactions, enabling stealthy, coordinated adversarial inputs that bypass model guardrails. We train a lightweight attacker to approximate the posterior, allowing efficient sampling of diverse jailbreaks and providing distributional insights into vulnerabilities. VERA-V further integrates three complementary strategies: (i) typography-based text prompts that embed harmful cues, (ii) diffusion-based image synthesis that introduces adversarial signals, and (iii) structured distractors to fragment VLM attention. Experiments on HarmBench and HADES benchmarks show that VERA-V consistently outperforms state-of-the-art baselines on both open-source and frontier VLMs, achieving up to 53.75\\% higher attack success rate (ASR) over the best baseline on GPT-4o. We include the code on the project page available here: https://github.com/kxwhiowo/VERA-V",
       "relevanceScore": 19,
       "relevanceSignals": [
         "jailbreak",
@@ -2704,34 +2726,6 @@
       ],
       "category": "Attack",
       "target": "Text"
-    },
-    {
-      "venue": "AAAI",
-      "year": 2026,
-      "title": "Activation Manipulation Attack: Penetrating and Harmful Jailbreak Attack Against Large Vision-Language Models",
-      "authors": [
-        "Haojie Hao",
-        "Jiakai Wang",
-        "Aishan Liu",
-        "Yuqing Ma",
-        "Haotong Qin",
-        "Yuanfang Guo",
-        "Xianglong Liu"
-      ],
-      "firstAuthorAffiliation": "N/A",
-      "track": "Proceedings of the AAAI Conference on Artificial Intelligence",
-      "status": "Published",
-      "doi": "10.1609/aaai.v40i42.40858",
-      "url": "https://doi.org/10.1609/aaai.v40i42.40858",
-      "officialSource": "https://ojs.aaai.org/index.php/AAAI/",
-      "abstractSource": "https://api.openalex.org/works/https://doi.org/10.1609/aaai.v40i42.40858",
-      "abstract": "Recently, Large Vision-Language Models (LVLMs) have been demonstrated to be vulnerable to jailbreak attacks, highlighting the urgent need for further research to comprehensively identify and mitigate these threats. Unfortunately, existing jailbreak studies primarily focus on coarse-grained input manipulation to elicit specific responses, overlooking the exploitation of internal representations, i.e., intermediate activations, which constrains their ability to penetrate alignment safeguards and generate harmful responses. To tackle this issue, we propose the Activation Manipulation (ActMan) Attack framework, which performs fine-grained activation manipulations inspired by the perception and cognition stages of human decision-making, enhancing both the penetration capability and harmfulness of attacks. To improve penetration capability, we introduce a Deceptive Visual Camouflage module inspired by the masking effect in human perception. This module uses a benign activation-guided attention redirection strategy to conceal abnormal activation patterns, thereby suppressing LVLM's defense detection during early-stage decoding. To enhance harmfulness, we design a Malicious Semantic Induction module drawing from the framing effect in human cognition, which reconstructs jailbreak instructions using malicious activation guidance to change LVLM’s risk assessment during late-stage decoding, thereby amplifying the harmfulness of model responses. Extensive experiments on six mainstream LVLMs demonstrate that our method remarkably outperforms state-of-the-art baselines, achieving an average relative ASR improvement of 12.06%.",
-      "relevanceScore": 8,
-      "relevanceSignals": [
-        "jailbreak"
-      ],
-      "category": "Attack",
-      "target": "Vision"
     },
     {
       "venue": "AAAI",
@@ -2871,31 +2865,6 @@
         "model safety"
       ],
       "category": "Attack",
-      "target": "Text"
-    },
-    {
-      "venue": "AAAI",
-      "year": 2026,
-      "title": "Disentangling Adversarial Prompts: A Semantic-Graph Defense for Robust LLM Security",
-      "authors": [
-        "Xiang Fang",
-        "Wanlong Fang"
-      ],
-      "firstAuthorAffiliation": "N/A",
-      "track": "Proceedings of the AAAI Conference on Artificial Intelligence",
-      "status": "Published",
-      "doi": "10.1609/aaai.v40i5.37389",
-      "url": "https://doi.org/10.1609/aaai.v40i5.37389",
-      "officialSource": "https://ojs.aaai.org/index.php/AAAI/",
-      "abstractSource": "https://api.openalex.org/works/https://doi.org/10.1609/aaai.v40i5.37389",
-      "abstract": "Large Language Models (LLMs) are increasingly vulnerable to adversarial prompts that exploit semantic ambiguities to bypass safety mechanisms, resulting in harmful or inappropriate outputs. Such attacks, including jailbreaking and prompt injection, pose significant risks to the integrity and availability of LLMs in security-critical applications. This paper proposes the Adversarial Prompt Disentanglement (APD) framework, a novel defense mechanism that proactively identifies and neutralizes malicious components in input prompts before they are processed by the LLM. The APD framework integrates three key innovations: (1) a mutual information- based semantic decomposition method to isolate adversarial and benign prompt components, ensuring statistical in- dependence; (2) a graph-based intent classification approach that leverages spectral analysis to detect malicious patterns in prompt semantics; and (3) a lightweight transformer-based classifier trained on real-world datasets of toxic and jailbreaking prompts, enabling efficient and accurate adversarial intent detection. Evaluated on diverse datasets containing adversarial prompts, APD demonstrates superior robustness, reducing harmful output generation by over 85% while maintaining negligible impact on model performance. The framework’s computational efficiency supports real-time deploy- ment, making it a practical solution for securing LLMs. Our work addresses critical challenges in machine learning security on novel attacks and integrity methods for ML systems, and offers a scalable, ethically grounded defense against prompt-based adversarial threats.",
-      "relevanceScore": 21,
-      "relevanceSignals": [
-        "jailbreak",
-        "prompt injection",
-        "safety bypass"
-      ],
-      "category": "Benchmark",
       "target": "Text"
     },
     {
@@ -3193,6 +3162,34 @@
     {
       "venue": "AAAI",
       "year": 2026,
+      "title": "Response Attack: Exploiting Contextual Priming to Jailbreak Large Language Models",
+      "authors": [
+        "Miao Ziqi",
+        "Lijun Li",
+        "Yuan Xiong",
+        "Zhenhua Liu",
+        "Pengyu Zhu",
+        "Jing Shao"
+      ],
+      "firstAuthorAffiliation": "N/A",
+      "track": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "status": "Published",
+      "doi": "10.1609/aaai.v40i41.40836",
+      "url": "https://doi.org/10.1609/aaai.v40i41.40836",
+      "officialSource": "https://ojs.aaai.org/index.php/AAAI/",
+      "abstractSource": "https://api.openalex.org/works/https://doi.org/10.1609/aaai.v40i41.40836",
+      "abstract": "Contextual priming, where earlier stimuli covertly bias later judgments, offers an unexplored attack surface for large language models (LLMs). We uncover a contextual priming vulnerability in which the previous response in the dialogue can steer its subsequent behavior toward policy-violating content. While existing jailbreak attacks largely rely on single-turn or multi-turn prompt manipulations, or inject static in-context examples, these methods suffer from limited effectiveness, inefficiency, or semantic drift. We introduce Response Attack (RA), a novel framework that strategically leverages intermediate, mildly harmful responses as contextual primers within a dialogue. By reformulating harmful queries and injecting these intermediate responses before issuing a targeted trigger prompt, RA exploits a previously overlooked vulnerability in LLMs. Extensive experiments across eight state-of-the-art LLMs show that RA consistently achieves significantly higher attack success rates than nine leading jailbreak baselines. Our results demonstrate that the success of RA is directly attributable to the strategic use of intermediate responses, which induce models to generate more explicit and relevant harmful content while maintaining stealth, efficiency, and fidelity to the original query.",
+      "relevanceScore": 12,
+      "relevanceSignals": [
+        "jailbreak",
+        "harmful inputs"
+      ],
+      "category": "Attack",
+      "target": "Text"
+    },
+    {
+      "venue": "AAAI",
+      "year": 2026,
       "title": "SafetyReminder: Reviving Delayed Safety Awareness of Vision-Language Models to Defend Against Jailbreak Attacks",
       "authors": [
         "Peiyuan Tang",
@@ -3274,6 +3271,35 @@
       ],
       "category": "Mechanism",
       "target": "Text"
+    },
+    {
+      "venue": "AAAI",
+      "year": 2026,
+      "title": "StyleBreak: Revealing Alignment Vulnerabilities in Large Audio-Language Models via Style-Aware Audio Jailbreak",
+      "authors": [
+        "Hongyi Li",
+        "Chengxuan Zhou",
+        "Chu Wang",
+        "Sicheng Liang",
+        "Yanting Chen",
+        "Qinlin Xie",
+        "Jiawei Ye",
+        "Jie Wu"
+      ],
+      "firstAuthorAffiliation": "N/A",
+      "track": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "status": "Published",
+      "doi": "10.1609/aaai.v40i44.41093",
+      "url": "https://doi.org/10.1609/aaai.v40i44.41093",
+      "officialSource": "https://ojs.aaai.org/index.php/AAAI/",
+      "abstractSource": "https://api.openalex.org/works/https://doi.org/10.1609/aaai.v40i44.41093",
+      "abstract": "Large Audio-language Models (LAMs) have recently enabled powerful speech-based interactions by coupling audio encoders with Large Language Models (LLMs). However, the security of LAMs under adversarial attacks remains underexplored, especially through audio jailbreaks that craft malicious audio prompts to bypass alignment. Existing efforts primarily rely on converting text-based attacks into speech or applying shallow signal-level perturbations, overlooking the impact of human speech’s expressive variations on LAM alignment robustness. To address this gap, we propose StyleBreak, a novel style-aware audio jailbreak framework that systematically investigates how diverse human speech attributes affect LAM alignment robustness. Specifically, StyleBreak employs a two-stage style-aware transformation pipeline that perturbs both textual content and audio to control linguistic, paralinguistic, and extralinguistic attributes. Furthermore, we develop a query-adaptive policy network that automatically searches for adversarial styles to enhance the efficiency of LAM jailbreak exploration. Extensive evaluations demonstrate that LAMs exhibit critical vulnerabilities when exposed to diverse human speech attributes. Moreover, StyleBreak achieves substantial improvements in attack effectiveness and efficiency across multiple attack paradigms, highlighting the urgent need for more robust alignment in LAMs.",
+      "relevanceScore": 8,
+      "relevanceSignals": [
+        "jailbreak"
+      ],
+      "category": "Attack",
+      "target": "Hybrid"
     },
     {
       "venue": "AAAI",
@@ -5370,5 +5396,5 @@
       "target": "Vision"
     }
   ],
-  "generatedAt": "2026-07-20T06:28:07+00:00"
+  "generatedAt": "2026-07-27T06:44:07+00:00"
 }
