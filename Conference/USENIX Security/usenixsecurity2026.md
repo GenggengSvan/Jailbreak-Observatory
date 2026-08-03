@@ -36,7 +36,7 @@
 
 ## Defense
 
-### Text
+### Vision
 
 | Title | First Author Affiliation | Track | Status | Link |
 |---|:---:|:---:|:---:|:---:|
