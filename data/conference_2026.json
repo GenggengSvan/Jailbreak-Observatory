@@ -21,7 +21,7 @@
       "venue": "AAAI",
       "year": 2026,
       "url": "https://ojs.aaai.org/index.php/AAAI/",
-      "paperCount": 21
+      "paperCount": 22
     },
     {
       "venue": "ACL",
@@ -2758,6 +2758,33 @@
     {
       "venue": "AAAI",
       "year": 2026,
+      "title": "AlignTree: Efficient Defense Against LLM Jailbreak Attacks",
+      "authors": [
+        "Gil Goren",
+        "Shahar Katz",
+        "Lior Wolf"
+      ],
+      "firstAuthorAffiliation": "N/A",
+      "track": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "status": "Published",
+      "doi": "10.1609/aaai.v40i44.41074",
+      "url": "https://doi.org/10.1609/aaai.v40i44.41074",
+      "officialSource": "https://ojs.aaai.org/index.php/AAAI/",
+      "abstractSource": "https://api.openalex.org/works/https://doi.org/10.1609/aaai.v40i44.41074",
+      "abstract": "Large Language Models (LLMs) are vulnerable to adversarial attacks that bypass safety guidelines and generate harmful content. Mitigating these vulnerabilities requires defense mechanisms that are both robust and computationally efficient. However, existing approaches either incur high computational costs or rely on lightweight defenses that can be easily circumvented, rendering them impractical for real-world LLM-based systems. In this work, we introduce the AlignTree defense, which enhances model alignment while maintaining minimal computational overhead. AlignTree monitors LLM activations during generation and detects misaligned behavior using an efficient random forest classifier. This classifier operates on two signals: (i) the refusal direction - a linear representation that activates on misaligned prompts, and (ii) an SVM-based signal that captures non-linear features associated with harmful content. Unlike previous methods, AlignTree does not require additional prompts or auxiliary guard models. Through extensive experiments, we demonstrate the efficiency and robustness of AlignTree across multiple LLMs and benchmarks.",
+      "relevanceScore": 22,
+      "relevanceSignals": [
+        "jailbreak",
+        "refusal behavior",
+        "harmful inputs",
+        "safety bypass"
+      ],
+      "category": "Defense",
+      "target": "Text"
+    },
+    {
+      "venue": "AAAI",
+      "year": 2026,
       "title": "Always Refuse: Steering LLMs Against Jailbreaks with Contrastive Activations (Student Abstract)",
       "authors": [
         "Abhilekh Borah",
@@ -2896,29 +2923,52 @@
     {
       "venue": "AAAI",
       "year": 2026,
-      "title": "Dynamic Deep Prompt Optimization for Defending Against Jailbreak Attacks on LLMs",
+      "title": "Distractor-Based Jailbreaking Attacks in Language Models and Associated Changes in Chain-of-Thought Content (Student Abstract)",
       "authors": [
-        "Doniyorkhon Obidov",
-        "Honggang Yu",
-        "Xiaolong Guo",
-        "Kaichen Yang"
+        "Tate Rowney",
+        "Xuning Ying"
       ],
       "firstAuthorAffiliation": "N/A",
       "track": "Proceedings of the AAAI Conference on Artificial Intelligence",
       "status": "Published",
-      "doi": "10.1609/aaai.v40i42.40887",
-      "url": "https://doi.org/10.1609/aaai.v40i42.40887",
+      "doi": "10.1609/aaai.v40i48.42273",
+      "url": "https://doi.org/10.1609/aaai.v40i48.42273",
       "officialSource": "https://ojs.aaai.org/index.php/AAAI/",
-      "abstractSource": "https://api.openalex.org/works/https://doi.org/10.1609/aaai.v40i42.40887",
-      "abstract": "Large Language Models (LLMs) demonstrate impressive capabilities across many applications but remain vulnerable to jailbreak attacks, which elicit harmful or unintended content. While model fine-tuning is an option for safety alignment, it is costly and prone to catastrophic forgetting. Prompt optimization has emerged as a promising alternative, yet existing prompt-based defenses typically rely on static modifications (e.g., fixed prefixes or suffixes) that cannot adapt to diverse and evolving attacks. We propose Dynamic Deep Prompt Optimization (DDPO), the first jailbreak defense based on deep prompt optimization. DDPO uses the target LLM's own intermediate layers as feature extractors to dynamically generate defensive embeddings via a lightweight multilayer perceptron. These tailored embeddings are then injected into a subsequent intermediate layer, enabling an input-dependent defense without modifying the LLM's weights. This design ensures high adaptability with minimal computational overhead. Experiments on a diverse set of models and attacks demonstrate that DDPO significantly outperforms static prompt optimization methods, particularly on weakly aligned models and when handling semantically ambiguous benign prompts, successfully distinguishing them from genuinely harmful requests.",
-      "relevanceScore": 14,
+      "abstractSource": "https://api.openalex.org/works/https://doi.org/10.1609/aaai.v40i48.42273",
+      "abstract": "We identify a jailbreaking vulnerability in multiple open-source LLMs: by augmenting dangerous requests using certain \"distractors\" to obfuscate their intent, we elicit specific, actionable responses on a wide variety of harmful topics. We find that such an attack noticeably alters the contents of these models' chains of thought, including changed frequencies of seemingly unrelated n-grams and heightened ethical scrutiny about harmful requests even when their response is ultimately jailbroken.",
+      "relevanceScore": 12,
       "relevanceSignals": [
         "jailbreak",
-        "harmful inputs",
-        "safety alignment"
+        "harmful inputs"
       ],
-      "category": "Defense",
+      "category": "Attack",
       "target": "Text"
+    },
+    {
+      "venue": "AAAI",
+      "year": 2026,
+      "title": "Efficient LLM-Jailbreaking via Multimodal-LLM Jailbreak",
+      "authors": [
+        "Haoxuan Ji",
+        "Zheng Lin",
+        "Zhenxing Niu",
+        "Xinbo Gao",
+        "Gang Hua"
+      ],
+      "firstAuthorAffiliation": "N/A",
+      "track": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "status": "Published",
+      "doi": "10.1609/aaai.v40i42.40863",
+      "url": "https://doi.org/10.1609/aaai.v40i42.40863",
+      "officialSource": "https://ojs.aaai.org/index.php/AAAI/",
+      "abstractSource": "https://api.openalex.org/works/https://doi.org/10.1609/aaai.v40i42.40863",
+      "abstract": "This paper focuses on jailbreaking attacks against large language models (LLMs), eliciting them to generate objectionable content in response to harmful user queries. Unlike previous LLM-jailbreak methods that directly orient to LLMs, our approach begins by constructing a multimodal large language model (MLLM) built upon the target LLM. Subsequently, we perform an efficient MLLM jailbreak and obtain a jailbreaking embedding. Finally, we convert the embedding into a textual jailbreaking suffix to carry out the jailbreak of target LLM. Compared to the direct LLM-jailbreak methods, our indirect jailbreaking approach is more efficient, as MLLMs are more vulnerable to jailbreak than pure LLMs. Additionally, to improve the attack success rate of jailbreak, we propose an image-text semantic matching scheme to identify a suitable initial input. Extensive experiments demonstrate that our approach surpasses current state-of-the-art jailbreak methods in terms of both efficiency and effectiveness. Moreover, our approach exhibits superior cross-class generalization abilities.",
+      "relevanceScore": 8,
+      "relevanceSignals": [
+        "jailbreak"
+      ],
+      "category": "Attack",
+      "target": "Vision"
     },
     {
       "venue": "AAAI",
@@ -3276,34 +3326,6 @@
       ],
       "category": "Attack",
       "target": "Hybrid"
-    },
-    {
-      "venue": "AAAI",
-      "year": 2026,
-      "title": "TVChain: Leveraging Textual-Visual Prompt Chains for Jailbreaking Large Vision-Language Models",
-      "authors": [
-        "Hao Yu",
-        "Ke Liang",
-        "Junxian Duan",
-        "Jun Wang",
-        "Siwei Wang",
-        "Chuan Ma",
-        "Xinwang Liu"
-      ],
-      "firstAuthorAffiliation": "N/A",
-      "track": "Proceedings of the AAAI Conference on Artificial Intelligence",
-      "status": "Published",
-      "doi": "10.1609/aaai.v40i33.40018",
-      "url": "https://doi.org/10.1609/aaai.v40i33.40018",
-      "officialSource": "https://ojs.aaai.org/index.php/AAAI/",
-      "abstractSource": "https://api.openalex.org/works/https://doi.org/10.1609/aaai.v40i33.40018",
-      "abstract": "Large Vision-Language Models (LVLMs) enhance the capabilities of Large Language Models by integrating visual inputs, thereby enabling advanced multimodal reasoning across diverse applications. However, these enhanced reasoning capabilities introduce new security risks, particularly to jailbreaking attacks that bypass built-in safety mechanisms to elicit harmful or unauthorized outputs. While recent efforts have explored adversarial and typographic prompts, most existing attacks suffer from three key limitations: reliance on auxiliary models, limited effectiveness in black-box scenarios, and inadequate exploitation of the LVLMs' intrinsic reasoning abilities. In this work, we propose TVChain, a novel black-box jailbreaking framework that explicitly intervenes in both the visual and textual reasoning processes of LVLMs. TVChain decomposes malicious prompts into a sequence of semantically meaningful sub-images that represent relevant objects and behaviors, thereby circumventing direct exposure of illicit content. In parallel, a carefully designed chain-of-thought (CoT) textual prompt is employed to steer the model's reasoning toward reconstructing the intended activity in a covert yet effective manner. We demonstrate that this compositional prompting strategy reduces the likelihood of triggering safety mechanisms while preserving attack efficacy. Extensive evaluations on eleven LVLMs (seven open-source and four commercial) across two benchmark datasets and three state-of-the-art defenses validate the effectiveness and robustness of TVChain.",
-      "relevanceScore": 8,
-      "relevanceSignals": [
-        "jailbreak"
-      ],
-      "category": "Attack",
-      "target": "Vision"
     },
     {
       "venue": "ACL",
@@ -5002,20 +5024,33 @@
       "venue": "KDD",
       "year": 2026,
       "title": "The Boy Who Cried Wolf: Adversarial Misclassification of Safe Inputs as Unsafe in Multimodal Guardrails",
-      "authors": [],
-      "firstAuthorAffiliation": "N/A",
+      "authors": [
+        "Shuo Shi",
+        "Rui Yin",
+        "Naen Xu",
+        "Jiahao Chen",
+        "Chunyi Zhou",
+        "Tianyu Du",
+        "Zhihui Fu",
+        "Jun Wang",
+        "Zhaoxiang Wang",
+        "Shouling Ji"
+      ],
+      "firstAuthorAffiliation": "Zhejiang University, Hangzhou, China",
       "track": "Research Track",
-      "status": "Accepted",
+      "status": "Published",
       "doi": "10.1145/3770855.3817756",
       "url": "https://doi.org/10.1145/3770855.3817756",
       "officialSource": "https://kdd2026.kdd.org/full-program/",
       "abstractSource": "https://api.openalex.org/works/https://doi.org/10.1145/3770855.3817756",
-      "abstract": "",
-      "relevanceScore": 5,
+      "abstract": "Multimodal guard models have emerged as critical safety components for screening content in vision-language systems. While adversarial research has extensively studied jailbreaking attacks that produce false negatives, the inverse threat of inducing false positives on benign inputs remains unexplored. We introduce Unsafe Induction Attacks, where adversaries distribute imperceptibly perturbed safe images that trigger guard models to reject legitimate user requests, causing a ''Boy Who Cried Wolf'' effect that degrades service availability and erodes trust. This reveals an availability failure mode in deployed safety filters. To realize this threat under diverse user prompts, we propose Unsafe Semantic Distillation (USD), which aligns adversarial perturbations with distributional representations of unsafe content rather than prompt-specific instances. Evaluated on four state-of-the-art guard models across realistic user simulation scenarios, USD achieves 84% attack success rates, outperforming existing methods and exposing fundamental vulnerabilities in current multimodal safety architectures. WARNING: This paper contains harmful content.",
+      "relevanceScore": 17,
       "relevanceSignals": [
-        "adversarial guardrail behavior"
+        "jailbreak",
+        "adversarial guardrail behavior",
+        "harmful inputs"
       ],
-      "category": "Defense",
+      "category": "Benchmark",
       "target": "Vision"
     },
     {
@@ -5373,5 +5408,5 @@
       "target": "Vision"
     }
   ],
-  "generatedAt": "2026-08-03T06:37:00+00:00"
+  "generatedAt": "2026-08-10T04:56:21+00:00"
 }
