@@ -21,7 +21,7 @@
       "venue": "AAAI",
       "year": 2026,
       "url": "https://ojs.aaai.org/index.php/AAAI/",
-      "paperCount": 22
+      "paperCount": 24
     },
     {
       "venue": "ACL",
@@ -2947,6 +2947,33 @@
     {
       "venue": "AAAI",
       "year": 2026,
+      "title": "Dynamic Deep Prompt Optimization for Defending Against Jailbreak Attacks on LLMs",
+      "authors": [
+        "Doniyorkhon Obidov",
+        "Honggang Yu",
+        "Xiaolong Guo",
+        "Kaichen Yang"
+      ],
+      "firstAuthorAffiliation": "N/A",
+      "track": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "status": "Published",
+      "doi": "10.1609/aaai.v40i42.40887",
+      "url": "https://doi.org/10.1609/aaai.v40i42.40887",
+      "officialSource": "https://ojs.aaai.org/index.php/AAAI/",
+      "abstractSource": "https://api.openalex.org/works/https://doi.org/10.1609/aaai.v40i42.40887",
+      "abstract": "Large Language Models (LLMs) demonstrate impressive capabilities across many applications but remain vulnerable to jailbreak attacks, which elicit harmful or unintended content. While model fine-tuning is an option for safety alignment, it is costly and prone to catastrophic forgetting. Prompt optimization has emerged as a promising alternative, yet existing prompt-based defenses typically rely on static modifications (e.g., fixed prefixes or suffixes) that cannot adapt to diverse and evolving attacks. We propose Dynamic Deep Prompt Optimization (DDPO), the first jailbreak defense based on deep prompt optimization. DDPO uses the target LLM's own intermediate layers as feature extractors to dynamically generate defensive embeddings via a lightweight multilayer perceptron. These tailored embeddings are then injected into a subsequent intermediate layer, enabling an input-dependent defense without modifying the LLM's weights. This design ensures high adaptability with minimal computational overhead. Experiments on a diverse set of models and attacks demonstrate that DDPO significantly outperforms static prompt optimization methods, particularly on weakly aligned models and when handling semantically ambiguous benign prompts, successfully distinguishing them from genuinely harmful requests.",
+      "relevanceScore": 14,
+      "relevanceSignals": [
+        "jailbreak",
+        "harmful inputs",
+        "safety alignment"
+      ],
+      "category": "Defense",
+      "target": "Text"
+    },
+    {
+      "venue": "AAAI",
+      "year": 2026,
       "title": "Efficient LLM-Jailbreaking via Multimodal-LLM Jailbreak",
       "authors": [
         "Haoxuan Ji",
@@ -3326,6 +3353,34 @@
       ],
       "category": "Attack",
       "target": "Hybrid"
+    },
+    {
+      "venue": "AAAI",
+      "year": 2026,
+      "title": "TVChain: Leveraging Textual-Visual Prompt Chains for Jailbreaking Large Vision-Language Models",
+      "authors": [
+        "Hao Yu",
+        "Ke Liang",
+        "Junxian Duan",
+        "Jun Wang",
+        "Siwei Wang",
+        "Chuan Ma",
+        "Xinwang Liu"
+      ],
+      "firstAuthorAffiliation": "N/A",
+      "track": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "status": "Published",
+      "doi": "10.1609/aaai.v40i33.40018",
+      "url": "https://doi.org/10.1609/aaai.v40i33.40018",
+      "officialSource": "https://ojs.aaai.org/index.php/AAAI/",
+      "abstractSource": "https://api.openalex.org/works/https://doi.org/10.1609/aaai.v40i33.40018",
+      "abstract": "Large Vision-Language Models (LVLMs) enhance the capabilities of Large Language Models by integrating visual inputs, thereby enabling advanced multimodal reasoning across diverse applications. However, these enhanced reasoning capabilities introduce new security risks, particularly to jailbreaking attacks that bypass built-in safety mechanisms to elicit harmful or unauthorized outputs. While recent efforts have explored adversarial and typographic prompts, most existing attacks suffer from three key limitations: reliance on auxiliary models, limited effectiveness in black-box scenarios, and inadequate exploitation of the LVLMs' intrinsic reasoning abilities. In this work, we propose TVChain, a novel black-box jailbreaking framework that explicitly intervenes in both the visual and textual reasoning processes of LVLMs. TVChain decomposes malicious prompts into a sequence of semantically meaningful sub-images that represent relevant objects and behaviors, thereby circumventing direct exposure of illicit content. In parallel, a carefully designed chain-of-thought (CoT) textual prompt is employed to steer the model's reasoning toward reconstructing the intended activity in a covert yet effective manner. We demonstrate that this compositional prompting strategy reduces the likelihood of triggering safety mechanisms while preserving attack efficacy. Extensive evaluations on eleven LVLMs (seven open-source and four commercial) across two benchmark datasets and three state-of-the-art defenses validate the effectiveness and robustness of TVChain.",
+      "relevanceScore": 8,
+      "relevanceSignals": [
+        "jailbreak"
+      ],
+      "category": "Attack",
+      "target": "Vision"
     },
     {
       "venue": "ACL",
@@ -5408,5 +5463,5 @@
       "target": "Vision"
     }
   ],
-  "generatedAt": "2026-08-10T04:56:21+00:00"
+  "generatedAt": "2026-08-17T04:04:52+00:00"
 }

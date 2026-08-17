@@ -37,7 +37,7 @@ KDD and IJCAI historical records are collected by `scripts/update_conference_pap
 <tr><td style='text-align:center;vertical-align:middle' rowspan='3'><strong>ICML</strong></td><td style='text-align:center'>2026</td><td><a href='Conference/ICML/icml2026.md'>ICML2026</a></td><td style='text-align:center'>47</td></tr>
 <tr><td style='text-align:center'>2025</td><td><a href='Conference/ICML/icml2025.md'>ICML2025</a></td><td style='text-align:center'>23</td></tr>
 <tr><td style='text-align:center'>2024</td><td><a href='Conference/ICML/icml2024.md'>ICML2024</a></td><td style='text-align:center'>10</td></tr>
-<tr><td style='text-align:center;vertical-align:middle' rowspan='3'><strong>AAAI</strong></td><td style='text-align:center'>2026</td><td><a href='Conference/AAAI/aaai2026.md'>AAAI2026</a></td><td style='text-align:center'>22</td></tr>
+<tr><td style='text-align:center;vertical-align:middle' rowspan='3'><strong>AAAI</strong></td><td style='text-align:center'>2026</td><td><a href='Conference/AAAI/aaai2026.md'>AAAI2026</a></td><td style='text-align:center'>24</td></tr>
 <tr><td style='text-align:center'>2025</td><td><a href='Conference/AAAI/aaai2025.md'>AAAI2025</a></td><td style='text-align:center'>17</td></tr>
 <tr><td style='text-align:center'>2024</td><td><a href='Conference/AAAI/aaai2024.md'>AAAI2024</a></td><td style='text-align:center'>1</td></tr>
 <tr><td style='text-align:center;vertical-align:middle' rowspan='3'><strong>ACL</strong></td><td style='text-align:center'>2026</td><td><a href='Conference/ACL/acl2026.md'>ACL2026</a></td><td style='text-align:center'>42</td></tr>
