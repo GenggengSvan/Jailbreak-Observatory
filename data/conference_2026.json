@@ -21,7 +21,7 @@
       "venue": "AAAI",
       "year": 2026,
       "url": "https://ojs.aaai.org/index.php/AAAI/",
-      "paperCount": 24
+      "paperCount": 22
     },
     {
       "venue": "ACL",
@@ -2974,32 +2974,6 @@
     {
       "venue": "AAAI",
       "year": 2026,
-      "title": "Efficient LLM-Jailbreaking via Multimodal-LLM Jailbreak",
-      "authors": [
-        "Haoxuan Ji",
-        "Zheng Lin",
-        "Zhenxing Niu",
-        "Xinbo Gao",
-        "Gang Hua"
-      ],
-      "firstAuthorAffiliation": "N/A",
-      "track": "Proceedings of the AAAI Conference on Artificial Intelligence",
-      "status": "Published",
-      "doi": "10.1609/aaai.v40i42.40863",
-      "url": "https://doi.org/10.1609/aaai.v40i42.40863",
-      "officialSource": "https://ojs.aaai.org/index.php/AAAI/",
-      "abstractSource": "https://api.openalex.org/works/https://doi.org/10.1609/aaai.v40i42.40863",
-      "abstract": "This paper focuses on jailbreaking attacks against large language models (LLMs), eliciting them to generate objectionable content in response to harmful user queries. Unlike previous LLM-jailbreak methods that directly orient to LLMs, our approach begins by constructing a multimodal large language model (MLLM) built upon the target LLM. Subsequently, we perform an efficient MLLM jailbreak and obtain a jailbreaking embedding. Finally, we convert the embedding into a textual jailbreaking suffix to carry out the jailbreak of target LLM. Compared to the direct LLM-jailbreak methods, our indirect jailbreaking approach is more efficient, as MLLMs are more vulnerable to jailbreak than pure LLMs. Additionally, to improve the attack success rate of jailbreak, we propose an image-text semantic matching scheme to identify a suitable initial input. Extensive experiments demonstrate that our approach surpasses current state-of-the-art jailbreak methods in terms of both efficiency and effectiveness. Moreover, our approach exhibits superior cross-class generalization abilities.",
-      "relevanceScore": 8,
-      "relevanceSignals": [
-        "jailbreak"
-      ],
-      "category": "Attack",
-      "target": "Vision"
-    },
-    {
-      "venue": "AAAI",
-      "year": 2026,
       "title": "EigenShield: Inference-Time, Model-Agnostic Jailbreaking Defense via Causal Subspace Filtering",
       "authors": [
         "Nastaran Darabi",
@@ -3295,35 +3269,6 @@
       ],
       "category": "Benchmark",
       "target": "Hybrid"
-    },
-    {
-      "venue": "AAAI",
-      "year": 2026,
-      "title": "SOM Directions Are Better than One: Multi-Directional Refusal Suppression in Language Models",
-      "authors": [
-        "Giorgio Piras",
-        "Raffaele Mura",
-        "Fabio Brau",
-        "Luca Oneto",
-        "Fabio Roli",
-        "Battista Biggio"
-      ],
-      "firstAuthorAffiliation": "N/A",
-      "track": "Proceedings of the AAAI Conference on Artificial Intelligence",
-      "status": "Published",
-      "doi": "10.1609/aaai.v40i39.40551",
-      "url": "https://doi.org/10.1609/aaai.v40i39.40551",
-      "officialSource": "https://ojs.aaai.org/index.php/AAAI/",
-      "abstractSource": "https://api.openalex.org/works/https://doi.org/10.1609/aaai.v40i39.40551",
-      "abstract": "Refusal refers to the functional behavior enabling safety-aligned language models to reject harmful or unethical prompts. Following the growing scientific interest in mechanistic interpretability, recent work encoded refusal behavior as a single direction in the model’s latent space; e.g., computed as the difference between the centroids of harmful and harmless prompt representations. However, emerging evidence suggests that concepts in LLMs often appear to be encoded as a low-dimensional manifold embedded in the high-dimensional latent space. Motivated by these findings, we propose a novel method leveraging Self-Organizing Maps (SOMs) to extract multiple refusal directions. To this end, we first prove that SOMs generalize the prior work's difference-in-means technique. We then train SOMs on harmful prompt representations to identify multiple neurons. By subtracting the centroid of harmless representations from each neuron, we derive a set of multiple directions expressing the refusal concept. We validate our method on an extensive experimental setup, demonstrating that ablating multiple directions from models' internals outperforms not only the single-direction baseline but also specialized jailbreak algorithms, leading to an effective suppression of refusal. Finally, we conclude by analyzing the mechanistic implications of our approach.",
-      "relevanceScore": 17,
-      "relevanceSignals": [
-        "jailbreak",
-        "refusal behavior",
-        "harmful inputs"
-      ],
-      "category": "Mechanism",
-      "target": "Text"
     },
     {
       "venue": "AAAI",
@@ -5463,5 +5408,5 @@
       "target": "Vision"
     }
   ],
-  "generatedAt": "2026-08-17T04:04:52+00:00"
+  "generatedAt": "2026-08-24T04:07:41+00:00"
 }
