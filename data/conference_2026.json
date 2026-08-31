@@ -21,7 +21,7 @@
       "venue": "AAAI",
       "year": 2026,
       "url": "https://ojs.aaai.org/index.php/AAAI/",
-      "paperCount": 22
+      "paperCount": 21
     },
     {
       "venue": "ACL",
@@ -2923,30 +2923,6 @@
     {
       "venue": "AAAI",
       "year": 2026,
-      "title": "Distractor-Based Jailbreaking Attacks in Language Models and Associated Changes in Chain-of-Thought Content (Student Abstract)",
-      "authors": [
-        "Tate Rowney",
-        "Xuning Ying"
-      ],
-      "firstAuthorAffiliation": "N/A",
-      "track": "Proceedings of the AAAI Conference on Artificial Intelligence",
-      "status": "Published",
-      "doi": "10.1609/aaai.v40i48.42273",
-      "url": "https://doi.org/10.1609/aaai.v40i48.42273",
-      "officialSource": "https://ojs.aaai.org/index.php/AAAI/",
-      "abstractSource": "https://api.openalex.org/works/https://doi.org/10.1609/aaai.v40i48.42273",
-      "abstract": "We identify a jailbreaking vulnerability in multiple open-source LLMs: by augmenting dangerous requests using certain \"distractors\" to obfuscate their intent, we elicit specific, actionable responses on a wide variety of harmful topics. We find that such an attack noticeably alters the contents of these models' chains of thought, including changed frequencies of seemingly unrelated n-grams and heightened ethical scrutiny about harmful requests even when their response is ultimately jailbroken.",
-      "relevanceScore": 12,
-      "relevanceSignals": [
-        "jailbreak",
-        "harmful inputs"
-      ],
-      "category": "Attack",
-      "target": "Text"
-    },
-    {
-      "venue": "AAAI",
-      "year": 2026,
       "title": "Dynamic Deep Prompt Optimization for Defending Against Jailbreak Attacks on LLMs",
       "authors": [
         "Doniyorkhon Obidov",
@@ -2974,6 +2950,32 @@
     {
       "venue": "AAAI",
       "year": 2026,
+      "title": "Efficient LLM-Jailbreaking via Multimodal-LLM Jailbreak",
+      "authors": [
+        "Haoxuan Ji",
+        "Zheng Lin",
+        "Zhenxing Niu",
+        "Xinbo Gao",
+        "Gang Hua"
+      ],
+      "firstAuthorAffiliation": "N/A",
+      "track": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "status": "Published",
+      "doi": "10.1609/aaai.v40i42.40863",
+      "url": "https://doi.org/10.1609/aaai.v40i42.40863",
+      "officialSource": "https://ojs.aaai.org/index.php/AAAI/",
+      "abstractSource": "https://api.openalex.org/works/https://doi.org/10.1609/aaai.v40i42.40863",
+      "abstract": "This paper focuses on jailbreaking attacks against large language models (LLMs), eliciting them to generate objectionable content in response to harmful user queries. Unlike previous LLM-jailbreak methods that directly orient to LLMs, our approach begins by constructing a multimodal large language model (MLLM) built upon the target LLM. Subsequently, we perform an efficient MLLM jailbreak and obtain a jailbreaking embedding. Finally, we convert the embedding into a textual jailbreaking suffix to carry out the jailbreak of target LLM. Compared to the direct LLM-jailbreak methods, our indirect jailbreaking approach is more efficient, as MLLMs are more vulnerable to jailbreak than pure LLMs. Additionally, to improve the attack success rate of jailbreak, we propose an image-text semantic matching scheme to identify a suitable initial input. Extensive experiments demonstrate that our approach surpasses current state-of-the-art jailbreak methods in terms of both efficiency and effectiveness. Moreover, our approach exhibits superior cross-class generalization abilities.",
+      "relevanceScore": 8,
+      "relevanceSignals": [
+        "jailbreak"
+      ],
+      "category": "Attack",
+      "target": "Vision"
+    },
+    {
+      "venue": "AAAI",
+      "year": 2026,
       "title": "EigenShield: Inference-Time, Model-Agnostic Jailbreaking Defense via Causal Subspace Filtering",
       "authors": [
         "Nastaran Darabi",
@@ -2997,30 +2999,6 @@
       ],
       "category": "Defense",
       "target": "Vision"
-    },
-    {
-      "venue": "AAAI",
-      "year": 2026,
-      "title": "EquaCode: A Multi-Strategy Jailbreak Approach for Large Language Models via Equation Solving and Code Completion",
-      "authors": [
-        "Zhen Liang",
-        "Hai Huang",
-        "Zhengkui Chen"
-      ],
-      "firstAuthorAffiliation": "N/A",
-      "track": "Proceedings of the AAAI Conference on Artificial Intelligence",
-      "status": "Published",
-      "doi": "10.1609/aaai.v40i38.40465",
-      "url": "https://doi.org/10.1609/aaai.v40i38.40465",
-      "officialSource": "https://ojs.aaai.org/index.php/AAAI/",
-      "abstractSource": "https://api.openalex.org/works/https://doi.org/10.1609/aaai.v40i38.40465",
-      "abstract": "Large language models (LLMs), such as ChatGPT, have achieved remarkable success across a wide range of fields. However, their trustworthiness remains a significant concern, as they are still susceptible to jailbreak attacks aimed at eliciting inappropriate or harmful responses. Most existing jailbreak attacks, nevertheless, mainly operate at the natural language level and rely on a single attack strategy, limiting their effectiveness in comprehensively assessing LLM robustness. In this paper, we propose Equacode, a novel multi-strategy jailbreak approach for large language models via equation-solving and code completion. This approach transforms malicious intent into a mathematical problem and then requires the LLM to solve it using code, leveraging the complexity of cross-domain tasks to divert the model's focus toward task completion rather than safety constraints. Experimental results show that Equacode achieves an average success rate of 91.19% on the GPT series and 97.62% across 5 state-of-the-art LLMs, all with only a single query. Further, ablation experiments demonstrate that EquaCode outperforms either the mathematical equation module or the code module alone. This suggests a strong synergistic effect, thereby demonstrating that multi-strategy approach yields results greater than the sum of its parts.",
-      "relevanceScore": 8,
-      "relevanceSignals": [
-        "jailbreak"
-      ],
-      "category": "Attack",
-      "target": "Text"
     },
     {
       "venue": "AAAI",
@@ -3189,34 +3167,6 @@
     {
       "venue": "AAAI",
       "year": 2026,
-      "title": "Response Attack: Exploiting Contextual Priming to Jailbreak Large Language Models",
-      "authors": [
-        "Miao Ziqi",
-        "Lijun Li",
-        "Yuan Xiong",
-        "Zhenhua Liu",
-        "Pengyu Zhu",
-        "Jing Shao"
-      ],
-      "firstAuthorAffiliation": "N/A",
-      "track": "Proceedings of the AAAI Conference on Artificial Intelligence",
-      "status": "Published",
-      "doi": "10.1609/aaai.v40i41.40836",
-      "url": "https://doi.org/10.1609/aaai.v40i41.40836",
-      "officialSource": "https://ojs.aaai.org/index.php/AAAI/",
-      "abstractSource": "https://api.openalex.org/works/https://doi.org/10.1609/aaai.v40i41.40836",
-      "abstract": "Contextual priming, where earlier stimuli covertly bias later judgments, offers an unexplored attack surface for large language models (LLMs). We uncover a contextual priming vulnerability in which the previous response in the dialogue can steer its subsequent behavior toward policy-violating content. While existing jailbreak attacks largely rely on single-turn or multi-turn prompt manipulations, or inject static in-context examples, these methods suffer from limited effectiveness, inefficiency, or semantic drift. We introduce Response Attack (RA), a novel framework that strategically leverages intermediate, mildly harmful responses as contextual primers within a dialogue. By reformulating harmful queries and injecting these intermediate responses before issuing a targeted trigger prompt, RA exploits a previously overlooked vulnerability in LLMs. Extensive experiments across eight state-of-the-art LLMs show that RA consistently achieves significantly higher attack success rates than nine leading jailbreak baselines. Our results demonstrate that the success of RA is directly attributable to the strategic use of intermediate responses, which induce models to generate more explicit and relevant harmful content while maintaining stealth, efficiency, and fidelity to the original query.",
-      "relevanceScore": 12,
-      "relevanceSignals": [
-        "jailbreak",
-        "harmful inputs"
-      ],
-      "category": "Attack",
-      "target": "Text"
-    },
-    {
-      "venue": "AAAI",
-      "year": 2026,
       "title": "SafetyReminder: Reviving Delayed Safety Awareness of Vision-Language Models to Defend Against Jailbreak Attacks",
       "authors": [
         "Peiyuan Tang",
@@ -3269,6 +3219,35 @@
       ],
       "category": "Benchmark",
       "target": "Hybrid"
+    },
+    {
+      "venue": "AAAI",
+      "year": 2026,
+      "title": "SOM Directions Are Better than One: Multi-Directional Refusal Suppression in Language Models",
+      "authors": [
+        "Giorgio Piras",
+        "Raffaele Mura",
+        "Fabio Brau",
+        "Luca Oneto",
+        "Fabio Roli",
+        "Battista Biggio"
+      ],
+      "firstAuthorAffiliation": "N/A",
+      "track": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "status": "Published",
+      "doi": "10.1609/aaai.v40i39.40551",
+      "url": "https://doi.org/10.1609/aaai.v40i39.40551",
+      "officialSource": "https://ojs.aaai.org/index.php/AAAI/",
+      "abstractSource": "https://api.openalex.org/works/https://doi.org/10.1609/aaai.v40i39.40551",
+      "abstract": "Refusal refers to the functional behavior enabling safety-aligned language models to reject harmful or unethical prompts. Following the growing scientific interest in mechanistic interpretability, recent work encoded refusal behavior as a single direction in the model’s latent space; e.g., computed as the difference between the centroids of harmful and harmless prompt representations. However, emerging evidence suggests that concepts in LLMs often appear to be encoded as a low-dimensional manifold embedded in the high-dimensional latent space. Motivated by these findings, we propose a novel method leveraging Self-Organizing Maps (SOMs) to extract multiple refusal directions. To this end, we first prove that SOMs generalize the prior work's difference-in-means technique. We then train SOMs on harmful prompt representations to identify multiple neurons. By subtracting the centroid of harmless representations from each neuron, we derive a set of multiple directions expressing the refusal concept. We validate our method on an extensive experimental setup, demonstrating that ablating multiple directions from models' internals outperforms not only the single-direction baseline but also specialized jailbreak algorithms, leading to an effective suppression of refusal. Finally, we conclude by analyzing the mechanistic implications of our approach.",
+      "relevanceScore": 17,
+      "relevanceSignals": [
+        "jailbreak",
+        "refusal behavior",
+        "harmful inputs"
+      ],
+      "category": "Mechanism",
+      "target": "Text"
     },
     {
       "venue": "AAAI",
@@ -5408,5 +5387,5 @@
       "target": "Vision"
     }
   ],
-  "generatedAt": "2026-08-24T04:07:41+00:00"
+  "generatedAt": "2026-08-31T09:48:59+00:00"
 }
