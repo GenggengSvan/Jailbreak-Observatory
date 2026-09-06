@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0a0d12">
+  <meta name="theme-color" content="#f8f6f1">
   <meta name="description" content="An interactive map of jailbreak research across attacks, defenses, benchmarks, and mechanisms.">
   <title>Jailbreak Observatory — Research Map</title>
   <link rel="icon" href="favicon.png" type="image/png">
@@ -16,6 +16,11 @@
       <span>Jailbreak <em>Observatory</em></span>
     </a>
     <nav class="top-actions" aria-label="Primary navigation">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Switch to night mode">
+        <span class="theme-icon" aria-hidden="true">☾</span>
+        <span class="theme-label">Night</span>
+      </button>
+      <button class="text-button" id="citationsButton" type="button">Citations &gt;50</button>
       <button class="text-button" id="aboutButton" type="button">About</button>
       <a class="github-link" href="https://github.com/GenggengSvan/Jailbreak-Observatory" target="_blank" rel="noreferrer">GitHub ↗</a>
     </nav>
@@ -97,6 +102,14 @@
     <h2>Orientation, not ontology.</h2>
     <p>The Observatory turns the repository’s conference lists and citation index into an explorable research landscape. Papers are positioned by conference year and research category; detail cards distinguish formally published papers from officially accepted papers.</p>
     <p>Connections are computed from shared metadata and title vocabulary. They suggest useful reading paths; they do <strong>not</strong> claim citation, influence, reproduction, or direct rebuttal.</p>
+  </dialog>
+
+  <dialog id="citationsDialog" class="citations-dialog" aria-labelledby="citationsTitle">
+    <button class="dialog-close" type="button" aria-label="Close">×</button>
+    <div class="eyebrow">Google Scholar collection</div>
+    <h2 id="citationsTitle">Citations &gt;50</h2>
+    <p class="citations-summary" id="citationsSummary"></p>
+    <div class="citations-list" id="citationsList"></div>
   </dialog>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>

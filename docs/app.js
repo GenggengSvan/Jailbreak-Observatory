@@ -436,6 +436,33 @@
     });
   }
 
+  function createCitationList() {
+    const list = document.getElementById("citationsList");
+    const summary = document.getElementById("citationsSummary");
+    const cited = papers
+      .filter((paper) => Number.isFinite(paper.citations) && paper.citations > 50)
+      .sort((a, b) => b.citations - a.citations || a.title.localeCompare(b.title));
+    summary.textContent = `${cited.length} papers with more than 50 citations, ordered by Google Scholar count.`;
+    list.innerHTML = cited.map((paper, index) => {
+      const title = escapeHtml(paper.title);
+      const titleMarkup = paper.url
+        ? `<a class="citation-title" href="${escapeAttribute(paper.url)}" target="_blank" rel="noreferrer">${title} ↗</a>`
+        : `<span class="citation-title">${title}</span>`;
+      const sourceMarkup = paper.source
+        ? `<a class="citation-source" href="https://github.com/GenggengSvan/Jailbreak-Observatory/blob/master/${escapeAttribute(paper.source)}" target="_blank" rel="noreferrer">Source ↗</a>`
+        : "";
+      return `
+        <article class="citation-item">
+          <div class="citation-rank">${String(index + 1).padStart(2, "0")}</div>
+          <div class="citation-content">
+            <div class="citation-count">${paper.citations.toLocaleString("en-US")} <span>citations</span></div>
+            ${titleMarkup}
+            <div class="citation-meta">${escapeHtml(shortenVenue(paper.venue))} · ${paper.year} · ${escapeHtml(paper.category)} ${sourceMarkup}</div>
+          </div>
+        </article>`;
+    }).join("");
+  }
+
   function resetView() {
     state.query = "";
     searchInput.value = "";
@@ -454,6 +481,39 @@
     toast.classList.add("show");
     clearTimeout(toastTimer);
     toastTimer = setTimeout(() => toast.classList.remove("show"), 4200);
+  }
+
+  function applyTheme(theme) {
+    const isDark = theme === "dark";
+    document.documentElement.dataset.theme = isDark ? "dark" : "light";
+    const themeToggle = document.getElementById("themeToggle");
+    const themeColor = document.querySelector('meta[name="theme-color"]');
+    if (themeToggle) {
+      themeToggle.setAttribute("aria-pressed", String(isDark));
+      themeToggle.setAttribute("aria-label", isDark ? "Switch to day mode" : "Switch to night mode");
+      themeToggle.querySelector(".theme-icon").textContent = isDark ? "☀" : "☾";
+      themeToggle.querySelector(".theme-label").textContent = isDark ? "Day" : "Night";
+    }
+    if (themeColor) themeColor.setAttribute("content", isDark ? "#0a0d12" : "#f8f6f1");
+  }
+
+  function initializeTheme() {
+    let savedTheme = null;
+    try {
+      savedTheme = window.localStorage.getItem("jailbreak-observatory-theme");
+    } catch (_) {
+      // Fall back to the daytime theme when storage is unavailable.
+    }
+    applyTheme(savedTheme === "dark" ? "dark" : "light");
+    document.getElementById("themeToggle").addEventListener("click", () => {
+      const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      applyTheme(nextTheme);
+      try {
+        window.localStorage.setItem("jailbreak-observatory-theme", nextTheme);
+      } catch (_) {
+        // The toggle still works for the current page when storage is unavailable.
+      }
+    });
   }
 
   function wireInteractions() {
@@ -511,6 +571,10 @@
     document.getElementById("aboutButton").addEventListener("click", () => dialog.showModal());
     dialog.querySelector(".dialog-close").addEventListener("click", () => dialog.close());
     dialog.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
+    const citationsDialog = document.getElementById("citationsDialog");
+    document.getElementById("citationsButton").addEventListener("click", () => citationsDialog.showModal());
+    citationsDialog.querySelector(".dialog-close").addEventListener("click", () => citationsDialog.close());
+    citationsDialog.addEventListener("click", (event) => { if (event.target === citationsDialog) citationsDialog.close(); });
     document.getElementById("legendInfo").addEventListener("click", () => showToast("Links are computed from shared category, target, year, venue, and title vocabulary. They are reading suggestions—not claims of citation or direct influence."));
 
     window.addEventListener("keydown", (event) => {
@@ -518,7 +582,7 @@
         event.preventDefault();
         searchInput.focus();
       }
-      if (event.key === "Escape" && !dialog.open) clearSelection();
+      if (event.key === "Escape" && !dialog.open && !citationsDialog.open) clearSelection();
     });
     window.addEventListener("resize", () => {
       if (state.selected) fitSelection(state.selected);
@@ -528,12 +592,14 @@
   }
 
   function initialize() {
+    initializeTheme();
     buildDefs();
     buildLayout();
     renderEdges();
     renderNodes();
     createFilters();
     createVenueFilter();
+    createCitationList();
     wireInteractions();
     document.getElementById("paperCount").textContent = papers.length;
     document.getElementById("venueCount").textContent = new Set(papers.map((paper) => shortenVenue(paper.venue))).size;
