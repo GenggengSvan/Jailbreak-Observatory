@@ -103,7 +103,7 @@ def parse_conference_files() -> list[dict]:
 
 
 def parse_citations() -> list[dict]:
-    path = ROOT / "citations_top_100.md"
+    path = ROOT / "citations_over_50.md"
     content = path.read_text(encoding="utf-8")
     entries = []
     for block in re.split(r"(?m)^## ", content)[1:]:
@@ -128,7 +128,7 @@ def parse_citations() -> list[dict]:
                 "codeUrl": code_match.group(0) if code_match else "",
                 "citations": int(citations.group(1)),
                 "abstract": abstract_text,
-                "source": "citations_top_100.md",
+                "source": "citations_over_50.md",
             }
         )
     return entries
@@ -256,7 +256,7 @@ def main() -> None:
     papers = merge_papers(parse_conference_files(), parse_citations(), parse_latest_metadata())
     relations = build_relations(papers)
     payload = {
-        "generatedFrom": "Conference/**/*.md + citations_top_100.md + data/conference_*.json",
+        "generatedFrom": "Conference/**/*.md + citations_over_50.md + data/conference_*.json",
         "papers": papers,
         "relations": relations,
     }

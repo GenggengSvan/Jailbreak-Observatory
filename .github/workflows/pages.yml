@@ -6,7 +6,7 @@ on:
     paths:
       - "docs/**"
       - "Conference/**"
-      - "citations_top_100.md"
+      - "citations_over_50.md"
       - "scripts/build_site_data.py"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
