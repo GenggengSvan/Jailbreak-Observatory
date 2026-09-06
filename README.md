@@ -90,6 +90,8 @@ For full details, see the <a href='citations_over_50.md'>articles with more than
 
 Citation counts are refreshed by [`.github/workflows/update-citations.yml`](.github/workflows/update-citations.yml) on the first day of each month. Every run appends its query summary, citation changes, threshold crossings, and resulting snapshot to [`data/citation_history.json`](data/citation_history.json). Because Google Scholar does not provide an official public API, the workflow uses SerpApi's Google Scholar engine; add a repository secret named `SERPAPI_API_KEY` before enabling the scheduled run. The workflow checks at most 250 papers per month (the current free-plan quota): papers already tracked are prioritized, while other conference candidates rotate across later runs. If Google Scholar returns a CAPTCHA, rate-limit, empty result, or an uncertain title match, the script keeps the previous value and refuses to publish an incomplete refresh.
 
+The latest-edition conference check runs separately through [`.github/workflows/update-latest-papers.yml`](.github/workflows/update-latest-papers.yml). It calls a venue-specific adapter for each conference and records per-venue results in [`data/conference_update_history.json`](data/conference_update_history.json); a parser failure for one conference does not block the others.
+
 <table>
   <thead><tr><th>Target</th><th>Category</th><th>Title</th><th>Citations</th></tr></thead>
   <tbody>
