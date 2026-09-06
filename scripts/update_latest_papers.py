@@ -22,9 +22,9 @@ HISTORY = ROOT / "data" / "conference_update_history.json"
 VENUES = ("ICLR", "ICML", "AAAI", "ACL", "WWW", "SP", "CCS", "NDSS", "KDD", "IJCAI", "USENIX Security")
 
 
-def files_for(venue: str) -> list[Path]:
-    paths = [ROOT / "README.md", ROOT / "data" / "conference_2026.json"]
-    paths.extend((ROOT / "Conference" / venue).glob("*.md"))
+def files_for(venue: str, year: int) -> list[Path]:
+    paths = [ROOT / "README.md", ROOT / "data" / f"conference_{year}.json"]
+    paths.append(ROOT / "Conference" / venue / f"{venue.lower().replace(' ', '')}{year}.md")
     return paths
 
 
@@ -38,12 +38,19 @@ def digest(paths: list[Path]) -> dict[str, str]:
 
 def main() -> int:
     checked = dt.date.today().isoformat()
+    target_year = dt.date.today().year
     records = []
     any_success = False
     for venue in VENUES:
-        paths = files_for(venue)
+        paths = files_for(venue, target_year)
         before = digest(paths)
-        command = [sys.executable, str(ROOT / "scripts" / "update_2026_papers.py"), "--venues", venue]
+        expected_output = ROOT / "Conference" / venue / f"{venue.lower().replace(' ', '')}{target_year}.md"
+        if expected_output.exists():
+            any_success = True
+            print(f"{venue}: skipped_existing ({target_year})")
+            records.append({"venue": venue, "status": "skipped_existing", "changedFiles": []})
+            continue
+        command = [sys.executable, str(ROOT / "scripts" / "update_2026_papers.py"), "--year", str(target_year), "--venues", venue]
         completed = subprocess.run(command, cwd=ROOT, text=True, capture_output=True, check=False)
         after = digest(paths)
         changed = sorted(path for path in set(before) | set(after) if before.get(path) != after.get(path))
@@ -59,10 +66,11 @@ def main() -> int:
         records.append({"venue": venue, "status": status, "changedFiles": changed})
 
     history = json.loads(HISTORY.read_text(encoding="utf-8")) if HISTORY.exists() else {"updates": []}
-    history.setdefault("updates", []).append({"date": checked, "year": 2026, "venues": records})
+    history.setdefault("updates", []).append({"date": checked, "year": target_year, "venues": records})
     HISTORY.write_text(json.dumps(history, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     failed = sum(item["status"] == "failed" for item in records)
-    print(f"Checked {len(records)} venues: {len(records) - failed} succeeded, {failed} failed.")
+    skipped = sum(item["status"] == "skipped_existing" for item in records)
+    print(f"Checked {len(records)} venues: {len(records) - failed - skipped} updated, {skipped} existing skipped, {failed} failed.")
     return 0 if any_success else 1
 
 

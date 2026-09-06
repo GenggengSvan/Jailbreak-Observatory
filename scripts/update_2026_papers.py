@@ -38,7 +38,7 @@ from update_conference_papers import (
 
 ROOT = Path(__file__).resolve().parents[1]
 YEAR = 2026
-METADATA_PATH = ROOT / "data" / "conference_2026.json"
+METADATA_PATH = ROOT / "data" / f"conference_{YEAR}.json"
 
 
 def eligible(paper: dict, overrides: dict[str, dict[str, str]]) -> dict | None:
@@ -71,7 +71,7 @@ def parallel_map(function, values: list, workers: int = 8) -> list:
 def collect_virtual(venue: str, index_url: str, overrides: dict) -> tuple[str, list[dict]]:
     soup = BeautifulSoup(fetch(index_url), "html.parser")
     candidates: dict[str, str] = {}
-    for link in soup.select('a[href*="/virtual/2026/poster/"]'):
+    for link in soup.select(f'a[href*="/virtual/{YEAR}/poster/"]'):
         title = link.get_text(" ", strip=True)
         if title and CANDIDATE_RE.search(title):
             candidates[urllib.parse.urljoin(index_url, link.get("href"))] = title
@@ -113,14 +113,14 @@ def collect_virtual(venue: str, index_url: str, overrides: dict) -> tuple[str, l
 
 
 def collect_acl(overrides: dict) -> tuple[str, list[dict]]:
-    source_url = "https://raw.githubusercontent.com/acl-org/acl-anthology/master/data/xml/2026.acl.xml"
+    source_url = f"https://raw.githubusercontent.com/acl-org/acl-anthology/master/data/xml/{YEAR}.acl.xml"
     root = ET.fromstring(fetch(source_url))
     papers = []
     for volume in root.findall("volume"):
         volume_id = volume.get("id", "")
         if volume_id not in {"long", "short", "industry"}:
             continue
-        track = "ACL 2026 " + volume_id.title()
+        track = f"ACL {YEAR} " + volume_id.title()
         for node in volume.findall("paper"):
             title_node = node.find("title")
             if title_node is None:
@@ -128,7 +128,7 @@ def collect_acl(overrides: dict) -> tuple[str, list[dict]]:
             title = "".join(title_node.itertext())
             if not CANDIDATE_RE.search(title):
                 continue
-            anthology_id = (node.findtext("url") or f"2026.acl-{volume_id}.{node.get('id')}").strip()
+            anthology_id = (node.findtext("url") or f"{YEAR}.acl-{volume_id}.{node.get('id')}").strip()
             authors = []
             first_affiliation = "N/A"
             for author in node.findall("author"):
@@ -163,7 +163,7 @@ def crossref_items(container: str) -> list[dict]:
     while total is None or offset < total:
         params = urllib.parse.urlencode({
             "query.container-title": container,
-            "filter": "from-pub-date:2026-01-01,until-pub-date:2026-12-31",
+            "filter": f"from-pub-date:{YEAR}-01-01,until-pub-date:{YEAR}-12-31",
             "rows": 1000,
             "offset": offset,
             "mailto": "research@example.com",
@@ -216,7 +216,9 @@ def walk_named_records(value):
 
 
 def collect_kdd(overrides: dict) -> tuple[str, list[dict]]:
-    source_url = "https://kdd2026.kdd.org/full-program/"
+    if YEAR != 2026:
+        raise RuntimeError("KDD's event API ID is not configured for this year")
+    source_url = f"https://kdd{YEAR}.kdd.org/full-program/"
     api_url = (
         "https://whova.com/xems/apis/event_webpage/agenda/public/get_agendas/"
         "?event_id=As22EvgjdjIC7XoLbAG4Y41bA2JQnxLAEK-iJyT4y1Y%3D"
@@ -252,7 +254,7 @@ def collect_kdd(overrides: dict) -> tuple[str, list[dict]]:
 
 
 def collect_ijcai(overrides: dict) -> tuple[str, list[dict]]:
-    source_url = "https://2026.ijcai.org/accepted-papers/"
+    source_url = f"https://{YEAR}.ijcai.org/accepted-papers/"
     soup = BeautifulSoup(fetch(source_url), "html.parser")
     papers = []
     for node in soup.select("li.ij-paper"):
@@ -278,7 +280,7 @@ def collect_ijcai(overrides: dict) -> tuple[str, list[dict]]:
 
 
 def collect_usenix(overrides: dict) -> tuple[str, list[dict]]:
-    source_url = "https://www.usenix.org/conference/usenixsecurity26/technical-sessions"
+    source_url = f"https://www.usenix.org/conference/usenixsecurity{str(YEAR)[-2:]}/technical-sessions"
     soup = BeautifulSoup(fetch(source_url), "html.parser")
     links = {}
     for link in soup.select("article.node-paper h2 a"):
@@ -307,7 +309,7 @@ def collect_usenix(overrides: dict) -> tuple[str, list[dict]]:
 
 
 def collect_ndss(overrides: dict) -> tuple[str, list[dict]]:
-    source_url = "https://www.ndss-symposium.org/ndss2026/accepted-papers/"
+    source_url = f"https://www.ndss-symposium.org/ndss{YEAR}/accepted-papers/"
     soup = BeautifulSoup(fetch(source_url), "html.parser")
     links = {
         link.get("href"): link.get_text(" ", strip=True)
@@ -371,18 +373,22 @@ def upsert_readme(venue: str, count: int, relative_path: str) -> None:
 
 
 def main() -> None:
+    global YEAR, METADATA_PATH
     parser = argparse.ArgumentParser()
-    parser.add_argument("--venues", nargs="+", help="Update only these venues and preserve the other 2026 records")
+    parser.add_argument("--venues", nargs="+", help="Update only these venues and preserve other records")
+    parser.add_argument("--year", type=int, default=YEAR, help="Conference edition year to collect")
     args = parser.parse_args()
+    YEAR = args.year
+    METADATA_PATH = ROOT / "data" / f"conference_{YEAR}.json"
     overrides = load_overrides()
     collectors = [
-        ("ICLR", lambda: collect_virtual("ICLR", "https://iclr.cc/virtual/2026/papers.html?filter=titles", overrides)),
-        ("ICML", lambda: collect_virtual("ICML", "https://icml.cc/virtual/2026/papers.html?filter=titles", overrides)),
+        ("ICLR", lambda: collect_virtual("ICLR", f"https://iclr.cc/virtual/{YEAR}/papers.html?filter=titles", overrides)),
+        ("ICML", lambda: collect_virtual("ICML", f"https://icml.cc/virtual/{YEAR}/papers.html?filter=titles", overrides)),
         ("AAAI", lambda: collect_crossref("AAAI", "Proceedings of the AAAI Conference on Artificial Intelligence", "https://ojs.aaai.org/index.php/AAAI/", overrides)),
         ("ACL", lambda: collect_acl(overrides)),
-        ("WWW", lambda: collect_crossref("WWW", "Proceedings of the ACM Web Conference 2026", "https://www2026.thewebconf.org/accepted/research-tracks.html", overrides)),
-        ("SP", lambda: collect_crossref("SP", "2026 IEEE Symposium on Security and Privacy (SP)", "https://sp2026.ieee-security.org/accepted-papers.html", overrides)),
-        ("CCS", lambda: collect_crossref("CCS", "Proceedings of the 2026 ACM SIGSAC Conference on Computer and Communications Security", "https://www.sigsac.org/ccs/CCS2026/program/accepted-papers.html", overrides)),
+        ("WWW", lambda: collect_crossref("WWW", f"Proceedings of the ACM Web Conference {YEAR}", f"https://www{YEAR}.thewebconf.org/accepted/research-tracks.html", overrides)),
+        ("SP", lambda: collect_crossref("SP", f"{YEAR} IEEE Symposium on Security and Privacy (SP)", f"https://sp{YEAR}.ieee-security.org/accepted-papers.html", overrides)),
+        ("CCS", lambda: collect_crossref("CCS", f"Proceedings of the {YEAR} ACM SIGSAC Conference on Computer and Communications Security", f"https://www.sigsac.org/ccs/CCS{YEAR}/program/accepted-papers.html", overrides)),
         ("NDSS", lambda: collect_ndss(overrides)),
         ("KDD", lambda: collect_kdd(overrides)),
         ("IJCAI", lambda: collect_ijcai(overrides)),
@@ -419,7 +425,7 @@ def main() -> None:
         else dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat()
     )
     METADATA_PATH.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"Wrote {len(all_papers)} accepted/published 2026 papers to {METADATA_PATH.relative_to(ROOT)}")
+    print(f"Wrote {len(all_papers)} accepted/published {YEAR} papers to {METADATA_PATH.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":
