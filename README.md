@@ -52,7 +52,8 @@ KDD and IJCAI historical records are collected by `scripts/update_conference_pap
 <tr><td style='text-align:center;vertical-align:middle' rowspan='3'><strong>SP</strong></td><td style='text-align:center'>2026</td><td><a href='Conference/SP/sp2026.md'>SP2026</a></td><td style='text-align:center'>8</td></tr>
 <tr><td style='text-align:center'>2025</td><td><a href='Conference/SP/sp2025.md'>SP2025</a></td><td style='text-align:center'>2</td></tr>
 <tr><td style='text-align:center'>2024</td><td><a href='Conference/SP/sp2024.md'>SP2024</a></td><td style='text-align:center'>1</td></tr>
-<tr><td style='text-align:center;vertical-align:middle' rowspan='1'><strong>CCS</strong></td><td style='text-align:center'>2024</td><td><a href='Conference/CCS/ccs2024.md'>CCS2024</a></td><td style='text-align:center'>1</td></tr>
+<tr><td style='text-align:center;vertical-align:middle' rowspan='2'><strong>CCS</strong></td><td style='text-align:center'>2026</td><td><a href='Conference/CCS/ccs2026.md'>CCS2026</a></td><td style='text-align:center'>0</td></tr>
+<tr><td style='text-align:center'>2024</td><td><a href='Conference/CCS/ccs2024.md'>CCS2024</a></td><td style='text-align:center'>1</td></tr>
 <tr><td style='text-align:center;vertical-align:middle' rowspan='2'><strong>NDSS</strong></td><td style='text-align:center'>2026</td><td><a href='Conference/NDSS/ndss2026.md'>NDSS2026</a></td><td style='text-align:center'>8</td></tr>
 <tr><td style='text-align:center'>2024</td><td><a href='Conference/NDSS/ndss2024_fall.md'>NDSS2024</a></td><td style='text-align:center'>1</td></tr>
 <tr><td style='text-align:center;vertical-align:middle' rowspan='4'><strong>KDD</strong></td><td style='text-align:center'>2026</td><td><a href='Conference/KDD/kdd2026.md'>KDD2026</a></td><td style='text-align:center'>1</td></tr>

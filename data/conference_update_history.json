@@ -1,3 +1,69 @@
 {
-  "updates": []
+  "updates": [
+    {
+      "date": "2026-09-06",
+      "year": 2026,
+      "venues": [
+        {
+          "venue": "ICLR",
+          "status": "skipped_existing",
+          "changedFiles": []
+        },
+        {
+          "venue": "ICML",
+          "status": "skipped_existing",
+          "changedFiles": []
+        },
+        {
+          "venue": "AAAI",
+          "status": "skipped_existing",
+          "changedFiles": []
+        },
+        {
+          "venue": "ACL",
+          "status": "skipped_existing",
+          "changedFiles": []
+        },
+        {
+          "venue": "WWW",
+          "status": "skipped_existing",
+          "changedFiles": []
+        },
+        {
+          "venue": "SP",
+          "status": "skipped_existing",
+          "changedFiles": []
+        },
+        {
+          "venue": "CCS",
+          "status": "updated",
+          "changedFiles": [
+            "Conference/CCS/ccs2026.md",
+            "README.md",
+            "data/conference_2026.json"
+          ]
+        },
+        {
+          "venue": "NDSS",
+          "status": "skipped_existing",
+          "changedFiles": []
+        },
+        {
+          "venue": "KDD",
+          "status": "skipped_existing",
+          "changedFiles": []
+        },
+        {
+          "venue": "IJCAI",
+          "status": "skipped_existing",
+          "changedFiles": []
+        },
+        {
+          "venue": "USENIX Security",
+          "status": "skipped_existing",
+          "changedFiles": []
+        }
+      ]
+    }
+  ]
 }
