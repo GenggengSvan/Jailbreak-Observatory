@@ -1,7 +1,7 @@
 # Papers with More Than 50 Citations
 
 > Citation counts are queried from Google Scholar and refreshed monthly. Only papers with **more than 50 citations** are included.
-> Last successful refresh: 2026-09-06
+> Last successful refresh: not yet queried (initial migration snapshot)
 
 ## AutoDAN: Generating Stealthy Jailbreak Prompts on Aligned Large Language Models
 📑 Citations: 526

@@ -191,7 +191,7 @@ def scholar_via_html(title: str) -> tuple[int, str]:
     return int(cited.group(1)), ""
 
 
-def render_markdown(entries: list[dict], checked: str) -> str:
+def render_markdown(entries: list[dict], checked: str | None) -> str:
     selected = sorted(
         (item for item in entries if item.get("citations") is not None and item["citations"] > THRESHOLD),
         key=lambda item: (-item["citations"], item["title"].lower()),
@@ -200,7 +200,7 @@ def render_markdown(entries: list[dict], checked: str) -> str:
         "# Papers with More Than 50 Citations",
         "",
         "> Citation counts are queried from Google Scholar and refreshed monthly. Only papers with **more than 50 citations** are included.",
-        f"> Last successful refresh: {checked}",
+        f"> Last successful refresh: {checked or 'not yet queried (initial migration snapshot)'}",
         "",
     ]
     for item in selected:
@@ -266,7 +266,7 @@ def main() -> int:
     if args.migrate_only:
         today = dt.date.today().isoformat()
         CATALOG.write_text(json.dumps(entries, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        OUTPUT.write_text(render_markdown(entries, today), encoding="utf-8")
+        OUTPUT.write_text(render_markdown(entries, None), encoding="utf-8")
         update_readme(entries)
         print(f"Migrated {len(entries)} citation candidates; collection has {sum(1 for item in entries if (item.get('citations') or 0) > THRESHOLD)} papers.")
         return 0
