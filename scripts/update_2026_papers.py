@@ -204,6 +204,37 @@ def collect_crossref(venue: str, container: str, source_url: str, overrides: dic
     return source_url, sorted(parallel_map(detail, candidates, workers=6), key=lambda p: p["title"].lower())
 
 
+def collect_ccs(overrides: dict) -> tuple[str, list[dict]]:
+    """Parse CCS's official accepted-paper table before Crossref indexing."""
+    source_url = f"https://www.sigsac.org/ccs/CCS{YEAR}/program/accepted-papers.html"
+    soup = BeautifulSoup(fetch(source_url), "html.parser")
+    papers = []
+    for row in soup.select("table.accepted-papers-table tr"):
+        cells = row.find_all("td", recursive=False)
+        if len(cells) < 2:
+            continue
+        title = cells[0].get_text(" ", strip=True)
+        if not title or not CANDIDATE_RE.search(title):
+            continue
+        author_lines = [line.strip() for line in cells[1].stripped_strings if line.strip()]
+        first_affiliation = "N/A"
+        if author_lines:
+            affiliation = re.search(r"\(([^()]*)\)\s*$", author_lines[0])
+            if affiliation:
+                first_affiliation = affiliation.group(1).strip()
+        paper = {
+            "venue": "CCS", "year": YEAR, "title": title,
+            "authors": author_lines, "firstAuthorAffiliation": first_affiliation,
+            "track": "Accepted Papers", "status": "Accepted", "doi": "",
+            "url": source_url, "officialSource": source_url,
+            "abstractSource": source_url, "abstract": "",
+        }
+        value = eligible(paper, overrides)
+        if value:
+            papers.append(value)
+    return source_url, sorted(papers, key=lambda p: p["title"].lower())
+
+
 def walk_named_records(value):
     if isinstance(value, dict):
         if value.get("name") and value.get("desc") and value.get("tracks"):
@@ -388,7 +419,7 @@ def main() -> None:
         ("ACL", lambda: collect_acl(overrides)),
         ("WWW", lambda: collect_crossref("WWW", f"Proceedings of the ACM Web Conference {YEAR}", f"https://www{YEAR}.thewebconf.org/accepted/research-tracks.html", overrides)),
         ("SP", lambda: collect_crossref("SP", f"{YEAR} IEEE Symposium on Security and Privacy (SP)", f"https://sp{YEAR}.ieee-security.org/accepted-papers.html", overrides)),
-        ("CCS", lambda: collect_crossref("CCS", f"Proceedings of the {YEAR} ACM SIGSAC Conference on Computer and Communications Security", f"https://www.sigsac.org/ccs/CCS{YEAR}/program/accepted-papers.html", overrides)),
+        ("CCS", lambda: collect_ccs(overrides)),
         ("NDSS", lambda: collect_ndss(overrides)),
         ("KDD", lambda: collect_kdd(overrides)),
         ("IJCAI", lambda: collect_ijcai(overrides)),

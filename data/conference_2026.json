@@ -69,7 +69,7 @@
       "venue": "CCS",
       "year": 2026,
       "url": "https://www.sigsac.org/ccs/CCS2026/program/accepted-papers.html",
-      "paperCount": 0
+      "paperCount": 3
     }
   ],
   "papers": [
@@ -5391,7 +5391,86 @@
       ],
       "category": "Attack",
       "target": "Vision"
+    },
+    {
+      "venue": "CCS",
+      "year": 2026,
+      "title": "Can Small Language Models Reliably Resist Jailbreak Attacks? A Comprehensive Evaluation",
+      "authors": [
+        "Zhibo Wang (Zhejiang University)",
+        "Wenhui Zhang (Zhejiang University)",
+        "Huiyu Xu (Zhejiang University)",
+        "Zeqing He (Zhejiang University)",
+        "Ziqi Zhu (Zhejiang University)",
+        "Kui Ren (Zhejiang University)"
+      ],
+      "firstAuthorAffiliation": "Zhejiang University",
+      "track": "Accepted Papers",
+      "status": "Accepted",
+      "doi": "",
+      "url": "https://www.sigsac.org/ccs/CCS2026/program/accepted-papers.html",
+      "officialSource": "https://www.sigsac.org/ccs/CCS2026/program/accepted-papers.html",
+      "abstractSource": "https://www.sigsac.org/ccs/CCS2026/program/accepted-papers.html",
+      "abstract": "",
+      "relevanceScore": 8,
+      "relevanceSignals": [
+        "jailbreak"
+      ],
+      "category": "Benchmark",
+      "target": "Text"
+    },
+    {
+      "venue": "CCS",
+      "year": 2026,
+      "title": "One Leak Away: How Pretrained Model Exposure Amplifies Jailbreak Risks in Finetuned LLMs",
+      "authors": [
+        "Yixin Tan (Institue of Science Tokyo)",
+        "Yu Zhe (RIKEN AIP)",
+        "Rui Wen (Institute of Science Tokyo)",
+        "Jun Sakuma (Institute of Science Tokyo)"
+      ],
+      "firstAuthorAffiliation": "Institue of Science Tokyo",
+      "track": "Accepted Papers",
+      "status": "Accepted",
+      "doi": "",
+      "url": "https://www.sigsac.org/ccs/CCS2026/program/accepted-papers.html",
+      "officialSource": "https://www.sigsac.org/ccs/CCS2026/program/accepted-papers.html",
+      "abstractSource": "https://www.sigsac.org/ccs/CCS2026/program/accepted-papers.html",
+      "abstract": "",
+      "relevanceScore": 8,
+      "relevanceSignals": [
+        "jailbreak"
+      ],
+      "category": "Attack",
+      "target": "Text"
+    },
+    {
+      "venue": "CCS",
+      "year": 2026,
+      "title": "PC^2: Politically Controversial Content Generation via Jailbreaking Attacks on GPT-based Text-to-Image Models",
+      "authors": [
+        "Wonwoo Choi (ADD)",
+        "Minjae Seo (ETRI)",
+        "Minkyoo Song (KAIST)",
+        "Hwanjo Heo (ETRI)",
+        "Seungwon Shin (KAIST)",
+        "Myoungsung You (University of Seoul)"
+      ],
+      "firstAuthorAffiliation": "ADD",
+      "track": "Accepted Papers",
+      "status": "Accepted",
+      "doi": "",
+      "url": "https://www.sigsac.org/ccs/CCS2026/program/accepted-papers.html",
+      "officialSource": "https://www.sigsac.org/ccs/CCS2026/program/accepted-papers.html",
+      "abstractSource": "https://www.sigsac.org/ccs/CCS2026/program/accepted-papers.html",
+      "abstract": "",
+      "relevanceScore": 8,
+      "relevanceSignals": [
+        "jailbreak"
+      ],
+      "category": "Attack",
+      "target": "Vision"
     }
   ],
-  "generatedAt": "2026-09-06T09:39:07+00:00"
+  "generatedAt": "2026-09-06T09:44:29+00:00"
 }

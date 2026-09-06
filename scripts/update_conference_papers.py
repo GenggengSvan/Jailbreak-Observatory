@@ -59,7 +59,7 @@ RELEVANCE_RULES = (
 )
 
 MODEL_SCOPE_RE = re.compile(
-    r"\b(?:large language models?|llms?|vision[- ]language models?|vllms?|multimodal llms?|"
+    r"\b(?:(?:large|small) language models?|llms?|vision[- ]language models?|vllms?|multimodal llms?|"
     r"multimodal large language models?|mllms?|large audio[- ]language models?|"
     r"speech[- ]driven llms?|text-to-image (?:generation )?(?:systems?|models?)|"
     r"multimodal guardrails?|web agents?|embodied agents?|language-model agents?|llm[- ]based agents?)\b",
