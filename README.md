@@ -88,7 +88,7 @@ Each document typically contains:
 ## Summary Table
 For full details, see the <a href='citations_over_50.md'>articles with more than 50 citations</a> (Google Scholar; refreshed monthly).
 
-Citation counts are refreshed by [`.github/workflows/update-citations.yml`](.github/workflows/update-citations.yml) on the first day of each month. Because Google Scholar does not provide an official public API, the workflow uses SerpApi's Google Scholar engine; add a repository secret named `SERPAPI_API_KEY` before enabling the scheduled run. If Google Scholar returns a CAPTCHA, rate-limit, empty result, or an uncertain title match, the script keeps the previous value and refuses to publish an incomplete refresh.
+Citation counts are refreshed by [`.github/workflows/update-citations.yml`](.github/workflows/update-citations.yml) on the first day of each month. Because Google Scholar does not provide an official public API, the workflow uses SerpApi's Google Scholar engine; add a repository secret named `SERPAPI_API_KEY` before enabling the scheduled run. The workflow checks at most 250 papers per month (the current free-plan quota): papers already tracked are prioritized, while other conference candidates rotate across later runs. If Google Scholar returns a CAPTCHA, rate-limit, empty result, or an uncertain title match, the script keeps the previous value and refuses to publish an incomplete refresh.
 
 <table>
   <thead><tr><th>Target</th><th>Category</th><th>Title</th><th>Citations</th></tr></thead>

@@ -256,6 +256,12 @@ def main() -> int:
     parser.add_argument("--allow-direct", action="store_true", help="Try direct Scholar HTML when SERPAPI_API_KEY is absent")
     parser.add_argument("--include-conference", action=argparse.BooleanOptionalAction, default=True)
     parser.add_argument("--migrate-only", action="store_true", help="Create the catalog and >50 collection without network requests")
+    parser.add_argument(
+        "--max-queries",
+        type=int,
+        default=int(os.environ.get("SERPAPI_MAX_QUERIES", "250")),
+        help="Maximum papers to query this run; known papers are prioritized and unknown candidates rotate",
+    )
     parser.add_argument("--min-delay", type=float, default=2.0)
     parser.add_argument("--max-delay", type=float, default=5.0)
     args = parser.parse_args()
@@ -275,8 +281,13 @@ def main() -> int:
         print("SERPAPI_API_KEY is not configured. Google Scholar has no official public API; refusing an unreliable CI scrape.", file=sys.stderr)
         return 2
     today = dt.date.today().isoformat()
+    known = [item for item in entries if item.get("citations") is not None]
+    unknown = [item for item in entries if item.get("citations") is None]
+    known.sort(key=lambda item: item["title"].lower())
+    unknown.sort(key=lambda item: (item.get("lastChecked") is not None, item.get("lastChecked") or "", item["title"].lower()))
+    targets = (known + unknown)[: max(1, args.max_queries)]
     successes = failures = 0
-    for index, item in enumerate(entries, 1):
+    for index, item in enumerate(targets, 1):
         try:
             if api_key:
                 count, source_id = scholar_via_serpapi(item["title"], api_key)
@@ -291,7 +302,7 @@ def main() -> int:
         except Exception as exc:  # keep old value for one bad result
             failures += 1
             print(f"[{index}/{len(entries)}] SKIP  {item['title']}: {exc}", file=sys.stderr)
-        if index < len(entries):
+        if index < len(targets):
             time.sleep(random.uniform(args.min_delay, args.max_delay))
 
     if successes == 0:
