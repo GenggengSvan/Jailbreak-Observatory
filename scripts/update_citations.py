@@ -27,6 +27,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / "data" / "citation_catalog.json"
+HISTORY = ROOT / "data" / "citation_history.json"
 OUTPUT = ROOT / "citations_over_50.md"
 README = ROOT / "README.md"
 THRESHOLD = 50
@@ -251,6 +252,41 @@ def update_readme(entries: list[dict]) -> None:
     README.write_text(text, encoding="utf-8")
 
 
+def record_history(entries: list[dict], previous: dict[str, int | None], checked: str, queried: int, successes: int, failures: int) -> None:
+    """Append a compact snapshot and threshold crossings to the audit log."""
+    history = json.loads(HISTORY.read_text(encoding="utf-8")) if HISTORY.exists() else {"updates": []}
+    changes = []
+    for item in entries:
+        key = normalize_title(item["title"])
+        old = previous.get(key)
+        new = item.get("citations")
+        if new is None or old == new:
+            continue
+        if (old or 0) <= THRESHOLD < new:
+            event = "entered_collection"
+        elif old is not None and old > THRESHOLD >= new:
+            event = "left_collection"
+        else:
+            event = "citation_count_changed"
+        changes.append({"title": item["title"], "old": old, "new": new, "delta": new - old if old is not None else None, "event": event})
+    snapshot = [
+        {"title": item["title"], "citations": item["citations"]}
+        for item in sorted(entries, key=lambda value: (-(value.get("citations") or 0), value["title"].lower()))
+        if item.get("citations") is not None and item["citations"] > THRESHOLD
+    ]
+    history.setdefault("updates", []).append({
+        "date": checked,
+        "source": "Google Scholar via SerpApi",
+        "queried": queried,
+        "succeeded": successes,
+        "failed": failures,
+        "collectionSize": len(snapshot),
+        "changes": sorted(changes, key=lambda value: value["title"].lower()),
+        "snapshot": snapshot,
+    })
+    HISTORY.write_text(json.dumps(history, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--allow-direct", action="store_true", help="Try direct Scholar HTML when SERPAPI_API_KEY is absent")
@@ -281,6 +317,7 @@ def main() -> int:
         print("SERPAPI_API_KEY is not configured. Google Scholar has no official public API; refusing an unreliable CI scrape.", file=sys.stderr)
         return 2
     today = dt.date.today().isoformat()
+    previous = {normalize_title(item["title"]): item.get("citations") for item in entries}
     known = [item for item in entries if item.get("citations") is not None]
     unknown = [item for item in entries if item.get("citations") is None]
     known.sort(key=lambda item: item["title"].lower())
@@ -315,6 +352,7 @@ def main() -> int:
     CATALOG.write_text(json.dumps(entries, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     OUTPUT.write_text(render_markdown(entries, today), encoding="utf-8")
     update_readme(entries)
+    record_history(entries, previous, today, len(targets), successes, failures)
     print(f"Updated {successes} papers; retained {failures} previous values; collection has {sum(1 for item in entries if (item.get('citations') or 0) > THRESHOLD)} papers.")
     return 0
 
