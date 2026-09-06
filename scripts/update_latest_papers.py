@@ -19,7 +19,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 HISTORY = ROOT / "data" / "conference_update_history.json"
-VENUES = ("ICLR", "ICML", "AAAI", "ACL", "WWW", "SP", "NDSS", "KDD", "IJCAI", "USENIX Security")
+VENUES = ("ICLR", "ICML", "AAAI", "ACL", "WWW", "SP", "CCS", "NDSS", "KDD", "IJCAI", "USENIX Security")
 
 
 def files_for(venue: str) -> list[Path]:

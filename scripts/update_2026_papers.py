@@ -382,6 +382,7 @@ def main() -> None:
         ("ACL", lambda: collect_acl(overrides)),
         ("WWW", lambda: collect_crossref("WWW", "Proceedings of the ACM Web Conference 2026", "https://www2026.thewebconf.org/accepted/research-tracks.html", overrides)),
         ("SP", lambda: collect_crossref("SP", "2026 IEEE Symposium on Security and Privacy (SP)", "https://sp2026.ieee-security.org/accepted-papers.html", overrides)),
+        ("CCS", lambda: collect_crossref("CCS", "Proceedings of the 2026 ACM SIGSAC Conference on Computer and Communications Security", "https://www.sigsac.org/ccs/CCS2026/program/accepted-papers.html", overrides)),
         ("NDSS", lambda: collect_ndss(overrides)),
         ("KDD", lambda: collect_kdd(overrides)),
         ("IJCAI", lambda: collect_ijcai(overrides)),
