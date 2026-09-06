@@ -1,3 +1,1988 @@
 {
-  "updates": []
+  "updates": [
+    {
+      "date": "2026-09-06",
+      "source": "Google Scholar via SerpApi",
+      "queried": 250,
+      "succeeded": 232,
+      "failed": 18,
+      "collectionSize": 87,
+      "changes": [
+        {
+          "title": "\"Do Anything Now\": Characterizing and Evaluating In-The-Wild Jailbreak Prompts on Large Language Models",
+          "old": 426,
+          "new": 1581,
+          "delta": 1155,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "\"Not Aligned\" is Not \"Malicious\": Being Careful about Hallucinations of Large Language Models' Jailbreak",
+          "old": 16,
+          "new": 27,
+          "delta": 11,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "$R^2$-Guard: Robust Reasoning Enabled LLM Guardrail via Knowledge-Enhanced Logical Reasoning",
+          "old": null,
+          "new": 65,
+          "delta": null,
+          "event": "entered_collection"
+        },
+        {
+          "title": "A Comprehensive Study of Jailbreak Attack versus Defense for Large Language Models",
+          "old": 83,
+          "new": 243,
+          "delta": 160,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "A Cross-Language Investigation into Jailbreak Attacks in Large Language Models",
+          "old": 37,
+          "new": 88,
+          "delta": 51,
+          "event": "entered_collection"
+        },
+        {
+          "title": "A Guardrail for Safety Preservation: When Safety-Sensitive Subspace Meets Harmful-Resistant Null-Space",
+          "old": null,
+          "new": 6,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "A Mechanistic Understanding of Alignment Algorithms: A Case Study on DPO and Toxicity",
+          "old": null,
+          "new": 229,
+          "delta": null,
+          "event": "entered_collection"
+        },
+        {
+          "title": "A Mousetrap: Fooling Large Reasoning Models for Jailbreak with Chain of Iterative Chaos",
+          "old": null,
+          "new": 51,
+          "delta": null,
+          "event": "entered_collection"
+        },
+        {
+          "title": "A New Framework for Cybersecurity Refusals in AI Agents",
+          "old": null,
+          "new": 1,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "A StrongREJECT for Empty Jailbreaks",
+          "old": null,
+          "new": 619,
+          "delta": null,
+          "event": "entered_collection"
+        },
+        {
+          "title": "A Theoretical Understanding of Self-Correction through In-context Alignment",
+          "old": null,
+          "new": 72,
+          "delta": null,
+          "event": "entered_collection"
+        },
+        {
+          "title": "A Troublemaker with Contagious Jailbreak Makes Chaos in Honest Towns",
+          "old": null,
+          "new": 12,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "A Wolf in Sheep’s Clothing: Generalized Nested Jailbreak Prompts can Fool Large Language Models Easily",
+          "old": 202,
+          "new": 384,
+          "delta": 182,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "A2D: Any-Order, Any-Step Safety Alignment for Diffusion Language Models",
+          "old": null,
+          "new": 7,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Accommodation and Epistemic Vigilance: A Pragmatic Account of Why LLMs Fail to Challenge Harmful Beliefs",
+          "old": null,
+          "new": 7,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Activation Manipulation Attack: Penetrating and Harmful Jailbreak Attack Against Large Vision-Language Models",
+          "old": null,
+          "new": 1,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Activation-Guided Local Editing for Jailbreaking Attacks",
+          "old": null,
+          "new": 3,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Active Attacks: Red-teaming LLMs via Adaptive Environments",
+          "old": null,
+          "new": 9,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Adaptive Detoxification: Safeguarding General Capabilities of LLMs through Toxicity-Aware Knowledge Editing",
+          "old": null,
+          "new": 5,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Adaptive Instruction Composition for Automated LLM Red-Teaming",
+          "old": null,
+          "new": 1,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Adjacent Words, Divergent Intents: Jailbreaking Large Language Models via Task Concurrency",
+          "old": null,
+          "new": 20,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Advancing Adversarial Suffix Transfer Learning on Aligned Large Language Models",
+          "old": null,
+          "new": 19,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Advancing Embodied Agent Security: From Safety Benchmarks to Input Moderation",
+          "old": null,
+          "new": 17,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Advancing the Robustness of Large Language Models through Self-Denoised Smoothing",
+          "old": null,
+          "new": 33,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Adversarial Déjà Vu: Jailbreak Dictionary Learning for Stronger Generalization to Unseen Attacks",
+          "old": null,
+          "new": 9,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Adversarial Reasoning at Jailbreaking Time",
+          "old": null,
+          "new": 32,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Adversarial Tuning: Defending Against Jailbreak Attacks for LLMs",
+          "old": 23,
+          "new": 52,
+          "delta": 29,
+          "event": "entered_collection"
+        },
+        {
+          "title": "AdvPrefix: An Objective for Nuanced LLM Jailbreaks",
+          "old": null,
+          "new": 25,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "AdvPrompter: Fast Adaptive Adversarial Prompting for LLMs",
+          "old": null,
+          "new": 254,
+          "delta": null,
+          "event": "entered_collection"
+        },
+        {
+          "title": "AdvWave: Stealthy Adversarial Jailbreak Attack against Large Audio-Language Models",
+          "old": 18,
+          "new": 49,
+          "delta": 31,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "AGD: Adversarial Game Defense Against Jailbreak Attacks in Large Language Models",
+          "old": null,
+          "new": 6,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Agent Smith: A Single Image Can Jailbreak One Million Multimodal LLM Agents Exponentially Fast",
+          "old": 91,
+          "new": 208,
+          "delta": 117,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "AgentHarm: A Benchmark for Measuring Harmfulness of LLM Agents",
+          "old": null,
+          "new": 478,
+          "delta": null,
+          "event": "entered_collection"
+        },
+        {
+          "title": "Agents Under Siege: Breaking Pragmatic Multi-Agent LLM Systems with Optimized Prompt Attacks",
+          "old": null,
+          "new": 51,
+          "delta": null,
+          "event": "entered_collection"
+        },
+        {
+          "title": "Align Once, Benefit Multilingually: Enforcing Multilingual Consistency for LLM Safety Alignment",
+          "old": null,
+          "new": 9,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Align to Misalign: Automatic LLM Jailbreak with Meta-Optimized LLM Judges",
+          "old": null,
+          "new": 4,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Aligned LLMs Are Not Aligned Browser Agents",
+          "old": null,
+          "new": 24,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Alignment-Enhanced Decoding: Defending Jailbreaks via Token-Level Adaptive Refining of Probability Distributions",
+          "old": null,
+          "new": 19,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "AlignTree: Efficient Defense Against LLM Jailbreak Attacks",
+          "old": null,
+          "new": 3,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "All in How You Ask for It: Simple Black-Box Method for Jailbreak Attacks",
+          "old": 31,
+          "new": 54,
+          "delta": 23,
+          "event": "entered_collection"
+        },
+        {
+          "title": "All You Need Is S P A C E: When Jailbreaking Meets Bias Audit and Reveals What Lies Beneath the Guardrails (Student Abstract)",
+          "old": null,
+          "new": 4,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "ALMGuard: Safety Shortcuts and Where to Find Them as Guardrails for Audio–Language Models",
+          "old": null,
+          "new": 3,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "AlphaAlign: Incentivizing Safety Alignment with Extremely Simplified Reinforcement Learning",
+          "old": null,
+          "new": 9,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "AlphaSteer: Learning Refusal Steering with Principled Null-Space Constraint",
+          "old": null,
+          "new": 46,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Always Refuse: Steering LLMs Against Jailbreaks with Contrastive Activations (Student Abstract)",
+          "old": null,
+          "new": 1,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "An Interpretable N-gram Perplexity Threat Model for Large Language Model Jailbreaks",
+          "old": null,
+          "new": 14,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "An Optimizable Suffix Is Worth A Thousand Templates: Efficient Black-box Jailbreaking without Affirmative Phrases via LLM as Optimizer",
+          "old": null,
+          "new": 16,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Analogy-based Multi-Turn Jailbreak against Large Language Models",
+          "old": null,
+          "new": 7,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Any-Depth Alignment: Unlocking Innate Safety Alignment of LLMs to Any-Depth",
+          "old": null,
+          "new": 3,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Are Large Language Models Really Bias-Free? Jailbreak Prompts for Assessing Adversarial Robustness to Bias Elicitation",
+          "old": 13,
+          "new": 27,
+          "delta": 14,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "ARMs: Adaptive Red-Teaming Agent against Multimodal Models with Plug-and-Play Attacks",
+          "old": null,
+          "new": 9,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Arondight: Red Teaming Large Vision Language Models with Auto-generated Multi-modal Jailbreak Prompts",
+          "old": 34,
+          "new": 66,
+          "delta": 32,
+          "event": "entered_collection"
+        },
+        {
+          "title": "ART: Automatic Red-teaming for Text-to-Image Models to Protect Benign Users",
+          "old": null,
+          "new": 40,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "ArtPrompt: ASCII Art-based Jailbreak Attacks against Aligned LLMs",
+          "old": 182,
+          "new": 348,
+          "delta": 166,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "ASETF: A Novel Method for Jailbreak Attack on LLMs through Translate Suffix Embeddings",
+          "old": 28,
+          "new": 49,
+          "delta": 21,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "ASGuard: Activation-Scaling Guard to Mitigate Targeted Jailbreaking Attack",
+          "old": null,
+          "new": 1,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Assessing the Brittleness of Safety Alignment via Pruning and Low-Rank Modifications",
+          "old": null,
+          "new": 295,
+          "delta": null,
+          "event": "entered_collection"
+        },
+        {
+          "title": "Assessing Vulnerabilities in State-of-the-Art Large Language Models Through Hex Injection (Student Abstract)",
+          "old": null,
+          "new": 1,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Atoxia: Red-teaming Large Language Models with Target Toxic Answers",
+          "old": null,
+          "new": 8,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Attack via Overfitting: 10-shot Benign Fine-tuning to Jailbreak LLMs",
+          "old": null,
+          "new": 16,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "AttackEval: How to Evaluate the Effectiveness of Jailbreak Attacking on Large Language Models",
+          "old": 22,
+          "new": 72,
+          "delta": 50,
+          "event": "entered_collection"
+        },
+        {
+          "title": "Attention is All You Need to Defend Against Indirect Prompt Injection Attacks in LLMs",
+          "old": null,
+          "new": 12,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Attention! Your Vision Language Model Could Be Maliciously Manipulated",
+          "old": null,
+          "new": 8,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "AttriGuard: Defeating Indirect Prompt Injection in LLM Agents via Causal Attribution of Tool Invocations",
+          "old": null,
+          "new": 26,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Audio Is the Achilles’ Heel: Red Teaming Audio Large Multimodal Models",
+          "old": null,
+          "new": 48,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Audio Jailbreak: An Open Comprehensive Benchmark for Jailbreaking Large Audio-Language Models",
+          "old": null,
+          "new": 21,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Auto-RT: Automatic Jailbreak Strategy Exploration for Red-Teaming Large Language Models",
+          "old": null,
+          "new": 17,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "AutoBreach: Universal and Adaptive Jailbreaking with Efficient Wordplay-Guided Optimization via Multi-LLMs",
+          "old": null,
+          "new": 21,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "AutoDAN-Turbo: A Lifelong Agent for Strategy Self-Exploration to Jailbreak LLMs",
+          "old": 84,
+          "new": 253,
+          "delta": 169,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "AutoDAN: Generating Stealthy Jailbreak Prompts on Aligned Large Language Models",
+          "old": 526,
+          "new": 1602,
+          "delta": 1076,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "AutoDefense: Multi-Agent LLM Defense against Jailbreak Attacks",
+          "old": 117,
+          "new": 242,
+          "delta": 125,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "AutoJailbreak: Exploring Jailbreak Attacks and Defenses through a Dependency Lens",
+          "old": 13,
+          "new": 22,
+          "delta": 9,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Automated Red Teaming with GOAT: the Generative Offensive Agent Tester",
+          "old": null,
+          "new": 62,
+          "delta": null,
+          "event": "entered_collection"
+        },
+        {
+          "title": "Automatic Dialectic Jailbreak: A Framework for Generating Effective Jailbreak Strategies",
+          "old": null,
+          "new": 1,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Automatic Prompt Optimization with \"Gradient Descent\" and Beam Search",
+          "old": null,
+          "new": 979,
+          "delta": null,
+          "event": "entered_collection"
+        },
+        {
+          "title": "BackdoorAlign: Mitigating Fine-tuning based Jailbreak Attack with Backdoor Enhanced Safety Alignment",
+          "old": 23,
+          "new": 53,
+          "delta": 30,
+          "event": "entered_collection"
+        },
+        {
+          "title": "Backdoors in RLVR: Jailbreak Backdoors in LLMs From Verifiable Reward",
+          "old": null,
+          "new": 10,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "BadRobot: Jailbreaking Embodied LLM Agents in the Physical World",
+          "old": null,
+          "new": 31,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Bag of Tricks: Benchmarking of Jailbreak Attacks on LLMs",
+          "old": 24,
+          "new": 71,
+          "delta": 47,
+          "event": "entered_collection"
+        },
+        {
+          "title": "BaitAttack: Alleviating Intention Shift in Jailbreak Attacks via Adaptive Bait Crafting",
+          "old": 10,
+          "new": 18,
+          "delta": 8,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "BaThe: Defense against the Jailbreak Attack in Multimodal Large Language Models by Treating Harmful Instruction as Backdoor Trigger",
+          "old": 10,
+          "new": 16,
+          "delta": 6,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Benchmarking and Defending against Indirect Prompt Injection Attacks on Large Language Models",
+          "old": null,
+          "new": 504,
+          "delta": null,
+          "event": "entered_collection"
+        },
+        {
+          "title": "Best-of-N Jailbreaking",
+          "old": null,
+          "new": 96,
+          "delta": null,
+          "event": "entered_collection"
+        },
+        {
+          "title": "Between a Rock and a Hard Place: The Tension Between Ethical Reasoning and Safety Alignment in LLMs",
+          "old": null,
+          "new": 2,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Beyond I’m Sorry, I Can’t: Dissecting Large-Language-Model Refusal",
+          "old": null,
+          "new": 9,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Beyond Jailbreak: Unveiling Risks in LLM Applications Arising from Blurred Capability Boundaries",
+          "old": null,
+          "new": 1,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Beyond Mere Token Analysis: A Hypergraph Metric Space Framework for Defending Against Socially Engineered LLM Attacks",
+          "old": null,
+          "new": 2,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Beyond Surface-Level Detection: Towards Cognitive-Driven Defense Against Jailbreak Attacks via Meta-Operations Reasoning",
+          "old": null,
+          "new": 2,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Beyond Surface-Level Patterns: An Essence-Driven Defense Framework Against Jailbreak Attacks in LLMs",
+          "old": null,
+          "new": 15,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Beyond the Tip of Efficiency: Uncovering the Submerged Threats of Jailbreak Attacks in Small Language Models",
+          "old": null,
+          "new": 10,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Bits Leaked per Query: Information-Theoretic Bounds for Adversarial Attacks on LLMs",
+          "old": null,
+          "new": 6,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Bleeding Pathways: Vanishing Discriminability in LLM Hidden States Fuels Jailbreak Attacks",
+          "old": null,
+          "new": 3,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Blink of an eye: a simple theory for feature localization in generative models",
+          "old": null,
+          "new": 7,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "BlueSuffix: Reinforced Blue Teaming for Vision-Language Models Against Jailbreak Attacks",
+          "old": 15,
+          "new": 42,
+          "delta": 27,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Boosting Jailbreak Attack with Momentum",
+          "old": 26,
+          "new": 86,
+          "delta": 60,
+          "event": "entered_collection"
+        },
+        {
+          "title": "Breach By A Thousand Leaks: Unsafe Information Leakage in 'Safe' AI Responses",
+          "old": null,
+          "new": 24,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Break the Breakout: Reinventing LM Defense Against Jailbreak Attacks with Self-Refinement",
+          "old": 25,
+          "new": 35,
+          "delta": 10,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Breaking the Ceiling: Exploring the Potential of Jailbreak Attacks through Expanding Strategy Space",
+          "old": null,
+          "new": 27,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "CAGE: A Framework for Culturally Adaptive Red-Teaming Benchmark Generation",
+          "old": null,
+          "new": 2,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Can LLMs Refuse Questions They Do Not Know? Measuring Knowledge-Aware Refusal in Factual Tasks",
+          "old": null,
+          "new": 6,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Cannot See the Forest for the Trees: Invoking Heuristics and Biases to Elicit Irrational Choices of LLMs",
+          "old": null,
+          "new": 11,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Capability-Based Scaling Trends for LLM-Based Red-Teaming",
+          "old": null,
+          "new": 4,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "CARES: Comprehensive Evaluation of Safety and Adversarial Robustness in Medical LLMs",
+          "old": null,
+          "new": 34,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Catastrophic Jailbreak of Open-source LLMs via Exploiting Generation",
+          "old": 390,
+          "new": 614,
+          "delta": 224,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "CAVGAN: Unifying Jailbreak and Defense of LLMs via Generative Adversarial Attacks on their Internal Representations",
+          "old": null,
+          "new": 11,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Certifying Counterfactual Bias in LLMs",
+          "old": null,
+          "new": 18,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Chain of Attack: Hide Your Intention through Multi-Turn Interrogation",
+          "old": null,
+          "new": 21,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Chain-of-Jailbreak Attack for Image Generation Models via Step by Step Editing",
+          "old": null,
+          "new": 6,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "ChatBug: A Common Vulnerability of Aligned LLMs Induced by Chat Templates",
+          "old": null,
+          "new": 38,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "ChatInject: Abusing Chat Templates for Prompt Injection in LLM Agents",
+          "old": null,
+          "new": 34,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference",
+          "old": null,
+          "new": 90,
+          "delta": null,
+          "event": "entered_collection"
+        },
+        {
+          "title": "Co-RedTeam: Orchestrated Security Discovery and Exploitation with LLM Agents",
+          "old": null,
+          "new": 7,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Cognitive Overload: Jailbreaking Large Language Models with Overloaded Logical Thinking",
+          "old": null,
+          "new": 139,
+          "delta": null,
+          "event": "entered_collection"
+        },
+        {
+          "title": "COLD-Attack: Jailbreaking LLMs with Stealthiness and Controllability",
+          "old": null,
+          "new": 262,
+          "delta": null,
+          "event": "entered_collection"
+        },
+        {
+          "title": "ColJailBreak: Collaborative Generation and Editing for Jailbreaking Text-to-Image Deep Generation",
+          "old": null,
+          "new": 25,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Comparison requires valid measurement: Rethinking attack success rate comparisons in AI red teaming",
+          "old": null,
+          "new": 13,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Competition Report: Finding Universal Jailbreak Backdoors in Aligned LLMs",
+          "old": 23,
+          "new": 36,
+          "delta": 13,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Comprehensive Assessment of Jailbreak Attacks Against LLMs",
+          "old": 41,
+          "new": 161,
+          "delta": 120,
+          "event": "entered_collection"
+        },
+        {
+          "title": "Con Instruction: Universal Jailbreaking of Multimodal Large Language Models via Non-Textual Modalities",
+          "old": null,
+          "new": 3,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Concept-ROT: Poisoning Concepts in Large Language Models with Model Editing",
+          "old": null,
+          "new": 16,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Constitutional Classifiers++: Efficient Production-Grade Defenses against Universal Jailbreaks",
+          "old": null,
+          "new": 39,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Context Contamination in LLM Analysis of Network Security Logs: Poison with Passive Prompt Injection and Mitigation Evaluation",
+          "old": null,
+          "new": 2,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "CoP: Agentic Red-teaming for Large Language Models using Composition of Principles",
+          "old": null,
+          "new": 9,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Course-Correction: Safety Alignment Using Synthetic Preferences",
+          "old": null,
+          "new": 15,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "DeAL: Decoding-time Alignment for Large Language Models",
+          "old": null,
+          "new": 116,
+          "delta": null,
+          "event": "entered_collection"
+        },
+        {
+          "title": "DecodingTrust: A Comprehensive Assessment of Trustworthiness in GPT Models",
+          "old": null,
+          "new": 905,
+          "delta": null,
+          "event": "entered_collection"
+        },
+        {
+          "title": "Defending Against Alignment-Breaking Attacks via Robustly Aligned LLM",
+          "old": null,
+          "new": 294,
+          "delta": null,
+          "event": "entered_collection"
+        },
+        {
+          "title": "Defending ChatGPT against jailbreak attack via self-reminders",
+          "old": 337,
+          "new": 550,
+          "delta": 213,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Defending Jailbreak Attacks on Large Language Models via Manifold Trajectory Kinetics",
+          "old": null,
+          "new": 2,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Defending Jailbreak Prompts via In-Context Adversarial Game",
+          "old": 26,
+          "new": 59,
+          "delta": 33,
+          "event": "entered_collection"
+        },
+        {
+          "title": "Defending Large Language Models Against Jailbreak Attacks via Layer-specific Editing",
+          "old": 52,
+          "new": 102,
+          "delta": 50,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Defending Large Language Models against Jailbreak Attacks via Semantic Smoothing",
+          "old": 69,
+          "new": 125,
+          "delta": 56,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Defending Large Language Models Against Jailbreaking Attacks Through Goal Prioritization",
+          "old": null,
+          "new": 255,
+          "delta": null,
+          "event": "entered_collection"
+        },
+        {
+          "title": "Defending LLMs against Jailbreaking Attacks via Backtranslation",
+          "old": null,
+          "new": 121,
+          "delta": null,
+          "event": "entered_collection"
+        },
+        {
+          "title": "Defensive Prompt Patch: A Robust and Generalizable Defense of Large Language Models against Jailbreak Attacks",
+          "old": null,
+          "new": 66,
+          "delta": null,
+          "event": "entered_collection"
+        },
+        {
+          "title": "Defensive Prompt Patch: A Robust and Interpretable Defense of LLMs against Jailbreak Attacks",
+          "old": 32,
+          "new": 6,
+          "delta": -26,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "DELMAN: Dynamic Defense Against Large Language Model Jailbreaking with Model Editing",
+          "old": null,
+          "new": 14,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "DeTAM: Defending LLMs Against Jailbreak Attacks via Targeted Attention Modification",
+          "old": null,
+          "new": 14,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "DIESEL: A Lightweight Inference-Time Safety Enhancement for Language Models",
+          "old": null,
+          "new": 5,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Differentiated Directional Intervention: A Framework for Evading LLM Safety Alignment",
+          "old": null,
+          "new": 4,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "DiPT: Enhancing LLM Reasoning through Diversified Perspective-Taking",
+          "old": null,
+          "new": 7,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Discern Truth from Falsehood: Reducing Over-Refusal via Contrastive Refinement",
+          "old": null,
+          "new": 1,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Disentangling Adversarial Prompts: A Semantic-Graph Defense for Robust LLM Security",
+          "old": null,
+          "new": 27,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Distinguishable Deletion: Unifying Knowledge Erasure and Refusal for Large Language Model Unlearning",
+          "old": null,
+          "new": 1,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Distract Large Language Models for Automatic Jailbreak Attack",
+          "old": 44,
+          "new": 50,
+          "delta": 6,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Distributional Preference Learning: Understanding and Accounting for Hidden Context in RLHF",
+          "old": null,
+          "new": 170,
+          "delta": null,
+          "event": "entered_collection"
+        },
+        {
+          "title": "Diversity Helps Jailbreak Large Language Models",
+          "old": null,
+          "new": 16,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Does Chain-of-Thought Reasoning Really Reduce Harmfulness from Jailbreaking?",
+          "old": null,
+          "new": 14,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Does Refusal Training in LLMs Generalize to the Past Tense?",
+          "old": null,
+          "new": 98,
+          "delta": null,
+          "event": "entered_collection"
+        },
+        {
+          "title": "Does Safety Training of LLMs Generalize to Semantically Related Natural Prompts?",
+          "old": null,
+          "new": 21,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Don't Listen To Me: Understanding and Exploring Jailbreak Prompts of Large Language Models",
+          "old": 78,
+          "new": 246,
+          "delta": 168,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Don’t Say No: Jailbreaking LLM by Suppressing Refusal",
+          "old": null,
+          "new": 118,
+          "delta": null,
+          "event": "entered_collection"
+        },
+        {
+          "title": "DrAttack: Prompt Decomposition and Reconstruction Makes Powerful LLMs Jailbreakers",
+          "old": null,
+          "new": 175,
+          "delta": null,
+          "event": "entered_collection"
+        },
+        {
+          "title": "Dual Intention Escape: Jailbreak Attack against Large Language Models",
+          "old": null,
+          "new": 2,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "DUALBREACH: Efficient Dual-Jailbreaking via Target-Driven Initialization and Multi-Target Optimization",
+          "old": null,
+          "new": 15,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "DualEdit: Mitigating Safety Fallback in LLM Backdoor Editing via Affirmation-Refusal Regulation",
+          "old": null,
+          "new": 1,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Durable Quantization Conditioned Misalignment Attack on Large Language Models",
+          "old": null,
+          "new": 11,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Dynamic Deep Prompt Optimization for Defending Against Jailbreak Attacks on LLMs",
+          "old": null,
+          "new": 5,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Dynamic Guided and Domain Applicable Safeguards for Enhanced Security in Large Language Models",
+          "old": null,
+          "new": 10,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "EFFICIENT JAILBREAK ATTACK SEQUENCES ON LARGE LANGUAGE MODELS VIA MULTI-ARMED BANDIT-BASED CONTEXT SWITCHING",
+          "old": null,
+          "new": 12,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Efficient LLM Jailbreak via Adaptive Dense-to-sparse Constrained Optimization",
+          "old": 17,
+          "new": 45,
+          "delta": 28,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Efficient LLM-Jailbreaking via Multimodal-LLM Jailbreak",
+          "old": null,
+          "new": 2,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Emoji Attack: Enhancing Jailbreak Attacks Against Judge LLM Detection",
+          "old": null,
+          "new": 39,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "EmojiPrompt: Generative Prompt Obfuscation for Privacy-Preserving Communication with Cloud-based LLMs",
+          "old": null,
+          "new": 23,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "ENCHTABLE: Unified Safety Alignment Transfer in Fine-Tuned Large Language Models",
+          "old": null,
+          "new": 6,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Endless Jailbreaks with Bijection Learning",
+          "old": null,
+          "new": 34,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Evaluating and Mitigating Linguistic Discrimination in Large Language Models: Perspectives on Safety Equity and Knowledge Equity",
+          "old": null,
+          "new": 3,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Evaluation of LLM Vulnerabilities to Being Misused for Personalized Disinformation Generation",
+          "old": null,
+          "new": 31,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Exploring Jailbreak Attacks on LLMs through Intent Concealment and Diversion",
+          "old": null,
+          "new": 13,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Failures to Find Transferable Image Jailbreaks Between Vision-Language Models",
+          "old": null,
+          "new": 31,
+          "delta": null,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Faster-GCG: Efficient Discrete Optimization Jailbreak Attacks against Aligned Large Language Models",
+          "old": 12,
+          "new": 35,
+          "delta": 23,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "FlipAttack: Jailbreak LLMs via Flipping",
+          "old": 38,
+          "new": 166,
+          "delta": 128,
+          "event": "entered_collection"
+        },
+        {
+          "title": "From Theft to Bomb-Making: The Ripple Effect of Unlearning in Defending Against Jailbreak Attacks",
+          "old": 17,
+          "new": 9,
+          "delta": -8,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "FuzzLLM: A Novel and Universal Fuzzing Framework for Proactively Discovering Jailbreak Vulnerabilities in Large Language Models",
+          "old": 56,
+          "new": 167,
+          "delta": 111,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "GPTFUZZER: Red Teaming Large Language Models with Auto-Generated Jailbreak Prompts",
+          "old": 481,
+          "new": 726,
+          "delta": 245,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Gradient Cuff: Detecting Jailbreak Attacks on Large Language Models by Exploring Refusal Loss Landscapes",
+          "old": 48,
+          "new": 118,
+          "delta": 70,
+          "event": "entered_collection"
+        },
+        {
+          "title": "GradSafe: Detecting Jailbreak Prompts for LLMs via Safety-Critical Gradient Analysis",
+          "old": 58,
+          "new": 133,
+          "delta": 75,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Great, Now Write an Article About That: The Crescendo Multi-Turn LLM Jailbreak Attack",
+          "old": 181,
+          "new": 484,
+          "delta": 303,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Heuristic-Induced Multimodal Risk Distribution Jailbreak Attack for Multimodal Large Language Models",
+          "old": 19,
+          "new": 33,
+          "delta": 14,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "How Alignment and Jailbreak Work: Explain LLM Safety through Intermediate Hidden States",
+          "old": 71,
+          "new": 123,
+          "delta": 52,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "How Johnny Can Persuade LLMs to Jailbreak Them: Rethinking Persuasion to Challenge AI Safety by Humanizing LLMs",
+          "old": 459,
+          "new": 844,
+          "delta": 385,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "HSF: Defending against Jailbreak Attacks with Hidden State Filtering",
+          "old": 11,
+          "new": 34,
+          "delta": 23,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Intention Analysis Makes LLMs A Good Jailbreak Defender",
+          "old": 48,
+          "new": 115,
+          "delta": 67,
+          "event": "entered_collection"
+        },
+        {
+          "title": "Intention Analysis Prompting Makes Large Language Models A Good Jailbreak Defender",
+          "old": 45,
+          "new": 66,
+          "delta": 21,
+          "event": "entered_collection"
+        },
+        {
+          "title": "Jailbreak and Guard Aligned Language Models with Only Few In-Context Demonstrations",
+          "old": 383,
+          "new": 607,
+          "delta": 224,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Jailbreak Antidote: Runtime Safety-Utility Balance via Sparse Representation Adjustment in Large Language Models",
+          "old": 11,
+          "new": 53,
+          "delta": 42,
+          "event": "entered_collection"
+        },
+        {
+          "title": "Jailbreak Attacks and Defenses Against Large Language Models: A Survey",
+          "old": 191,
+          "new": 493,
+          "delta": 302,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Jailbreak Attacks and Defenses against Multimodal Generative Models: A Survey",
+          "old": 22,
+          "new": 53,
+          "delta": 31,
+          "event": "entered_collection"
+        },
+        {
+          "title": "Jailbreak in pieces: Compositional Adversarial Attacks on Multi-Modal Language Models",
+          "old": 217,
+          "new": 401,
+          "delta": 184,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Jailbreak Large Vision-Language Models Through Multi-Modal Linkage",
+          "old": 28,
+          "new": 81,
+          "delta": 53,
+          "event": "entered_collection"
+        },
+        {
+          "title": "Jailbreak Open-Sourced Large Language Models via Enforced Decoding",
+          "old": 24,
+          "new": 45,
+          "delta": 21,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Jailbreak Vision Language Models via Bi-Modal Adversarial Prompt",
+          "old": 71,
+          "new": 148,
+          "delta": 77,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Jailbreaker: Automated Jailbreak Across Multiple Large Language Model Chatbots",
+          "old": 187,
+          "new": 267,
+          "delta": 80,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "JailbreakEval: An Integrated Toolkit for Evaluating Jailbreak Attempts Against Large Language Models",
+          "old": 21,
+          "new": 48,
+          "delta": 27,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "JailbreakLens: Interpreting Jailbreak Mechanism in the Lens of Representation and Circuit",
+          "old": 15,
+          "new": 21,
+          "delta": 6,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "JailbreakRadar: Comprehensive Assessment of Jailbreak Attacks Against LLMs",
+          "old": 79,
+          "new": 77,
+          "delta": -2,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "JailBreakV: A Benchmark for Assessing the Robustness of MultiModal Large Language Models against Jailbreak Attacks",
+          "old": 157,
+          "new": 305,
+          "delta": 148,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "JAILJUDGE: A Comprehensive Jailbreak Judge Benchmark with Multi-Agent Enhanced Explanation Evaluation Framework",
+          "old": 33,
+          "new": 72,
+          "delta": 39,
+          "event": "entered_collection"
+        },
+        {
+          "title": "Large Language Models Are Involuntary Truth-Tellers: Exploiting Fallacy Failure for Jailbreak Attacks",
+          "old": 11,
+          "new": 24,
+          "delta": 13,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Latent Jailbreak: A Benchmark for Evaluating Text Safety and Output Robustness of Large Language Models",
+          "old": 60,
+          "new": 91,
+          "delta": 31,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Lockpicking LLMs: A Logit-Based Jailbreak Using Token-level Manipulation",
+          "old": 18,
+          "new": 27,
+          "delta": 9,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Low-Resource Languages Jailbreak GPT-4",
+          "old": 261,
+          "new": 533,
+          "delta": 272,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Mitigating Fine-tuning based Jailbreak Attack with Backdoor Enhanced Safety Alignment",
+          "old": 28,
+          "new": 77,
+          "delta": 49,
+          "event": "entered_collection"
+        },
+        {
+          "title": "Mitigating Fine-tuning Jailbreak Attack with Backdoor Enhanced Alignment",
+          "old": 32,
+          "new": 77,
+          "delta": 45,
+          "event": "entered_collection"
+        },
+        {
+          "title": "MRJ-Agent: An Effective Jailbreak Agent for Multi-Round Dialogue",
+          "old": 21,
+          "new": 48,
+          "delta": 27,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Multi-Turn Context Jailbreak Attack on Large Language Models From First Principles",
+          "old": 38,
+          "new": 70,
+          "delta": 32,
+          "event": "entered_collection"
+        },
+        {
+          "title": "Multilingual Jailbreak Challenges in Large Language Models",
+          "old": 186,
+          "new": 622,
+          "delta": 436,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Pandora: Jailbreak GPTs by Retrieval Augmented Generation Poisoning",
+          "old": 66,
+          "new": 92,
+          "delta": 26,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "PathSeeker: Exploring LLM Security Vulnerabilities with a Reinforcement Learning-Based Jailbreak Approach",
+          "old": 13,
+          "new": 22,
+          "delta": 9,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Perception-guided Jailbreak against Text-to-Image Models",
+          "old": 24,
+          "new": 71,
+          "delta": 47,
+          "event": "entered_collection"
+        },
+        {
+          "title": "Play Guessing Game with LLM: Indirect Jailbreak Attack with Implicit Clues",
+          "old": 64,
+          "new": 113,
+          "delta": 49,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Poisoned LangChain: Jailbreak LLMs by LangChain",
+          "old": 13,
+          "new": 24,
+          "delta": 11,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Pruning for Protection: Increasing Jailbreak Resistance in Aligned LLMs Without Fine-Tuning",
+          "old": 28,
+          "new": 42,
+          "delta": 14,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Query-Relevant Images Jailbreak Large Multi-Modal Models",
+          "old": 52,
+          "new": 84,
+          "delta": 32,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Red Teaming GPT-4V: Are GPT-4V Safe Against Uni/Multi-Modal Jailbreak Attacks?",
+          "old": 31,
+          "new": 43,
+          "delta": 12,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "RobustKV: Defending Large Language Models against Jailbreak Attacks via KV Eviction",
+          "old": 15,
+          "new": 31,
+          "delta": 16,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "SafeAligner: Safety Alignment against Jailbreak Attacks via Response Disparity Guidance",
+          "old": 12,
+          "new": 16,
+          "delta": 4,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "SafeDecoding: Defending against Jailbreak Attacks via Safety-Aware Decoding",
+          "old": 179,
+          "new": 357,
+          "delta": 178,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Securing Vision-Language Models with a Robust Encoder Against Jailbreak and Adversarial Attacks",
+          "old": 11,
+          "new": 31,
+          "delta": 20,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Semantic Mirror Jailbreak: Genetic Algorithm Based Jailbreak Prompts Against Open-source LLMs",
+          "old": 43,
+          "new": 68,
+          "delta": 25,
+          "event": "entered_collection"
+        },
+        {
+          "title": "The VLLM Safety Paradox: Dual Ease in Jailbreak Attack and Defense",
+          "old": 15,
+          "new": 32,
+          "delta": 17,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Towards Understanding Jailbreak Attacks in LLMs: A Representation Space Analysis",
+          "old": 41,
+          "new": 98,
+          "delta": 57,
+          "event": "entered_collection"
+        },
+        {
+          "title": "Understanding Jailbreak Success: A Study of Latent Space Dynamics in Large Language Models",
+          "old": 27,
+          "new": 48,
+          "delta": 21,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "UniGuard: Towards Universal Safety Guardrails for Jailbreak Attacks on Multimodal Large Language Models",
+          "old": 12,
+          "new": 40,
+          "delta": 28,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Universal Jailbreak Backdoors from Poisoned Human Feedback",
+          "old": 106,
+          "new": 198,
+          "delta": 92,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Unveiling the Safety of GPT-4o: An Empirical Study using Jailbreak Attacks",
+          "old": 38,
+          "new": 50,
+          "delta": 12,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Virtual Context: Enhancing Jailbreak Attacks with Special Token Injection",
+          "old": 21,
+          "new": 41,
+          "delta": 20,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Visual Adversarial Examples Jailbreak Aligned Large Language Models",
+          "old": 258,
+          "new": 625,
+          "delta": 367,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Visual-RolePlay: Universal Jailbreak Attack on MultiModal Large Language Models via Role-playing Image Characte",
+          "old": 52,
+          "new": 102,
+          "delta": 50,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "Voice Jailbreak Attacks Against GPT-4o",
+          "old": 24,
+          "new": 48,
+          "delta": 24,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "What Features in Prompts Jailbreak LLMs? Investigating the Mechanisms Behind Attacks",
+          "old": 17,
+          "new": 36,
+          "delta": 19,
+          "event": "citation_count_changed"
+        },
+        {
+          "title": "WordGame: Efficient & Effective LLM Jailbreak via Simultaneous Obfuscation in Query and Response",
+          "old": 26,
+          "new": 45,
+          "delta": 19,
+          "event": "citation_count_changed"
+        }
+      ],
+      "snapshot": [
+        {
+          "title": "AutoDAN: Generating Stealthy Jailbreak Prompts on Aligned Large Language Models",
+          "citations": 1602
+        },
+        {
+          "title": "\"Do Anything Now\": Characterizing and Evaluating In-The-Wild Jailbreak Prompts on Large Language Models",
+          "citations": 1581
+        },
+        {
+          "title": "Automatic Prompt Optimization with \"Gradient Descent\" and Beam Search",
+          "citations": 979
+        },
+        {
+          "title": "DecodingTrust: A Comprehensive Assessment of Trustworthiness in GPT Models",
+          "citations": 905
+        },
+        {
+          "title": "How Johnny Can Persuade LLMs to Jailbreak Them: Rethinking Persuasion to Challenge AI Safety by Humanizing LLMs",
+          "citations": 844
+        },
+        {
+          "title": "GPTFUZZER: Red Teaming Large Language Models with Auto-Generated Jailbreak Prompts",
+          "citations": 726
+        },
+        {
+          "title": "Visual Adversarial Examples Jailbreak Aligned Large Language Models",
+          "citations": 625
+        },
+        {
+          "title": "Multilingual Jailbreak Challenges in Large Language Models",
+          "citations": 622
+        },
+        {
+          "title": "A StrongREJECT for Empty Jailbreaks",
+          "citations": 619
+        },
+        {
+          "title": "Catastrophic Jailbreak of Open-source LLMs via Exploiting Generation",
+          "citations": 614
+        },
+        {
+          "title": "Jailbreak and Guard Aligned Language Models with Only Few In-Context Demonstrations",
+          "citations": 607
+        },
+        {
+          "title": "Defending ChatGPT against jailbreak attack via self-reminders",
+          "citations": 550
+        },
+        {
+          "title": "Low-Resource Languages Jailbreak GPT-4",
+          "citations": 533
+        },
+        {
+          "title": "Benchmarking and Defending against Indirect Prompt Injection Attacks on Large Language Models",
+          "citations": 504
+        },
+        {
+          "title": "Jailbreak Attacks and Defenses Against Large Language Models: A Survey",
+          "citations": 493
+        },
+        {
+          "title": "Great, Now Write an Article About That: The Crescendo Multi-Turn LLM Jailbreak Attack",
+          "citations": 484
+        },
+        {
+          "title": "AgentHarm: A Benchmark for Measuring Harmfulness of LLM Agents",
+          "citations": 478
+        },
+        {
+          "title": "Jailbreak in pieces: Compositional Adversarial Attacks on Multi-Modal Language Models",
+          "citations": 401
+        },
+        {
+          "title": "A Wolf in Sheep’s Clothing: Generalized Nested Jailbreak Prompts can Fool Large Language Models Easily",
+          "citations": 384
+        },
+        {
+          "title": "SafeDecoding: Defending against Jailbreak Attacks via Safety-Aware Decoding",
+          "citations": 357
+        },
+        {
+          "title": "ArtPrompt: ASCII Art-based Jailbreak Attacks against Aligned LLMs",
+          "citations": 348
+        },
+        {
+          "title": "JailBreakV: A Benchmark for Assessing the Robustness of MultiModal Large Language Models against Jailbreak Attacks",
+          "citations": 305
+        },
+        {
+          "title": "Assessing the Brittleness of Safety Alignment via Pruning and Low-Rank Modifications",
+          "citations": 295
+        },
+        {
+          "title": "Defending Against Alignment-Breaking Attacks via Robustly Aligned LLM",
+          "citations": 294
+        },
+        {
+          "title": "Jailbreaker: Automated Jailbreak Across Multiple Large Language Model Chatbots",
+          "citations": 267
+        },
+        {
+          "title": "COLD-Attack: Jailbreaking LLMs with Stealthiness and Controllability",
+          "citations": 262
+        },
+        {
+          "title": "Defending Large Language Models Against Jailbreaking Attacks Through Goal Prioritization",
+          "citations": 255
+        },
+        {
+          "title": "AdvPrompter: Fast Adaptive Adversarial Prompting for LLMs",
+          "citations": 254
+        },
+        {
+          "title": "AutoDAN-Turbo: A Lifelong Agent for Strategy Self-Exploration to Jailbreak LLMs",
+          "citations": 253
+        },
+        {
+          "title": "Don't Listen To Me: Understanding and Exploring Jailbreak Prompts of Large Language Models",
+          "citations": 246
+        },
+        {
+          "title": "A Comprehensive Study of Jailbreak Attack versus Defense for Large Language Models",
+          "citations": 243
+        },
+        {
+          "title": "AutoDefense: Multi-Agent LLM Defense against Jailbreak Attacks",
+          "citations": 242
+        },
+        {
+          "title": "A Mechanistic Understanding of Alignment Algorithms: A Case Study on DPO and Toxicity",
+          "citations": 229
+        },
+        {
+          "title": "Agent Smith: A Single Image Can Jailbreak One Million Multimodal LLM Agents Exponentially Fast",
+          "citations": 208
+        },
+        {
+          "title": "Universal Jailbreak Backdoors from Poisoned Human Feedback",
+          "citations": 198
+        },
+        {
+          "title": "DrAttack: Prompt Decomposition and Reconstruction Makes Powerful LLMs Jailbreakers",
+          "citations": 175
+        },
+        {
+          "title": "Distributional Preference Learning: Understanding and Accounting for Hidden Context in RLHF",
+          "citations": 170
+        },
+        {
+          "title": "FuzzLLM: A Novel and Universal Fuzzing Framework for Proactively Discovering Jailbreak Vulnerabilities in Large Language Models",
+          "citations": 167
+        },
+        {
+          "title": "FlipAttack: Jailbreak LLMs via Flipping",
+          "citations": 166
+        },
+        {
+          "title": "Comprehensive Assessment of Jailbreak Attacks Against LLMs",
+          "citations": 161
+        },
+        {
+          "title": "Jailbreak Vision Language Models via Bi-Modal Adversarial Prompt",
+          "citations": 148
+        },
+        {
+          "title": "Cognitive Overload: Jailbreaking Large Language Models with Overloaded Logical Thinking",
+          "citations": 139
+        },
+        {
+          "title": "GradSafe: Detecting Jailbreak Prompts for LLMs via Safety-Critical Gradient Analysis",
+          "citations": 133
+        },
+        {
+          "title": "Defending Large Language Models against Jailbreak Attacks via Semantic Smoothing",
+          "citations": 125
+        },
+        {
+          "title": "How Alignment and Jailbreak Work: Explain LLM Safety through Intermediate Hidden States",
+          "citations": 123
+        },
+        {
+          "title": "Defending LLMs against Jailbreaking Attacks via Backtranslation",
+          "citations": 121
+        },
+        {
+          "title": "Don’t Say No: Jailbreaking LLM by Suppressing Refusal",
+          "citations": 118
+        },
+        {
+          "title": "Gradient Cuff: Detecting Jailbreak Attacks on Large Language Models by Exploring Refusal Loss Landscapes",
+          "citations": 118
+        },
+        {
+          "title": "DeAL: Decoding-time Alignment for Large Language Models",
+          "citations": 116
+        },
+        {
+          "title": "Intention Analysis Makes LLMs A Good Jailbreak Defender",
+          "citations": 115
+        },
+        {
+          "title": "Play Guessing Game with LLM: Indirect Jailbreak Attack with Implicit Clues",
+          "citations": 113
+        },
+        {
+          "title": "Defending Large Language Models Against Jailbreak Attacks via Layer-specific Editing",
+          "citations": 102
+        },
+        {
+          "title": "Visual-RolePlay: Universal Jailbreak Attack on MultiModal Large Language Models via Role-playing Image Characte",
+          "citations": 102
+        },
+        {
+          "title": "Does Refusal Training in LLMs Generalize to the Past Tense?",
+          "citations": 98
+        },
+        {
+          "title": "Towards Understanding Jailbreak Attacks in LLMs: A Representation Space Analysis",
+          "citations": 98
+        },
+        {
+          "title": "Best-of-N Jailbreaking",
+          "citations": 96
+        },
+        {
+          "title": "Pandora: Jailbreak GPTs by Retrieval Augmented Generation Poisoning",
+          "citations": 92
+        },
+        {
+          "title": "Latent Jailbreak: A Benchmark for Evaluating Text Safety and Output Robustness of Large Language Models",
+          "citations": 91
+        },
+        {
+          "title": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference",
+          "citations": 90
+        },
+        {
+          "title": "A Cross-Language Investigation into Jailbreak Attacks in Large Language Models",
+          "citations": 88
+        },
+        {
+          "title": "Boosting Jailbreak Attack with Momentum",
+          "citations": 86
+        },
+        {
+          "title": "Query-Relevant Images Jailbreak Large Multi-Modal Models",
+          "citations": 84
+        },
+        {
+          "title": "Jailbreak Large Vision-Language Models Through Multi-Modal Linkage",
+          "citations": 81
+        },
+        {
+          "title": "JailbreakRadar: Comprehensive Assessment of Jailbreak Attacks Against LLMs",
+          "citations": 77
+        },
+        {
+          "title": "Mitigating Fine-tuning based Jailbreak Attack with Backdoor Enhanced Safety Alignment",
+          "citations": 77
+        },
+        {
+          "title": "Mitigating Fine-tuning Jailbreak Attack with Backdoor Enhanced Alignment",
+          "citations": 77
+        },
+        {
+          "title": "A Theoretical Understanding of Self-Correction through In-context Alignment",
+          "citations": 72
+        },
+        {
+          "title": "AttackEval: How to Evaluate the Effectiveness of Jailbreak Attacking on Large Language Models",
+          "citations": 72
+        },
+        {
+          "title": "JAILJUDGE: A Comprehensive Jailbreak Judge Benchmark with Multi-Agent Enhanced Explanation Evaluation Framework",
+          "citations": 72
+        },
+        {
+          "title": "Bag of Tricks: Benchmarking of Jailbreak Attacks on LLMs",
+          "citations": 71
+        },
+        {
+          "title": "Perception-guided Jailbreak against Text-to-Image Models",
+          "citations": 71
+        },
+        {
+          "title": "Multi-Turn Context Jailbreak Attack on Large Language Models From First Principles",
+          "citations": 70
+        },
+        {
+          "title": "Semantic Mirror Jailbreak: Genetic Algorithm Based Jailbreak Prompts Against Open-source LLMs",
+          "citations": 68
+        },
+        {
+          "title": "LLM Jailbreak Attack versus Defense Techniques - A Comprehensive Study",
+          "citations": 67
+        },
+        {
+          "title": "Arondight: Red Teaming Large Vision Language Models with Auto-generated Multi-modal Jailbreak Prompts",
+          "citations": 66
+        },
+        {
+          "title": "Defensive Prompt Patch: A Robust and Generalizable Defense of Large Language Models against Jailbreak Attacks",
+          "citations": 66
+        },
+        {
+          "title": "Intention Analysis Prompting Makes Large Language Models A Good Jailbreak Defender",
+          "citations": 66
+        },
+        {
+          "title": "$R^2$-Guard: Robust Reasoning Enabled LLM Guardrail via Knowledge-Enhanced Logical Reasoning",
+          "citations": 65
+        },
+        {
+          "title": "Automated Red Teaming with GOAT: the Generative Offensive Agent Tester",
+          "citations": 62
+        },
+        {
+          "title": "Defending Jailbreak Prompts via In-Context Adversarial Game",
+          "citations": 59
+        },
+        {
+          "title": "All in How You Ask for It: Simple Black-Box Method for Jailbreak Attacks",
+          "citations": 54
+        },
+        {
+          "title": "BackdoorAlign: Mitigating Fine-tuning based Jailbreak Attack with Backdoor Enhanced Safety Alignment",
+          "citations": 53
+        },
+        {
+          "title": "Jailbreak Antidote: Runtime Safety-Utility Balance via Sparse Representation Adjustment in Large Language Models",
+          "citations": 53
+        },
+        {
+          "title": "Jailbreak Attacks and Defenses against Multimodal Generative Models: A Survey",
+          "citations": 53
+        },
+        {
+          "title": "Adversarial Tuning: Defending Against Jailbreak Attacks for LLMs",
+          "citations": 52
+        },
+        {
+          "title": "A Mousetrap: Fooling Large Reasoning Models for Jailbreak with Chain of Iterative Chaos",
+          "citations": 51
+        },
+        {
+          "title": "Agents Under Siege: Breaking Pragmatic Multi-Agent LLM Systems with Optimized Prompt Attacks",
+          "citations": 51
+        }
+      ]
+    }
+  ]
 }
