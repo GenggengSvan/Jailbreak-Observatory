@@ -73,11 +73,12 @@ a { color: inherit; }
 .brand em { color: var(--muted); font-style: normal; font-weight: 520; }
 
 .brand-mark {
-  width: 16px;
-  height: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  border-radius: 50%;
-  box-shadow: inset 6px 0 0 var(--attack), inset -5px 0 0 var(--defense);
+  width: 24px;
+  height: 24px;
+  display: block;
+  flex: 0 0 24px;
+  object-fit: cover;
+  border-radius: 5px;
 }
 
 .top-actions { display: flex; align-items: center; gap: 18px; }
